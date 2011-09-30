@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2011 The Liquid Settings Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+<PreferenceScreen 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:liquid="http://schemas.android.com/apk/res/com.liquid.settings">
+
+        <PreferenceCategory 
+            android:title="Jrummy">
+
+            <!-- App Manager -->
+            <com.liquid.settings.provider.IconPreferenceScreen
+                android:key="app_manager"
+                liquid:icon="@drawable/ic_manager"
+                android:title="@string/app_manager_title"
+                android:summary="@string/app_manager_summary">
+                <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.jrummy.app.managerfree"
+                    android:targetClass="com.jrummy.app.managerfree.AppManager" />
+            </com.liquid.settings.provider.IconPreferenceScreen>
+
+            <!-- Font Installer -->
+            <com.liquid.settings.provider.IconPreferenceScreen
+                android:key="font_installer"
+                liquid:icon="@drawable/ic_fonts"
+                android:title="@string/font_installer_title"
+                android:summary="@string/font_installer_summary">
+                <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.jrummy.font.installer"
+                    android:targetClass="com.jrummy.font.installer.MainActivity" />
+            </com.liquid.settings.provider.IconPreferenceScreen>
+
+            <!-- Theme Chooser -->
+            <com.liquid.settings.provider.IconPreferenceScreen
+                android:key="theme_chooser"
+                liquid:icon="@drawable/ic_themes"
+                android:title="@string/theme_chooser_title"
+                android:summary="@string/theme_chooser_summary">
+                <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.jrummy.list.tmobile.themes"
+                    android:targetClass="com.jrummy.list.tmobile.themes.ListThemes" />
+            </com.liquid.settings.provider.IconPreferenceScreen>
+    
+        </PreferenceCategory>
+
+        <PreferenceCategory 
+            android:title="Liquid">
+
+            <!-- Boot -->
+            <PreferenceScreen android:title="Boot"
+                android:summary="Custom boot animations">
+
+                <!-- Droid Does -->
+                <PreferenceScreen android:title="Droid Does">
+                    <PreferenceCategory android:title="Gingy">
+                        <Preference android:key="DoesGingy_Command"
+                                android:layout="@layout/doesgingy"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Green">
+                        <Preference android:key="DoesGreen_Command"
+                                android:layout="@layout/doesgreen"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Light Blue">
+                        <Preference android:key="DoesLightBlue_Command"
+                                android:layout="@layout/doeslightblue"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Medium Blue">
+                        <Preference android:key="DoesMedBlue_Command"
+                                android:layout="@layout/doesmedblue"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Orange">
+                        <Preference android:key="DoesOrange_Command"
+                                android:layout="@layout/doesorange"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Pink">
+                        <Preference android:key="DoesPink_Command"
+                                android:layout="@layout/doespink"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Purple">
+                        <Preference android:key="DoesPurple_Command"
+                                android:layout="@layout/doespurple"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Red">
+                        <Preference android:key="DoesRed_Command"
+                                android:layout="@layout/doesred"/>
+                    </PreferenceCategory>
+                    
+                    <PreferenceCategory android:title="Smoked">
+                        <Preference android:key="DoesSmoked_Command"
+                                android:layout="@layout/doessmoked"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Two Blue">
+                        <Preference android:key="DoesTwoBlue_Command"
+                                android:layout="@layout/doestwoblue"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="White">
+                        <Preference android:key="DoesWhite_Command"
+                                android:layout="@layout/doeswhite"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Yellow">
+                        <Preference android:key="DoesYellow_Command"
+                                android:layout="@layout/doesyellow"/>
+                    </PreferenceCategory>
+                </PreferenceScreen>
+        
+                <!-- Droid Eye -->
+                <PreferenceScreen android:title="Droid Eye">
+                    <PreferenceCategory android:title="Blue Green">
+                        <Preference android:key="EyesBlueGreen_Command"
+                                android:layout="@layout/eyesbluegreen"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Cyan">
+                        <Preference android:key="EyesCyan_Command"
+                                android:layout="@layout/eyescyan"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Green">
+                        <Preference android:key="EyesGreen_Command"
+                                android:layout="@layout/eyesgreen"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Light Blue">
+                        <Preference android:key="EyesLightBlue_Command"
+                                android:layout="@layout/eyeslightblue"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Orange">
+                        <Preference android:key="EyesOrange_Command"
+                                android:layout="@layout/eyesorange"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Pink">
+                        <Preference android:key="EyesPink_Command"
+                                android:layout="@layout/eyespink"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Purple">
+                        <Preference android:key="EyesPurple_Command"
+                                android:layout="@layout/eyespurple"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Red">
+                        <Preference android:key="EyesRed_Command"
+                                android:layout="@layout/eyesred"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Yellow">
+                        <Preference android:key="EyesYellow_Command"
+                                android:layout="@layout/eyesyellow"/>
+                    </PreferenceCategory>
+                </PreferenceScreen>
+
+                <!-- Gingy -->
+                <PreferenceScreen android:title="Gingy">
+                    <PreferenceCategory android:title="Faster">
+                        <Preference android:key="GingyFaster_Command"
+                                android:layout="@layout/gingyfaster"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Slower">
+                        <Preference android:key="GingySlower_Command"
+                                android:layout="@layout/gingyslower"/>
+                    </PreferenceCategory>
+                </PreferenceScreen>
+        
+                <!-- Halloween -->
+                <PreferenceScreen android:title="Halloween">
+                    <PreferenceCategory android:title="Scary">
+                        <Preference android:key="HallowScary_Command"
+                                android:layout="@layout/hallowscary"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Skull">
+                        <Preference android:key="HallowSkull_Command"
+                                android:layout="@layout/hallowskull"/>
+                    </PreferenceCategory> 
+
+                    <PreferenceCategory android:title="Spiral">
+                        <Preference android:key="HallowSpiral_Command"
+                                android:layout="@layout/hallowspiral"/>
+                    </PreferenceCategory>
+                </PreferenceScreen>
+
+                <!-- Liquid -->
+                <PreferenceScreen android:title="Liquid">
+                    <PreferenceCategory android:title="Default">
+                        <Preference android:key="LiquidDefault_Command"
+                                android:layout="@layout/liquiddefault"/>
+                    </PreferenceCategory>
+                    
+                    <PreferenceCategory android:title="Earth">
+                        <Preference android:key="LiquidEarth_Command"
+                                android:layout="@layout/liquidearth"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Rotate">
+                        <Preference android:key="LiquidRotate_Command"
+                                android:layout="@layout/liquidrotate"/>
+                    </PreferenceCategory> 
+
+                    <PreferenceCategory android:title="Smooth">
+                        <Preference android:key="LiquidSmooth_Command"
+                                android:layout="@layout/liquidsmooth"/>
+                    </PreferenceCategory> 
+
+                    <PreferenceCategory android:title="Sparkle">
+                        <Preference android:key="LiquidSparkle_Command"
+                                android:layout="@layout/liquidsparkle"/>
+                    </PreferenceCategory> 
+
+                    <PreferenceCategory android:title="Splash">
+                        <Preference android:key="LiquidSplash_Command"
+                                android:layout="@layout/liquidsplash"/>
+                    </PreferenceCategory>
+                </PreferenceScreen>
+
+                <!-- Other -->
+                <PreferenceScreen android:title="Other">
+                    <PreferenceCategory android:title="Android Frog">
+                        <Preference android:key="AndroidFrog_Command"
+                                android:layout="@layout/androidfrog"/>
+                    </PreferenceCategory>
+                    
+                    <PreferenceCategory android:title="Angry Birds">
+                        <Preference android:key="AngryBirds_Command"
+                                android:layout="@layout/angrybirds"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Apple Ouch">
+                        <Preference android:key="AppleOuch_Command"
+                                android:layout="@layout/appleouch"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Arc Reactor">
+                        <Preference android:key="ArcReactor_Command"
+                                android:layout="@layout/arcreactor"/>
+                    </PreferenceCategory>
+                    
+                    <PreferenceCategory android:title="Color Tbolt">
+                        <Preference android:key="ColorTbolt_Command"
+                                android:layout="@layout/colortbolt"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Cup Of Water">
+                        <Preference android:key="CupOfWater_Command"
+                                android:layout="@layout/cupofwater"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Dark Blue Lfy">
+                        <Preference android:key="DarkBlueLfy_Command"
+                                android:layout="@layout/darkbluelfy"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="In Memory Of">
+                        <Preference android:key="InMemoryOf_Command"
+                                android:layout="@layout/inmemoryof"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Merry Christmas">
+                        <Preference android:key="MerryXmas_Command"
+                                android:layout="@layout/merryxmas"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Rose Bloom">
+                        <Preference android:key="RoseBloom_Command"
+                                android:layout="@layout/rosebloom"/>
+                    </PreferenceCategory>
+                    
+                    <PreferenceCategory android:title="Simply Stunning">
+                        <Preference android:key="SimplyStunning_Command"
+                                android:layout="@layout/simplystunning"/>
+                    </PreferenceCategory>
+                            
+                    <PreferenceCategory android:title="Solar System">
+                        <Preference android:key="SolarSystem_Command"
+                                android:layout="@layout/solarsystem"/>
+                    </PreferenceCategory>
+                </PreferenceScreen>
+        
+          		<!-- Radial -->
+          		<PreferenceScreen android:title="Radial">
+          		    <PreferenceCategory android:title="Default">
+                        <Preference android:key="RadialDefault_Command"
+                                android:layout="@layout/radialdefault"/>
+                    </PreferenceCategory>
+                    
+                    <PreferenceCategory android:title="Dark Blue">
+                        <Preference android:key="RadialDarkBlue_Command"
+                                android:layout="@layout/radialdarkblue"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Green">
+                        <Preference android:key="RadialGreen_Command"
+                                android:layout="@layout/radialgreen"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Light Blue">
+                        <Preference android:key="RadialLightBlue_Command"
+                                android:layout="@layout/radiallightblue"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Lime Green">
+                        <Preference android:key="RadialLimeGreen_Command"
+                                android:layout="@layout/radiallimegreen"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Orange">
+                        <Preference android:key="RadialOrange_Command"
+                                android:layout="@layout/radialorange"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Pink">
+                        <Preference android:key="RadialPink_Command"
+                                android:layout="@layout/radialpink"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Purple">
+                        <Preference android:key="RadialPurple_Command"
+                                android:layout="@layout/radialpurple"/>
+                    </PreferenceCategory>
+                    
+                    <PreferenceCategory android:title="Red">
+                        <Preference android:key="RadialRed_Command"
+                                android:layout="@layout/radialred"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Silver">
+                        <Preference android:key="RadialSilver_Command"
+                                android:layout="@layout/radialsilver"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="White">
+                        <Preference android:key="RadialWhite_Command"
+                                android:layout="@layout/radialwhite"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Yellow">
+                        <Preference android:key="RadialYellow_Command"
+                                android:layout="@layout/radialyellow"/>
+                    </PreferenceCategory>
+                </PreferenceScreen> 
+              
+                <!-- Sexy -->
+                <PreferenceScreen android:title="Sexy">
+                    <PreferenceCategory android:title="Booby">
+                        <Preference android:key="SexyBooby_Command"
+                                android:layout="@layout/sexybooby"/>
+                    </PreferenceCategory>
+
+                    <PreferenceCategory android:title="Booty">
+                        <Preference android:key="SexyBooty_Command"
+                                android:layout="@layout/sexybooty"/>
+                    </PreferenceCategory>
+                </PreferenceScreen>
+            </PreferenceScreen>
+
+            <!-- Device -->
+            <PreferenceScreen android:title="Device"
+                android:summary="Phone usage statistics">
+
+                <PreferenceCategory android:title="Battery">
+                    <PreferenceScreen 
+                            android:key="battery_history_settings"
+                            android:title="@string/battery_history_title" 
+                            android:summary="@string/battery_history_summary">
+                            <intent android:action="android.intent.action.MAIN"
+                                android:targetPackage="com.android.settings"
+                                android:targetClass="com.android.settings.battery_history.BatteryHistory" />
+                    </PreferenceScreen>
+
+                    <PreferenceScreen 
+                            android:key="battery_status_settings"
+                            android:title="@string/battery_status_title" 
+                            android:summary="@string/battery_status_summary">
+                            <intent android:action="android.intent.action.MAIN"
+                                android:targetPackage="com.android.settings"
+                                android:targetClass="com.android.settings.BatteryInfo" />
+                    </PreferenceScreen>
+
+                    <PreferenceScreen 
+                            android:key="power_usage_settings"
+                            android:title="@string/power_usage_title"
+                            android:summary="@string/power_usage_summary">
+                            <intent android:action="android.intent.action.MAIN"
+                                android:targetPackage="com.android.settings"
+                                android:targetClass="com.android.settings.fuelgauge.PowerUsageSummary" />
+                    </PreferenceScreen>
+
+                    <PreferenceScreen 
+                            android:key="usage_statistics_settings"
+                            android:title="@string/usage_statistics_title" 
+                            android:summary="@string/usage_statistics_summary">
+                            <intent android:action="android.intent.action.MAIN"
+                                android:targetPackage="com.android.settings"
+                                android:targetClass="com.android.settings.UsageStats" />
+                    </PreferenceScreen>
+                </PreferenceCategory>
+
+                <PreferenceCategory android:title="Memory">
+                    <PreferenceScreen android:title="Memory"
+                        android:summary="Resources and storage">
+                        <PreferenceCategory android:title="Levels">
+                            <PreferenceScreen
+                                    android:key="system_storage"
+                                    android:title="/system"
+                                    android:summary=" Unavailable">
+                            </PreferenceScreen>
+
+                            <PreferenceScreen
+                                    android:key="data_storage"
+                                    android:title="/data"
+                                    android:summary=" Unavailable">
+                            </PreferenceScreen>
+
+                            <PreferenceScreen
+                                    android:key="cache_storage"
+                                    android:title="/cache"
+                                    android:summary=" Unavailable">
+                            </PreferenceScreen>
+
+                            <PreferenceScreen
+                                    android:title="/sdcard"
+                                    android:key="sdcard_storage"
+                                    android:summary=" Unavailable">
+                            </PreferenceScreen>
+                        </PreferenceCategory>
+                    </PreferenceScreen>
+                </PreferenceCategory>
+
+                <PreferenceCategory android:title="System">
+                    <PreferenceScreen 
+                        android:title="Development"
+                        android:summary="Test device functions">
+                        <intent android:action="android.intent.action.MAIN"
+                            android:targetPackage="com.android.settings"
+                            android:targetClass="com.android.settings.DevelopmentSettings" />
+                    </PreferenceScreen>
+                </PreferenceCategory>
+            </PreferenceScreen>
+
+            <!-- Scripts -->
+            <PreferenceScreen android:title="Scripts"
+                android:summary="Custom script launcher">
+        
+                <PreferenceCategory android:title="Extras">
+                    <Preference android:key="ChuckNorris_Command"
+                            android:title="Chuck Norris"
+                            android:summary="Edit any system file">
+                    </Preference>
+
+                    <Preference android:key="HotReboot_Command"
+                            android:title="Hot Reboot"
+                            android:summary="Preform hot reboot">
+                    </Preference>
+
+                    <Preference android:key="ZipAlign_Command"
+                            android:title="Zipalign Apks"
+                            android:summary="Optimize all apps">
+                    </Preference>
+                </PreferenceCategory>
+
+                <PreferenceCategory android:title="Maintain">
+                    <PreferenceScreen android:key="ClearCache_Command"
+                            android:title="Factory Reset"
+                            android:summary="Wipes data and cache">
+                    </PreferenceScreen>
+
+                    <PreferenceScreen android:key="ClearDalvik_Command"
+                            android:title="Dalvik-Cache"
+                            android:summary="Wipes dalvik-cache">
+                    </PreferenceScreen>
+
+                    <PreferenceScreen android:key="ClearStats_Command"
+                            android:title="Battery Stats"
+                            android:summary="Wipes battery stats">
+                    </PreferenceScreen>
+
+                    <PreferenceScreen android:key="FixPerms_Command"
+                            android:title="Fix Permissions"
+                            android:summary="Fixes most app issues">
+                    </PreferenceScreen>
+                </PreferenceCategory>
+        
+                <PreferenceCategory android:title="Utilities">
+                    <Preference android:key="MountRw_Command"
+                            android:title="Mount Read/Write"
+                            android:summary="Mounts system as read/write">
+                    </Preference>
+
+                    <Preference android:key="MountRo_Command"
+                            android:title="Mount Read-Only"
+                            android:summary="Mounts system as read-only">
+                    </Preference>
+                </PreferenceCategory>
+
+                <PreferenceCategory>
+                    <PreferenceScreen android:title="Enable &amp; Disable"
+                        android:summary="Toggle system functions">
+
+                        <PreferenceCategory android:title="Ads">
+                            <Preference android:key="BlockAds_Command"
+                                    android:title="Block Ads"
+                                    android:summary="Block ads in browser">
+                            </Preference>
+                                                     
+                            <PreferenceScreen android:key="ShowAds_Command"
+                                    android:title="Show Ads"
+                                    android:summary="Show ads in browser">
+                            </PreferenceScreen>
+                        </PreferenceCategory>
+
+                        <PreferenceCategory android:title="Boot">
+                            <PreferenceScreen android:key="EnableBoot_Command"
+                                    android:title="Enable"
+                                    android:summary="Enables boot animation">
+                            </PreferenceScreen>
+
+                            <PreferenceScreen android:key="DisableBoot_Command"
+                                    android:title="Disable"
+                                    android:summary="Disables boot animation">
+                            </PreferenceScreen>
+                        </PreferenceCategory>
+
+                        <PreferenceCategory android:title="Sounds">
+                            <Preference android:key="SoundOn_Command"
+                                    android:title="Sound On"
+                                    android:summary="Enables camera sounds">
+                            </Preference>
+
+                            <PreferenceScreen android:key="SoundOff_Command"
+                                    android:title="Sound Off"
+                                    android:summary="Disables camera sounds">
+                            </PreferenceScreen>
+                        </PreferenceCategory>
+                    </PreferenceScreen>
+                </PreferenceCategory>
+            </PreferenceScreen>
+
+            <!-- Switch -->
+            <PreferenceScreen android:title="Switch"
+                android:summary="Change system apps">
+
+                <PreferenceCategory android:title="Camera">
+                    <PreferenceScreen android:key="StockCamera_Command"
+                            android:title="Stock"
+                            android:summary="Install stock Camera app">
+                    </PreferenceScreen>
+
+                    <PreferenceScreen android:key="OtherCamera_Command"
+                            android:title="Other"
+                            android:summary="Install other Camera app">
+                    </PreferenceScreen>
+                </PreferenceCategory>
+
+                <PreferenceCategory android:title="Contacts">
+                    <PreferenceScreen android:key="StockContacts_Command"
+                            android:title="Stock"
+                            android:summary="Install stock Contacts app">
+                    </PreferenceScreen>
+
+                    <PreferenceScreen android:key="ThemeContacts_Command"
+                            android:title="Themed"
+                            android:summary="Install themed Contacts app">
+                    </PreferenceScreen>
+                </PreferenceCategory>
+
+                <PreferenceCategory android:title="Home">
+                    <PreferenceScreen android:key="ADWLauncher_Command"
+                            android:title="ADWLauncher"
+                            android:summary="Install ADW.Launcher">
+                    </PreferenceScreen>
+
+                    <PreferenceScreen android:key="GoLauncher_Command"
+                            android:title="GoLauncher"
+                            android:summary="Install GO Launcher EX">
+                    </PreferenceScreen>
+                    
+                    <PreferenceScreen android:key="LauncherPro_Command"
+                            android:title="LauncherPro"
+                            android:summary="Install LauncherPro">
+                    </PreferenceScreen>
+
+                    <PreferenceScreen android:key="StockLauncher_Command"
+                            android:title="Stock"
+                            android:summary="Install stock launcher">
+                    </PreferenceScreen>
+                </PreferenceCategory>
+
+                <PreferenceCategory android:title="Gmail">
+                    <PreferenceScreen android:key="StockGmail_Command"
+                            android:title="Stock"
+                            android:summary="Install stock Gmail app">
+                    </PreferenceScreen>
+
+                    <PreferenceScreen android:key="ThemeGmail_Command"
+                            android:title="Themed"
+                            android:summary="Install themed Gmail app">
+                    </PreferenceScreen>
+                </PreferenceCategory>
+
+                <PreferenceCategory android:title="Messaging">
+                    <PreferenceScreen android:key="StockMessaging_Command"
+                            android:title="Stock"
+                            android:summary="Install stock MMS app">
+                    </PreferenceScreen>
+
+                    <PreferenceScreen android:key="OtherMessaging_Command"
+                            android:title="Other"
+                            android:summary="Install other MMS app">
+                    </PreferenceScreen>
+                </PreferenceCategory>
+
+                <PreferenceCategory android:title="Music">
+                    <PreferenceScreen android:key="StockMusic_Command"
+                            android:title="Stock"
+                            android:summary="Install stock Music app">
+                    </PreferenceScreen>
+
+                    <PreferenceScreen android:key="OtherMusic_Command"
+                            android:title="Other"
+                            android:summary="Install other Music app">
+                    </PreferenceScreen>
+                </PreferenceCategory>
+
+                <PreferenceCategory android:title="Status Bar">
+                    <PreferenceScreen android:key="StockStatusBar_Command"
+                            android:title="Stock"
+                            android:summary="Install stock status bar">
+                    </PreferenceScreen>
+
+                    <PreferenceScreen android:key="ThemeStatusBar_Command"
+                            android:title="Themed"
+                            android:summary="Install themed status bar">
+                    </PreferenceScreen>
+                </PreferenceCategory>
+	        </PreferenceScreen>
+    </PreferenceCategory>
+</PreferenceScreen>

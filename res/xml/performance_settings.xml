@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2011 The Liquid Settings Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+<PreferenceScreen 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:liquid="http://schemas.android.com/apk/res/com.liquid.settings">
+
+    <!-- Performance -->
+    <PreferenceCategory android:key="general_category"
+        android:title="@string/general_title">
+
+        <!-- Spare Parts -->
+        <com.liquid.settings.provider.IconPreferenceScreen
+            android:key="spareparts_settings"
+            liquid:icon="@drawable/ic_spareparts"
+            android:title="@string/spareparts_title"
+            android:summary="@string/spareparts_summary">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.liquid.settings"
+                android:targetClass="com.liquid.settings.activities.SparePartsActivity" />
+        </com.liquid.settings.provider.IconPreferenceScreen>
+
+        <!-- Prop Modder -->
+        <com.liquid.settings.provider.IconPreferenceScreen
+            android:key="propmodder_settings"
+            liquid:icon="@drawable/ic_propmodder"
+            android:title="@string/propmodder_title"
+            android:summary="@string/propmodder_summary">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.liquid.settings"
+                android:targetClass="com.liquid.settings.activities.PropModderActivity" />
+        </com.liquid.settings.provider.IconPreferenceScreen>
+
+        <ListPreference android:key="pref_compcache_size"
+            android:dialogTitle="@string/pref_compcache_title"
+            android:title="@string/pref_compcache_title"
+            android:summary="@string/pref_compcache_summary"
+            android:entries="@array/pref_compcache_size_entries"
+            android:entryValues="@array/pref_compcache_size_values" />
+
+        <CheckBoxPreference android:key="pref_jit_mode"
+            android:title="@string/pref_jit_mode_title" 
+			android:summary="@string/pref_jit_mode_summary" />
+
+        <CheckBoxPreference android:key="pref_use_dithering"
+            android:title="@string/pref_use_dithering_title"
+            android:summary="@string/pref_use_dithering_summary" />
+
+        <CheckBoxPreference android:key="pref_disable_bootanimation"
+            android:title="@string/pref_disable_bootanimation_title"
+            android:summary="@string/pref_disable_bootanimation_summary" />
+
+		<CheckBoxPreference android:key="pref_purgeable_assets"
+			android:title="@string/pref_purgeable_assets_title"
+			android:summary="@string/pref_purgeable_assets_summary" />
+
+        <CheckBoxPreference android:key="pref_lock_home"
+            android:title="@string/pref_lock_home_title"
+            android:summary="@string/pref_lock_home_summary" />
+
+        <CheckBoxPreference android:key="pref_lock_mms"
+            android:title="@string/pref_lock_mms_title" 
+			android:summary="@string/pref_lock_mms_summary" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

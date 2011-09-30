@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2011 The Liquid Settings Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Display -->
+    <PreferenceCategory android:title="@string/title_general_display">
+        
+        <!-- Automatic Backlight -->
+        <PreferenceScreen android:key="backlight_settings"
+            android:title="@string/backlight_title" 
+            android:summary="@string/backlight_summary">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.liquid.settings"
+                android:targetClass="com.liquid.settings.activities.BacklightActivity" />
+        </PreferenceScreen>
+
+        <CheckBoxPreference android:key="electron_beam_animation_on"
+            android:title="@string/pref_electron_beam_animation_on" />
+            
+        <CheckBoxPreference android:key="electron_beam_animation_off"
+            android:title="@string/pref_electron_beam_animation_off" />
+    </PreferenceCategory>
+
+    <!-- Rotation -->
+    <PreferenceCategory android:title="@string/rotation_category_title">
+        <CheckBoxPreference android:key="pref_rotation_0"
+            android:title="@string/pref_rotation_0_title" />
+
+        <CheckBoxPreference android:key="pref_rotation_90"
+            android:title="@string/pref_rotation_90_title" />
+
+        <CheckBoxPreference android:key="pref_rotation_180"
+            android:title="@string/pref_rotation_180_title" />
+
+        <CheckBoxPreference android:key="pref_rotation_270"
+            android:title="@string/pref_rotation_270_title" />
+    </PreferenceCategory>
+
+    <!-- System -->
+    <PreferenceCategory android:title="@string/title_general_system">
+
+        <!-- Lock Activities -->
+        <PreferenceScreen android:key="lock_custom_app_settings"
+            android:title="@string/lock_custom_app_title" 
+            android:summary="@string/lock_custom_app_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.liquid.settings"
+                    android:targetClass="com.liquid.settings.activities.LockCustomAppActivity" />
+        </PreferenceScreen> 
+
+        <CheckBoxPreference android:key="display_adb_usb_debugging_notif"
+            android:title="@string/title_general_display_adb_usb_debugging_notif"
+            android:summaryOn="@string/summary_on_general_display_adb_usb_debugging_notif"
+            android:summaryOff="@string/summary_off_general_display_adb_usb_debugging_notif" />
+
+        <CheckBoxPreference android:key="haptic_feedback" 
+            android:title="@string/spare_title_haptic_feedback" 
+            android:summaryOn="@string/spare_summary_on_haptic_feedback"
+            android:summaryOff="@string/spare_summary_off_haptic_feedback"/>
+            
+        <CheckBoxPreference android:key="kill_app_longpress_back"
+            android:title="@string/title_kill_app_longpress_back"
+            android:summaryOn="@string/summary_on_kill_app_longpress_back"
+            android:summaryOff="@string/summary_off_kill_app_longpress_back" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2011 The Liquid Settings Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Camera -->
+    <PreferenceCategory android:key="camera_category" 
+        android:title="@string/camera_title">
+
+        <!-- Camera Shutter -->
+        <CheckBoxPreference android:key="camera-mute"
+            android:title="@string/sound_camera_shutter_disable_title"
+            android:summaryOn="@string/sound_camera_shutter_disable_summary_on"
+            android:summaryOff="@string/sound_camera_shutter_disable_summary_off"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+	<!-- Sound -->
+	<PreferenceCategory android:key="general_category"
+		android:title="@string/general_title">
+
+		<CheckBoxPreference android:key="notif-focus"
+			android:title="@string/sound_notifications_focus_title"
+			android:summary="@string/sound_notifications_focus_summary"
+			android:persistent="false" />
+
+		<CheckBoxPreference android:key="vol-ctrl-silent"
+			android:title="@string/sound_volume_control_silent_title"
+			android:summary="@string/sound_volume_control_silent_summary"
+			android:persistent="false" />
+
+        <ListPreference android:key="swap-vol-keys"
+			android:title="@string/sound_swap_volume_keys_title"
+			android:dialogTitle="@string/sound_swap_volume_keys_dialog"
+			android:entries="@array/swap_volume_keys_orientation_list_entries"
+			android:entryValues="@array/swap_volume_keys_orientation_list_values"
+			android:persistent="false" />
+			
+		<CheckBoxPreference android:key="vibrate-in-call"
+			android:title="@string/sound_vibrate_in_call_title"
+			android:summaryOn="@string/sound_vibrate_in_call_summary_on"
+			android:summaryOff="@string/sound_vibrate_in_call_summary_off"
+			android:persistent="false" />
+
+        <CheckBoxPreference android:key="default-volume-media"
+            android:title="@string/sound_default_volume_media_title"
+            android:summary="@string/sound_default_volume_media_summary"
+            android:persistent="false" />
+
+        <CheckBoxPreference android:key="lock-volume-keys"
+            android:title="@string/sound_lock_volume_keys_title"
+            android:summary="@string/sound_lock_volume_keys_summary"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+    <!-- Quiet Hours -->
+    <PreferenceScreen android:key="sound_category_quiet_hours"
+	    android:title="@string/sound_category_quiet_hours_title">
+		<intent android:action="android.intent.action.MAIN"
+				android:targetPackage="com.liquid.settings"
+				android:targetClass="com.liquid.settings.activities.SoundQuietHoursActivity" />
+    </PreferenceScreen>
+
+    <!-- Spacing -->
+	<PreferenceCategory />
+
+	<!-- Note -->
+	<Preference android:title="@string/sound_note_title"
+		android:summary="@string/sound_note_summary" 
+        android:selectable="false" />
+
+	<!-- Sound To Speaker -->
+	<PreferenceCategory android:title="@string/sound_to_speaker_title">
+
+		<CheckBoxPreference android:key="notif-speaker"
+			android:title="@string/sound_notifications_title" 
+            android:persistent="false" />
+
+		<CheckBoxPreference android:key="ring-speaker"
+			android:title="@string/sound_rings_title" 
+            android:persistent="false" />
+
+		<CheckBoxPreference android:key="alarm-speaker"
+			android:title="@string/sound_alarms_title" 
+            android:persistent="false" />
+
+	</PreferenceCategory>
+
+	<!-- Attenuation -->
+	<PreferenceCategory android:title="@string/sound_attenuation_title">
+
+		<ListPreference android:key="notif-attn"
+			android:title="@string/sound_notifications_title"
+			android:dialogTitle="@string/sound_notifications_attenuation_dialog"
+			android:entries="@array/entries_sound_attenuation"
+			android:entryValues="@array/values_sound_attenuation"
+			android:persistent="false" />
+
+		<ListPreference android:key="ring-attn" 
+            android:title="@string/sound_rings_title"
+			android:dialogTitle="@string/sound_rings_attenuation_dialog"
+			android:entries="@array/entries_sound_attenuation"
+			android:entryValues="@array/values_sound_attenuation"
+			android:persistent="false" />
+
+		<ListPreference android:key="alarm-attn"
+			android:title="@string/sound_alarms_title" 
+            android:dialogTitle="@string/sound_alarms_attenuation_dialog"
+			android:entries="@array/entries_sound_attenuation"
+			android:entryValues="@array/values_sound_attenuation"
+			android:persistent="false" />
+
+	</PreferenceCategory>
+
+	<!-- Volume Limit -->
+	<PreferenceCategory android:title="@string/sound_limitvol_title">
+
+		<ListPreference android:key="notif-limitvol"
+			android:title="@string/sound_notifications_title"
+			android:dialogTitle="@string/sound_notifications_limitvol_dialog"
+			android:entries="@array/entries_sound_limitvol" 
+            android:entryValues="@array/values_sound_limitvol"
+			android:persistent="false" />
+
+		<ListPreference android:key="ring-limitvol"
+			android:title="@string/sound_rings_title" 
+            android:dialogTitle="@string/sound_rings_limitvol_dialog"
+			android:entries="@array/entries_sound_limitvol" 
+            android:entryValues="@array/values_sound_limitvol"
+			android:persistent="false" />
+
+		<ListPreference android:key="alarm-limitvol"
+			android:title="@string/sound_alarms_title" 
+            android:dialogTitle="@string/sound_alarms_limitvol_dialog"
+			android:entries="@array/entries_sound_limitvol" 
+            android:entryValues="@array/values_sound_limitvol"
+			android:persistent="false" />
+
+	</PreferenceCategory>
+
+</PreferenceScreen>

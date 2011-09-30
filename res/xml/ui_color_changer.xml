@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2011 The Liquid Settings Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Color Changer (Status Bar) -->
+    <PreferenceCategory android:title="@string/title_ui_tweaks_status_bar">
+
+        <Preference android:key="color_clock"
+            android:title="@string/title_ui_tweaks_status_bar_color_clock"
+            android:defaultValue="@android:color/white" />
+
+        <Preference android:key="color_date"
+            android:title="@string/title_ui_tweaks_status_bar_color_date"
+            android:defaultValue="@android:color/white" />
+
+        <Preference android:key="color_label_plmn"
+            android:title="@string/title_ui_tweaks_status_bar_color_label_plmn"
+            android:defaultValue="@android:color/white" />
+
+        <Preference android:key="color_battery_percent"
+            android:title="@string/title_ui_tweaks_status_bar_color_battery_percent"
+            android:defaultValue="@android:color/white" />
+            
+        <Preference android:key="color_signaltext_value"
+            android:title="@string/title_ui_tweaks_status_bar_color_signaltext_value"
+            android:defaultValue="@android:color/white" />
+    </PreferenceCategory>
+
+    <!-- Color Changer (Pull Down) -->
+    <PreferenceCategory android:title="@string/title_ui_tweaks_notifications">
+
+        <Preference android:key="color_notification_ticker_text"
+            android:title="@string/title_ui_tweaks_notifications_color_ticker_text"
+            android:defaultValue="@android:color/white" />
+
+        <Preference android:key="color_notification_none"
+            android:title="@string/title_ui_tweaks_notifications_color_none"
+            android:defaultValue="@android:color/white" />
+
+        <Preference android:key="color_notification_latest"
+            android:title="@string/title_ui_tweaks_notifications_color_latest"
+            android:defaultValue="@android:color/white" />
+
+        <Preference android:key="color_notification_ongoing"
+            android:title="@string/title_ui_tweaks_notifications_color_ongoing"
+            android:defaultValue="@android:color/white" />
+
+        <Preference android:key="color_notification_clear_button"
+            android:title="@string/title_ui_tweaks_notifications_color_clear_button"
+            android:defaultValue="@android:color/black" />
+
+        <Preference android:key="color_notification_item_title"
+            android:title="@string/title_ui_tweaks_notifications_color_item_title"
+            android:defaultValue="@android:color/black" />
+
+        <Preference android:key="color_notification_item_text"
+            android:title="@string/title_ui_tweaks_notifications_color_item_text"
+            android:defaultValue="@android:color/black" />
+
+        <Preference android:key="color_notification_item_progress_text"
+            android:title="@string/title_ui_tweaks_notifications_color_item_progress_text"
+            android:defaultValue="@android:color/black" />
+
+        <Preference android:key="color_notification_item_time"
+            android:title="@string/title_ui_tweaks_notifications_color_item_time"
+            android:defaultValue="@android:color/black" />
+    </PreferenceCategory>
+</PreferenceScreen>

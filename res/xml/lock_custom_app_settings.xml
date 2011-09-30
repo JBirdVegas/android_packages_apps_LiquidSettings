@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2011 The Liquid Settings Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<!-- Lock Activites -->
+	<PreferenceCategory android:key="lock_custom_app_settings"
+		android:title="@string/general_title">
+
+		<CheckBoxPreference android:key="pref_lock_custom1_app_toggle"
+			android:title="@string/lock_custom_app_custom_title"
+			android:summary="@string/lock_custom_app_custom_summary" />
+
+		<Preference android:key="pref_lock_custom1_app_activity"
+			android:dependency="pref_lock_custom1_app_toggle"
+			android:title="@string/lock_custom_activity_title" />
+
+		<CheckBoxPreference android:key="pref_lock_custom2_app_toggle"
+			android:title="@string/lock_custom_app_custom_title"
+			android:summary="@string/lock_custom_app_custom_summary" />
+
+		<Preference android:key="pref_lock_custom2_app_activity"
+			android:dependency="pref_lock_custom2_app_toggle"
+			android:title="@string/lock_custom_activity_title" />
+
+		<CheckBoxPreference android:key="pref_lock_custom3_app_toggle"
+			android:title="@string/lock_custom_app_custom_title"
+			android:summary="@string/lock_custom_app_custom_summary" />
+
+		<Preference android:key="pref_lock_custom3_app_activity"
+			android:dependency="pref_lock_custom3_app_toggle"
+			android:title="@string/lock_custom_activity_title" />
+
+		<CheckBoxPreference android:key="pref_lock_custom4_app_toggle"
+			android:title="@string/lock_custom_app_custom_title"
+			android:summary="@string/lock_custom_app_custom_summary" />
+
+		<Preference android:key="pref_lock_custom4_app_activity"
+			android:dependency="pref_lock_custom4_app_toggle"
+			android:title="@string/lock_custom_activity_title" />
+
+		<CheckBoxPreference android:key="pref_lock_custom5_app_toggle"
+			android:title="@string/lock_custom_app_custom_title"
+			android:summary="@string/lock_custom_app_custom_summary" />
+
+		<Preference android:key="pref_lock_custom5_app_activity"
+			android:dependency="pref_lock_custom5_app_toggle"
+			android:title="@string/lock_custom_activity_title" />
+
+		<CheckBoxPreference android:key="pref_lock_custom6_app_toggle"
+			android:title="@string/lock_custom_app_custom_title"
+			android:summary="@string/lock_custom_app_custom_summary" />
+
+		<Preference android:key="pref_lock_custom6_app_activity"
+			android:dependency="pref_lock_custom6_app_toggle"
+			android:title="@string/lock_custom_activity_title" />
+	</PreferenceCategory>
+</PreferenceScreen>

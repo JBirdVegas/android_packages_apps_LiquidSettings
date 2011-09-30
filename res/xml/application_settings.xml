@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2011 The Liquid Settings Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Manage -->
+    <PreferenceCategory android:title="@string/app_manage">
+
+        <ListPreference android:key="pref_install_location" 
+            android:title="@string/pref_install_location_title"
+            android:entries="@array/entries_install_location"
+            android:summary="@string/pref_install_location_summary" 
+            android:dialogTitle="@string/pref_install_location_title" 
+            android:entryValues="@array/values_install_location" />
+
+        <CheckBoxPreference android:key="pref_move_all_apps"
+            android:title="@string/pref_move_all_apps_title"  
+            android:summary="@string/pref_move_all_apps_summary" />
+    
+        <CheckBoxPreference android:key="pref_switch_storage"
+            android:title="@string/pref_switch_storage_title"
+            android:summaryOn="@string/pref_switch_storage_summary_on"
+            android:summaryOff="@string/pref_switch_storage_summary_off" />
+
+        <CheckBoxPreference android:key="enable_permissions_management"
+            android:title="@string/perm_enable_managment" 
+            android:summary="@string/perm_enable_managment_summary" />
+
+        <CheckBoxPreference android:key="email_exchange_policy_ignore"
+            android:title="@string/email_exchange_policy_ignore"
+            android:summary="@string/email_exchange_policy_ignore_summary" />
+
+        <Preference android:key="phone_goggles_settings"
+            android:title="@string/title_phone_goggles"
+            android:summary="@string/summary_phone_goggles">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.liquid.settings"
+                    android:targetClass="com.liquid.settings.activities.PhoneGogglesActivity" />
+        </Preference>
+
+        <ListPreference android:key="system_removal"
+            android:title="@string/system_removal_title"
+            android:entries="@array/entries_system_removal"
+            android:summary="@string/system_removal_summary"
+            android:dialogTitle="@string/system_removal_dialog_title"
+            android:entryValues="@array/values_system_removal" />
+    </PreferenceCategory>
+
+    <!-- Settings -->
+    <PreferenceCategory android:title="@string/app_settings">
+
+        <PreferenceScreen android:key="browser_settings"
+            android:title="@string/browser_settings"
+            android:summary="@string/summary_browser_settings">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.browser"
+                    android:targetClass="com.android.browser.BrowserPreferencesPage" />
+        </PreferenceScreen>
+
+        <PreferenceScreen android:key="calendar_settings"
+            android:title="@string/calendar_settings"
+            android:summary="@string/summary_calendar_settings">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.calendar"
+                    android:targetClass="com.android.calendar.CalendarPreferenceActivity" />
+        </PreferenceScreen>
+
+        <PreferenceScreen android:key="contacts_settings"
+            android:title="@string/contacts_settings"
+            android:summary="@string/summary_contacts_settings">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.contacts"
+                    android:targetClass="com.android.contacts.ContactsPreferences" />
+        </PreferenceScreen>
+
+        <PreferenceScreen android:key="deskclock_settings"
+            android:title="@string/deskclock_settings"
+            android:summary="@string/summary_deskclock_settings">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.deskclock"
+                    android:targetClass="com.android.deskclock.SettingsActivity" />
+        </PreferenceScreen>
+
+        <PreferenceScreen android:key="mms_settings"
+            android:title="@string/mms_settings"
+            android:summary="@string/summary_mms_settings">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.mms"
+                    android:targetClass="com.android.mms.ui.MessagingPreferenceActivity" />
+        </PreferenceScreen>
+
+        <PreferenceScreen android:key="phone_settings"
+            android:title="@string/phone_settings"
+            android:summary="@string/summary_phone_settings">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.phone"
+                    android:targetClass="com.android.phone.CallFeaturesSetting" />
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

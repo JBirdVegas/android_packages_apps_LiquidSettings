@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2011 The Liquid Settings Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Appreciations">
+
+        <ListPreference android:key="pref_team_liquid"
+            android:dialogTitle="@string/team_liquid_title"
+            android:title="@string/team_liquid_title"
+            android:summary="@string/team_liquid_summary"
+            android:entries="@array/entries_team_liquid"
+            android:entryValues="@array/values_team_liquid" />
+
+        <ListPreference android:key="pref_liquid"
+            android:dialogTitle="@string/liquid_title"
+            android:title="@string/liquid_title"
+            android:summary="@string/liquid_summary"
+            android:entries="@array/entries_liquid"
+            android:entryValues="@array/values_liquid" />
+
+        <ListPreference android:key="pref_liquidzgrl"
+            android:dialogTitle="@string/liquidzgrl_title"
+            android:title="@string/liquidzgrl_title"
+            android:summary="@string/liquidzgrl_summary"
+            android:entries="@array/entries_liquidzgrl"
+            android:entryValues="@array/values_liquidzgrl" />
+
+        <ListPreference android:key="pref_jbirdvegas"
+            android:dialogTitle="@string/jbirdvegas_title"
+            android:title="@string/jbirdvegas_title"
+            android:summary="@string/dev_team_summary"
+            android:entries="@array/entries_jbirdvegas"
+            android:entryValues="@array/values_jbirdvegas" />
+
+        <ListPreference android:key="pref_revnumbers"
+            android:dialogTitle="@string/revnumbers_title"
+            android:title="@string/revnumbers_title"
+            android:summary="@string/dev_team_summary"
+            android:entries="@array/entries_revnumbers"
+            android:entryValues="@array/values_revnumbers" />
+
+        <ListPreference android:key="pref_jdkoreclipse"
+            android:dialogTitle="@string/jdkoreclipse_title"
+            android:title="@string/jdkoreclipse_title"
+            android:summary="@string/kernel_dev_summary"
+            android:entries="@array/entries_jdkoreclipse"
+            android:entryValues="@array/values_jdkoreclipse" />
+
+        <ListPreference android:key="pref_jrummy16"
+            android:dialogTitle="@string/jrummy16_title"
+            android:title="@string/jrummy16_title"
+            android:summary="@string/jrummy16_summary"
+            android:entries="@array/entries_jrummy16"
+            android:entryValues="@array/values_jrummy16" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory 
+        android:title="Recognitions">
+
+        <PreferenceScreen
+            android:title="CyanogenMod"
+	        android:key="credits_cyanogen_key"
+	        android:summary="Their wonderful open source distribution" />
+
+        <PreferenceScreen
+            android:title="Google"
+	        android:key="credits_google_key"
+	        android:summary="The coolest most open source platform ever" />
+
+        <PreferenceScreen
+            android:title="T-Mobile"
+            android:key="credits_tmobile_key"
+	        android:summary="Their awesome open source theming engine" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
