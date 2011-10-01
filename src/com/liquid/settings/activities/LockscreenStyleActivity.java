@@ -53,6 +53,7 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
     private static final String LOCKSCREEN_CUSTOM_APP_TOGGLE = "pref_lockscreen_custom_app_toggle";
     private static final String LOCKSCREEN_CUSTOM_APP_ACTIVITY = "pref_lockscreen_custom_app_activity";
     private static final String LOCKSCREEN_ROTARY_UNLOCK_DOWN_TOGGLE = "pref_lockscreen_rotary_unlock_down_toggle";
+    private static final String LOCKSCREEN_RING_UNLOCK_MIDDLE_TOGGLE = "pref_lockscreen_ring_unlock_middle_toggle";
     private static final String LOCKSCREEN_ROTARY_HIDE_ARROWS_TOGGLE = "pref_lockscreen_rotary_hide_arrows_toggle";  
     private static final String LOCKSCREEN_HIDE_CARRIER_PREF = "pref_lockscreen_hide_carrier";
     private static final String LOCKSCREEN_CUSTOM_ICON_STYLE = "pref_lockscreen_custom_icon_style";
@@ -60,10 +61,11 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
 
     private CheckBoxPreference mCustomAppTogglePref;
     private CheckBoxPreference mRotaryUnlockDownToggle;
+    private CheckBoxPreference mRingUnlockMiddleToggle;
     private CheckBoxPreference mRotaryHideArrowsToggle;
     private CheckBoxPreference mHideCarrierPref;
     private CheckBoxPreference mCustomIconStyle;
-
+    
     private ListPreference mLockscreenStylePref;
     private ListPreference mInCallStylePref;
     private Preference mCustomAppActivityPref;
@@ -207,6 +209,11 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
         mRotaryUnlockDownToggle.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_ROTARY_UNLOCK_DOWN, 0) == 1);
 
+        mRingUnlockMiddleToggle = (CheckBoxPreference) prefSet
+                .findPreference(LOCKSCREEN_RING_UNLOCK_MIDDLE_TOGGLE);
+        mRingUnlockMiddleToggle.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_RING_UNLOCK_MIDDLE, 0) == 1);
+
         mRotaryHideArrowsToggle = (CheckBoxPreference) prefSet
                 .findPreference(LOCKSCREEN_ROTARY_HIDE_ARROWS_TOGGLE);
         mRotaryHideArrowsToggle.setChecked(Settings.System.getInt(getContentResolver(),
@@ -228,6 +235,7 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                 Settings.System.LOCKSCREEN_CUSTOM_ICON_STYLE, 1) == 2);
 
         updateStylePrefs(mLockscreenStyle, mInCallStyle);
+
         mCustomAppActivityPref = prefSet
                 .findPreference(LOCKSCREEN_CUSTOM_APP_ACTIVITY);
 
@@ -236,7 +244,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
         mCustomBackground.setOnPreferenceChangeListener(this);
         wallpaperImage = new File(getApplicationContext().getFilesDir()+"/lockwallpaper");
         wallpaperTemporary = new File(getApplicationContext().getFilesDir()+"/lockwallpaper.tmp");
-
         updateCustomBackgroundSummary();
         mPicker = new ShortcutPickHelper(this, this);
     }
@@ -310,13 +317,16 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
             value = mRotaryUnlockDownToggle.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_ROTARY_UNLOCK_DOWN, value ? 1 : 0);
-			updateStylePrefs(mLockscreenStyle, mInCallStyle);
+            return true;
+        } else if (preference == mRingUnlockMiddleToggle) {
+            value = mRingUnlockMiddleToggle.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_RING_UNLOCK_MIDDLE, value ? 1 : 0);
             return true;
         } else if (preference == mRotaryHideArrowsToggle) {
             value = mRotaryHideArrowsToggle.isChecked();
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_ROTARY_HIDE_ARROWS, value ? 1 : 0);
-            updateStylePrefs(mLockscreenStyle, mInCallStyle);        
+                    Settings.System.LOCKSCREEN_ROTARY_HIDE_ARROWS, value ? 1 : 0);        
             return true;
         } else if (preference == mHideCarrierPref) {
             value = mHideCarrierPref.isChecked();
@@ -512,23 +522,23 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
     }
 
     private void updateStylePrefs(LockscreenStyle lockscreenStyle, InCallStyle inCallStyle) {
-        if (useCustomRingShortcuts(mLockscreenStyle)
-         || lockscreenStyle == LockscreenStyle.Slider
-         || lockscreenStyle == LockscreenStyle.Lense) {
-            if (inCallStyle == InCallStyle.Slider
-             || inCallStyle == InCallStyle.Ring) {
+        if (lockscreenStyle == LockscreenStyle.Slider ||
+        lockscreenStyle == LockscreenStyle.Lense || lockscreenStyle == LockscreenStyle.Circle ||
+        lockscreenStyle == LockscreenStyle.Honey || lockscreenStyle == LockscreenStyle.Halo) {
+            if (inCallStyle == InCallStyle.Slider || 
+                inCallStyle == InCallStyle.Ring) {
                 mRotaryHideArrowsToggle.setChecked(false);
                 mRotaryHideArrowsToggle.setEnabled(false);
             } else {
                 mRotaryHideArrowsToggle.setEnabled(true);
             }
 
-	        mRotaryUnlockDownToggle.setChecked(false);
+            mRotaryUnlockDownToggle.setChecked(false);
             mRotaryUnlockDownToggle.setEnabled(false);
-        }
-
-        if (lockscreenStyle == LockscreenStyle.Rotary
-         || lockscreenStyle == LockscreenStyle.Sense) {
+            mRingUnlockMiddleToggle.setChecked(false);
+            mRingUnlockMiddleToggle.setEnabled(false);
+        } else if (lockscreenStyle == LockscreenStyle.Rotary || 
+                   lockscreenStyle == LockscreenStyle.Sense) {
             mRotaryHideArrowsToggle.setEnabled(true);
 
             if (mCustomAppTogglePref.isChecked() == true) {
@@ -537,17 +547,39 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
 				mRotaryUnlockDownToggle.setChecked(false);
 			    mRotaryUnlockDownToggle.setEnabled(false);
 			}
+
+            mRingUnlockMiddleToggle.setChecked(false);
+            mRingUnlockMiddleToggle.setEnabled(false);
+        } else if (lockscreenStyle == LockscreenStyle.Ring) {
+            mRotaryUnlockDownToggle.setChecked(false);
+            mRotaryUnlockDownToggle.setEnabled(false);
+
+            if (inCallStyle == InCallStyle.Rotary ||
+                inCallStyle == InCallStyle.Sense) {
+                mRotaryHideArrowsToggle.setEnabled(true);
+            } else {
+                mRotaryHideArrowsToggle.setChecked(false);
+                mRotaryHideArrowsToggle.setEnabled(false);
+            }
+
+            if (mCustomAppTogglePref.isChecked() == true) {
+                mRingUnlockMiddleToggle.setEnabled(true);
+            } else {
+                mRingUnlockMiddleToggle.setChecked(false);
+                mRingUnlockMiddleToggle.setEnabled(false);
+            }
         }
 
-        if (lockscreenStyle == LockscreenStyle.Lense) {
+        if (lockscreenStyle == LockscreenStyle.Lense || lockscreenStyle == LockscreenStyle.Circle ||
+        lockscreenStyle == LockscreenStyle.Honey || lockscreenStyle == LockscreenStyle.Halo) {
             mCustomIconStyle.setChecked(false);
             mCustomAppTogglePref.setChecked(false);
             mCustomAppTogglePref.setEnabled(false);
-		} else {
-			mCustomAppTogglePref.setEnabled(true);
+        } else {
+            mCustomAppTogglePref.setEnabled(true);
         }
 
-        if (useCustomRingShortcuts(mLockscreenStyle)) {
+        if (lockscreenStyle == LockscreenStyle.Ring) {
             mCustomIconStyle.setChecked(false);
             mCustomIconStyle.setEnabled(false);
         } else if (mCustomAppTogglePref.isChecked() == true){
@@ -573,17 +605,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
         value = mCustomIconStyle.isChecked();
         Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_CUSTOM_ICON_STYLE,
                 value ? 2 : 1);
-    }
-
-    private boolean useCustomRingShortcuts(LockscreenStyle lockscreenStyle) {
-        if (lockscreenStyle == LockscreenStyle.Ring
-         || lockscreenStyle == LockscreenStyle.Circle
-         || lockscreenStyle == LockscreenStyle.Honey
-         || lockscreenStyle == LockscreenStyle.Halo) {
-            return true;
-        }    
-        
-        return false;
     }
 
     private String getCustomRingAppSummary() {

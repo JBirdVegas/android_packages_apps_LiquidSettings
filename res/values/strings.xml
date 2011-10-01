@@ -560,6 +560,8 @@
     <string name="gestures_run_in_background">Run In Background</string>
     
     <!-- Styles -->
+    <string name="pref_lockscreen_appearance_title">Appearance</string>
+    <string name="pref_lockscreen_customize_title">Customize</string>
     <string name="pref_lockscreen_custom_app_toggle_title">Custom App</string>            
     <string name="pref_lockscreen_custom_app_toggle_summary">Slider, dimple, or ring</string>                                                            
     <string name="pref_lockscreen_custom_app_activity_title">Select App</string>
@@ -569,6 +571,8 @@
     <string name="pref_lockscreen_ring_custom_apps_dialog_add">Add</string>
     <string name="pref_lockscreen_ring_custom_apps_dialog_remove">Remove</string>
     <string name="pref_lockscreen_ring_custom_apps_notset">Not Set</string>
+    <string name="pref_lockscreen_ring_unlock_middle_title">Unlock Middle</string>
+    <string name="pref_lockscreen_ring_unlock_middle_summary">Switch unlock with launcher</string>
     <string name="pref_lockscreen_custom_background_title">Background</string>
     <string name="pref_lockscreen_custom_background_dialog_title">Select Background</string>
     <string name="pref_lockscreen_custom_background_summary_color">Current: Color</string>
@@ -579,8 +583,8 @@
     <string name="pref_lockscreen_custom_background_result_not_successful">Background Not Changed</string>
     <string name="pref_lockscreen_custom_icon_style_title">Custom Icons</string>
     <string name="pref_lockscreen_custom_icon_style_summary">Uses actual app icons</string>
-    <string name="pref_lockscreen_rotary_unlock_down_title">Drag Down</string>
-    <string name="pref_lockscreen_rotary_unlock_down_summary">Dragging down wheel unlocks</string>														   
+    <string name="pref_lockscreen_rotary_unlock_down_title">Unlock Down</string>
+    <string name="pref_lockscreen_rotary_unlock_down_summary">Drag down to unlock</string>														   
     <string name="pref_lockscreen_rotary_hide_arrows_title">Hide Arrows</string>
     <string name="pref_lockscreen_rotary_hide_arrows_summary">Hide rotary hint arrows</string> 	  														  	
     <string name="pref_lockscreen_hide_carrier_title">Hide Carrier</string>
