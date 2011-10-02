@@ -405,8 +405,8 @@
     <string name="ui_status_bar_am_pm_summary">Change system clock</string>
     <string name="ui_status_bar_battery_title">Battery Style</string>
     <string name="ui_status_bar_battery_summary">Change battery indicator</string>
-    <string name="ui_status_bar_battery_color_title">Bar Battery Color</string>
-    <string name="ui_status_bar_battery_color_summary">Color of status bar battery</string>
+    <string name="ui_status_bar_battery_color_title">Battery Color</string>
+    <string name="ui_status_bar_battery_color_summary">Change bar battery color</string>
     <string name="ui_status_bar_compact_carrier_title">Compact Carrier</string>
     <string name="ui_status_bar_compact_carrier_summary">Alternate dropdown style</string>
     <string name="ui_status_bar_carrier_label_title">Carrier Label</string>
