@@ -264,10 +264,7 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
         mCustomBackground.setSummary(getResources().getString(resId));
     }
     
-    @Override
-    public void onResume() {
-        super.onResume();
-
+    private void updateCustomAppSummary() {
         if (mLockscreenStyle == LockscreenStyle.Ring) {
             mCustomAppActivityPref.setSummary(getCustomRingAppSummary());
         } else {
@@ -275,6 +272,13 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                     Settings.System.LOCKSCREEN_CUSTOM_APP_ACTIVITY);
             mCustomAppActivityPref.setSummary(mPicker.getFriendlyNameForUri(value));
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        
+        updateCustomAppSummary();
     }
     
     @Override
@@ -442,6 +446,7 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_STYLE_PREF,
                     LockscreenStyle.getIdByStyle(mLockscreenStyle));
             updateStylePrefs(mLockscreenStyle, mInCallStyle);
+            updateCustomAppSummary();
             return true;
         }
         if (preference == mInCallStylePref) {
