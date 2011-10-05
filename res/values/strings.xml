@@ -407,6 +407,8 @@
     <string name="ui_status_bar_battery_summary">Change battery indicator</string>
     <string name="ui_status_bar_battery_color_title">Battery Color</string>
     <string name="ui_status_bar_battery_color_summary">Change bar battery color</string>
+    <string name="ui_status_bar_battery_low_batt_title">Low Battery</string>
+    <string name="ui_status_bar_battery_low_batt_summary">Show low battery colors</string>
     <string name="ui_status_bar_compact_carrier_title">Compact Carrier</string>
     <string name="ui_status_bar_compact_carrier_summary">Alternate dropdown style</string>
     <string name="ui_status_bar_carrier_label_title">Carrier Label</string>
