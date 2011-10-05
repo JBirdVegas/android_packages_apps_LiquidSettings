@@ -292,26 +292,27 @@ public class PropModderActivity extends PreferenceActivity
         boolean success = false;
 
         try {
-            if (RootHelper.propExists(key)) {
-                if (key.equals("sdspeed")) {
-                    Log.d(TAG, String.format("we are modding sdcard read ahead: %s", value));
-                    RootHelper.runRootCommand(String.format(SD_SPEED_ONtheFLY, value));
-                    success = RootHelper.runRootCommand(String.format(SD_SPEED_CMD, value));
-                }
-                if (value.equals("rm_log")) {
-                    Log.d(TAG, "value == rm_log");
-                    success = RootHelper.runRootCommand(LOGCAT_REMOVE);
-                }
-                if (value.equals(DISABLE)) {
-                    Log.d(TAG, String.format("value == %s", DISABLE));
-                    success = RootHelper.killProp(String.format(KILL_PROP_CMD, key));
-                } else {
-                    Log.d(TAG, String.format("value != %s", DISABLE));
-                    success = RootHelper.runRootCommand(String.format(REPLACE_CMD, key, value));
-                }
+            if (key.equals("sdspeed")) {
+                Log.d(TAG, String.format("we are modding sdcard read ahead: %s", value));
+                RootHelper.runRootCommand(String.format(SD_SPEED_ONtheFLY, value));
+                success = RootHelper.runRootCommand(String.format(SD_SPEED_CMD, value));
             } else {
+                if (RootHelper.propExists(key)) {
+                    if (value.equals("rm_log")) {
+                        Log.d(TAG, "value == rm_log");
+                        success = RootHelper.runRootCommand(LOGCAT_REMOVE);
+                    }
+                    if (value.equals(DISABLE)) {
+                        Log.d(TAG, String.format("value == %s", DISABLE));
+                        success = RootHelper.killProp(String.format(KILL_PROP_CMD, key));
+                    } else {
+                        Log.d(TAG, String.format("value != %s", DISABLE));
+                        success = RootHelper.runRootCommand(String.format(REPLACE_CMD, key, value));
+                    }
+                } else {
                 Log.d(TAG, "append command starting");
                 success = RootHelper.runRootCommand(String.format(APPEND_CMD, key, value));
+                }
             }
 
             if (!success) {
