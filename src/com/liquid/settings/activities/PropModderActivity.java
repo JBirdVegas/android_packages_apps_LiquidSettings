@@ -40,7 +40,7 @@ public class PropModderActivity extends PreferenceActivity
     private static final String REPLACE_CMD = "busybox sed -i \"/%s/ c %<s=%s\" /system/build.prop";
     private static final String SHOWBUILD_PATH = "/system/tmp/showbuild";
     private static final String DISABLE = "disable";
-    private static final String SD_SPEED_CMD = "busybox sed -i \"/echo/ c echo > /sys/devices/virtual/bdi/179:0/read_ahead_k\" /system/etc/init.d/72sdspeed";
+    private static final String SD_SPEED_CMD = "busybox sed -i \"/echo/ c echo %s > /sys/devices/platform/msm_sdcc.2/mmc_host/mmc1/mmc1:$mmcresult/block/mmcblk0/queue/read_ahead_kb\" /system/etc/init.d/72sdspeed";
 
     private static final String VM_HEAPSIZE_PREF = "pref_vm_heapsize";
     private static final String VM_HEAPSIZE_PROP = "dalvik.vm.heapsize";
