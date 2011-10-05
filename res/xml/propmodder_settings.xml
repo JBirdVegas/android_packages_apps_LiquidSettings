@@ -91,14 +91,6 @@
             android:entries="@array/entries_sleep"
             android:entryValues="@array/values_sleep" />
 
-        <CheckBoxPreference android:key="pref_tcp_stack"
-            android:title="@string/pref_tcp_stack_title"
-            android:summary="@string/pref_tcp_stack_summary" />
-
-        <CheckBoxPreference android:key="pref_check_in"
-            android:title="@string/pref_check_in_title"
-            android:summary="@string/pref_check_in_summary" />
-
         <ListPreference android:key="pref_sd_speed"
             android:dialogTitle="@string/pref_sd_speed_title"
             android:title="@string/pref_sd_speed_title"
@@ -106,6 +98,13 @@
             android:entries="@array/entries_sd_speed"
             android:entryValues="@array/values_sd_speed" />
 
+        <CheckBoxPreference android:key="pref_tcp_stack"
+            android:title="@string/pref_tcp_stack_title"
+            android:summary="@string/pref_tcp_stack_summary" />
+
+        <CheckBoxPreference android:key="pref_check_in"
+            android:title="@string/pref_check_in_title"
+            android:summary="@string/pref_check_in_summary" />
 
     </PreferenceCategory>
 </PreferenceScreen>
