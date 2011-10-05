@@ -685,6 +685,8 @@
     <string name="pref_jit_mode_summary">Use faster compiler</string>
     <string name="pref_use_dithering_title">Surface Dithering</string>
     <string name="pref_use_dithering_summary">Improve image quality</string>
+    <string name="pref_use_16bpp_alpha_title">Alpha Transparency</string>
+    <string name="pref_use_16bpp_alpha_summary">Improve scroll performance</string>
     <string name="pref_purgeable_assets_title">Purge Assets</string>
     <string name="pref_purgeable_assets_summary">Free unused memory</string>
     <string name="pref_disable_bootanimation_title">Disable Animation</string>

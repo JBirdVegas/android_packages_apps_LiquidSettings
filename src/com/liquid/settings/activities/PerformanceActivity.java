@@ -47,6 +47,8 @@ public class PerformanceActivity extends PreferenceActivity
     private static final String USE_DITHERING_PREF = "pref_use_dithering";
     private static final String USE_DITHERING_PERSIST_PROP = "persist.sys.use_dithering";
     private static final String USE_DITHERING_DEFAULT = "1";
+    private static final String USE_16BPP_ALPHA_PREF = "pref_use_16bpp_alpha";
+    private static final String USE_16BPP_ALPHA_PROP = "persist.sys.use_16bpp_alpha";
 	private static final String PURGEABLE_ASSETS_PREF = "pref_purgeable_assets";
     private static final String PURGEABLE_ASSETS_PERSIST_PROP = "persist.sys.purgeable_assets";
     private static final String PURGEABLE_ASSETS_DEFAULT = "0";
@@ -62,6 +64,7 @@ public class PerformanceActivity extends PreferenceActivity
     private CheckBoxPreference mJitPref;
     private CheckBoxPreference mLockHomePref;
     private CheckBoxPreference mUseDitheringPref;
+    private CheckBoxPreference mUse16bppAlphaPref;
 	private CheckBoxPreference mPurgeableAssetsPref;
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mLockMmsPref;
@@ -96,6 +99,10 @@ public class PerformanceActivity extends PreferenceActivity
         String useDithering = SystemProperties.get(USE_DITHERING_PERSIST_PROP, USE_DITHERING_DEFAULT);
         mUseDitheringPref.setChecked("1".equals(useDithering));
 
+        mUse16bppAlphaPref = (CheckBoxPreference) prefSet.findPreference(USE_16BPP_ALPHA_PREF);
+        String use16bppAlpha = SystemProperties.get(USE_16BPP_ALPHA_PROP, "0");
+        mUse16bppAlphaPref.setChecked("1".equals(use16bppAlpha));
+
   		mPurgeableAssetsPref = (CheckBoxPreference) prefSet.findPreference(PURGEABLE_ASSETS_PREF);
         String purgeableAssets = SystemProperties.get(PURGEABLE_ASSETS_PERSIST_PROP, PURGEABLE_ASSETS_DEFAULT);
         mPurgeableAssetsPref.setChecked("1".equals(purgeableAssets));
@@ -126,6 +133,11 @@ public class PerformanceActivity extends PreferenceActivity
                     mUseDitheringPref.isChecked() ? "1" : "0");
             return true;
         }
+        if (preference == mUse16bppAlphaPref) {
+            SystemProperties.set(USE_16BPP_ALPHA_PROP,
+                    mUse16bppAlphaPref.isChecked() ? "1" : "0");
+            return true;
+        }
         if (preference == mPurgeableAssetsPref) {
             SystemProperties.set(PURGEABLE_ASSETS_PERSIST_PROP,
                     mPurgeableAssetsPref.isChecked() ? "1" : "0");
@@ -148,6 +160,7 @@ public class PerformanceActivity extends PreferenceActivity
                             mLockMmsPref.isChecked() ? 1 : 0);
             return true;
         }
+
         return false;
    }
 
@@ -158,6 +171,7 @@ public class PerformanceActivity extends PreferenceActivity
                 return true;
             }
         }
+
         return false;
     }
 
@@ -165,6 +179,7 @@ public class PerformanceActivity extends PreferenceActivity
         if (swapAvailable < 0) {
             swapAvailable = new File("/proc/swaps").exists() ? 1 : 0;
         }
+
         return swapAvailable > 0;
     }
 }
