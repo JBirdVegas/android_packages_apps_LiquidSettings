@@ -40,6 +40,7 @@ public class PropModderActivity extends PreferenceActivity
     private static final String REPLACE_CMD = "busybox sed -i \"/%s/ c %<s=%s\" /system/build.prop";
     private static final String SHOWBUILD_PATH = "/system/tmp/showbuild";
     private static final String DISABLE = "disable";
+    private static final String SD_SPEED_CMD = "busybox sed -i \"/echo/ c echo > /sys/devices/virtual/bdi/179:0/read_ahead_k\" /system/etc/init.d/72sdspeed";
 
     private static final String VM_HEAPSIZE_PREF = "pref_vm_heapsize";
     private static final String VM_HEAPSIZE_PROP = "dalvik.vm.heapsize";
@@ -104,6 +105,8 @@ public class PropModderActivity extends PreferenceActivity
     private static final String CHECK_IN_PROP = "ro.config.nocheckin";
     private static final String CHECK_IN_PROP_HTC = "ro.config.htc.nocheckin";
 
+    private static final String SD_SPEED_PREF = "pref_sd_speed";
+
     private ListPreference mHeapsizePref;
     private ListPreference mLcdDensityPref;
     private ListPreference mMaxEventsPref;
@@ -115,6 +118,7 @@ public class PropModderActivity extends PreferenceActivity
     private ListPreference mSleepPref;
     private CheckBoxPreference mTcpStackPref;
     private CheckBoxPreference mCheckInPref;
+    private ListPreference mSdSpeedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -183,6 +187,9 @@ public class PropModderActivity extends PreferenceActivity
         mCheckInPref.setChecked(SystemProperties.getBoolean(
                 CHECK_IN_PERSIST_PROP, !checkin));
 
+        mSdSpeedPref = (ListPreference) prefSet.findPreference(SD_SPEED_PREF);
+        mSdSpeedPref.setOnPreferenceChangeListener(this);
+
         File tmpDir = new File("/system/tmp");
         boolean exists = tmpDir.exists();
 
@@ -241,6 +248,8 @@ public class PropModderActivity extends PreferenceActivity
             } else if (preference == mSleepPref) {
                  return doMod(SLEEP_PERSIST_PROP, SLEEP_PROP,
                         newValue.toString());
+            } else if (preference == mSdSpeedPref) {
+                 return doMod(null, "sdspeed", newValue.toString());
             }
         }
 
@@ -283,6 +292,10 @@ public class PropModderActivity extends PreferenceActivity
 
         try {
             if (RootHelper.propExists(key)) {
+                if (key.equals("sdspeed")) {
+                    Log.d(TAG, String.format("we are modding sdcard read ahead: %s", value));
+                    success = RootHelper.runRootCommand(String.format(SD_SPEED_CMD, value));
+                }
                 if (value.equals("rm_log")) {
                     Log.d(TAG, "value == rm_log");
                     success = RootHelper.runRootCommand(LOGCAT_REMOVE);
@@ -290,7 +303,6 @@ public class PropModderActivity extends PreferenceActivity
                 if (value.equals(DISABLE)) {
                     Log.d(TAG, String.format("value == %s", DISABLE));
                     success = RootHelper.killProp(String.format(KILL_PROP_CMD, key));
-
                 } else {
                     Log.d(TAG, String.format("value != %s", DISABLE));
                     success = RootHelper.runRootCommand(String.format(REPLACE_CMD, key, value));

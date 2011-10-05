@@ -99,5 +99,13 @@
             android:title="@string/pref_check_in_title"
             android:summary="@string/pref_check_in_summary" />
 
+        <ListPreference android:key="pref_sd_speed"
+            android:dialogTitle="@string/pref_sd_speed_title"
+            android:title="@string/pref_sd_speed_title"
+            android:summary="@string/pref_sd_speed_summary"
+            android:entries="@array/entries_sd_speed"
+            android:entryValues="@array/values_sd_speed" />
+
+
     </PreferenceCategory>
 </PreferenceScreen>

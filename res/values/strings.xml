@@ -719,6 +719,8 @@
     <string name="pref_tcp_stack_summary">Optimizes data preformance</string>
     <string name="pref_check_in_title">Check Service</string>
     <string name="pref_check_in_summary">Stop sending usage data</string>
+    <string name="pref_sd_speed_title">SDCard speed hack</string>
+    <string name="pref_sd_speed_summary">Modify the read ahead buffer for the sdcard</string>
 
     <!-- Prop Viewer -->
     <string name="propviewer_title">Prop Viewer</string>

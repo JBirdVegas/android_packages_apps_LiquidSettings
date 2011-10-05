@@ -1175,4 +1175,22 @@
         <item>https://plus.google.com/101898662480093123223</item>
     </string-array>
 
+    <string-array name="entries_sd_speed">
+        <item>1024 kb</item>
+        <item>2048 kb</item>
+        <item>3072 kb</item>
+        <item>4096 kb</item>
+        <item>5120 kb</item>
+        <item>6144 kb</item>
+    </string-array>
+
+    <string-array name="values_sd_speed">
+        <item>1024</item>
+        <item>2048</item>
+        <item>3072</item>
+        <item>4096</item>
+        <item>5120</item>
+        <item>6144</item>
+    </string-array>
+
 </resources>
