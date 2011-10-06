@@ -59,13 +59,17 @@
             android:title="@string/pref_use_dithering_title"
             android:summary="@string/pref_use_dithering_summary" />
 
-        <CheckBoxPreference android:key="pref_disable_bootanimation"
-            android:title="@string/pref_disable_bootanimation_title"
-            android:summary="@string/pref_disable_bootanimation_summary" />
+        <CheckBoxPreference android:key="pref_use_16bpp_alpha"
+            android:title="@string/pref_use_16bpp_alpha_title"
+            android:summary="@string/pref_use_16bpp_alpha_summary" />
 
 		<CheckBoxPreference android:key="pref_purgeable_assets"
 			android:title="@string/pref_purgeable_assets_title"
 			android:summary="@string/pref_purgeable_assets_summary" />
+
+        <CheckBoxPreference android:key="pref_disable_bootanimation"
+            android:title="@string/pref_disable_bootanimation_title"
+            android:summary="@string/pref_disable_bootanimation_summary" />
 
         <CheckBoxPreference android:key="pref_lock_home"
             android:title="@string/pref_lock_home_title"

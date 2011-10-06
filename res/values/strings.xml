@@ -407,6 +407,8 @@
     <string name="ui_status_bar_battery_summary">Change battery indicator</string>
     <string name="ui_status_bar_battery_color_title">Battery Color</string>
     <string name="ui_status_bar_battery_color_summary">Change bar battery color</string>
+    <string name="ui_status_bar_battery_low_batt_title">Low Battery</string>
+    <string name="ui_status_bar_battery_low_batt_summary">Show low battery colors</string>
     <string name="ui_status_bar_compact_carrier_title">Compact Carrier</string>
     <string name="ui_status_bar_compact_carrier_summary">Alternate dropdown style</string>
     <string name="ui_status_bar_carrier_label_title">Carrier Label</string>
@@ -685,6 +687,8 @@
     <string name="pref_jit_mode_summary">Use faster compiler</string>
     <string name="pref_use_dithering_title">Surface Dithering</string>
     <string name="pref_use_dithering_summary">Improve image quality</string>
+    <string name="pref_use_16bpp_alpha_title">Alpha Transparency</string>
+    <string name="pref_use_16bpp_alpha_summary">Improve scroll performance</string>
     <string name="pref_purgeable_assets_title">Purge Assets</string>
     <string name="pref_purgeable_assets_summary">Free unused memory</string>
     <string name="pref_disable_bootanimation_title">Disable Animation</string>
@@ -719,8 +723,8 @@
     <string name="pref_tcp_stack_summary">Optimizes data preformance</string>
     <string name="pref_check_in_title">Check Service</string>
     <string name="pref_check_in_summary">Stop sending usage data</string>
-    <string name="pref_sd_speed_title">SDCard speed hack</string>
-    <string name="pref_sd_speed_summary">Modify the read ahead buffer for the sdcard</string>
+    <string name="pref_sd_speed_title">SDCard Booster</string>
+    <string name="pref_sd_speed_summary">Modify read ahead buffer</string>
 
     <!-- Prop Viewer -->
     <string name="propviewer_title">Prop Viewer</string>
