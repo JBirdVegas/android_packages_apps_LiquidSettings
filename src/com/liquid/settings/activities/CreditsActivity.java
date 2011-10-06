@@ -41,7 +41,7 @@ public class CreditsActivity extends PreferenceActivity
     private ListPreference mTeamLiquid;
     private ListPreference mLiquid;
     private ListPreference mLiquidzgrl;
-    private ListPreference mJbirdvegas;
+    private ListPreference mJBirdVegas;
     private ListPreference mRevNumbers;
     private ListPreference mJdkoreclipse;
     private ListPreference mJrummy16;
@@ -63,8 +63,8 @@ public class CreditsActivity extends PreferenceActivity
         mLiquidzgrl = (ListPreference) prefSet.findPreference(LIQUIDZGRL_PREF);
         mLiquidzgrl.setOnPreferenceChangeListener(this);
 
-        mJbirdvegas = (ListPreference) prefSet.findPreference(JBIRDVEGAS_PREF);
-        mJbirdvegas.setOnPreferenceChangeListener(this);
+        mJBirdVegas = (ListPreference) prefSet.findPreference(JBIRDVEGAS_PREF);
+        mJBirdVegas.setOnPreferenceChangeListener(this);
 
         mRevNumbers = (ListPreference) prefSet.findPreference(REVNUMBERS_PREF);
         mRevNumbers.setOnPreferenceChangeListener(this);
