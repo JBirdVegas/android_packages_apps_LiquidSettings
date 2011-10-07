@@ -250,6 +250,11 @@ public class UIStatusBarActivity extends PreferenceActivity
             Settings.System.putInt(getContentResolver(), Settings.System.STATUS_BAR_HEADSET,
                     value ? 1 : 0);
             return true;
+	    } else if (preference == mStatusBarBatteryLowBatt) {
+            value = mStatusBarBatteryLowBatt.isChecked();
+            Settings.System.putInt(getContentResolver(), Settings.System.STATUS_BAR_BATTERY_LOW_BATT,
+                    value ? 1 : 0);
+            return true;
         }
 
         return false;
