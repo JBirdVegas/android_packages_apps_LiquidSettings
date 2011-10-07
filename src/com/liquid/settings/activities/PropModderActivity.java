@@ -40,8 +40,9 @@ public class PropModderActivity extends PreferenceActivity
     private static final String REPLACE_CMD = "busybox sed -i \"/%s/ c %<s=%s\" /system/build.prop";
     private static final String SHOWBUILD_PATH = "/system/tmp/showbuild";
     private static final String DISABLE = "disable";
-    private static final String SD_SPEED_CMD = "busybox sed -i \"/179:0/ c echo %s > /sys/devices/virtual/bdi/179:0/read_ahead_kb\" /system/etc/init.d/01tweaks";
+    private static final String SD_SPEED_CMD = "busybox sed -i \"/179:0/ c echo %s > /sys/devices/virtual/bdi/179:0/read_ahead_kb\" /system/etc/init.d/90liquid";
     private static final String SD_SPEED_ONtheFLY = "echo %s > /sys/devices/virtual/bdi/179:0/read_ahead_kb";
+    private static final String LOGCAT_CMD = "busybox sed -i \"/rm -f /dev/log/main c %s\" /system/etc/init.d/90liquid";
 
     private static final String VM_HEAPSIZE_PREF = "pref_vm_heapsize";
     private static final String VM_HEAPSIZE_PROP = "dalvik.vm.heapsize";
@@ -74,13 +75,8 @@ public class PropModderActivity extends PreferenceActivity
     private static final String PROX_DELAY_DEFAULT = System.getProperty(PROX_DELAY_PROP);
 
     private static final String LOGCAT_PREF = "pref_rem_logcat";
-    private static final String LOGCAT_PROP = "logcat.alive";
-    private static final String LOGCAT_PERSIST_PROP = "persist.logcat";
-    private static final String LOGCAT_DEFAULT = System.getProperty(LOGCAT_PROP);
-    private static final String LOGCAT_PATH = "/dev/log/main";
-    private static final String LOGCAT_ALIVE_SCRIPT = "#!/system/bin/sh\nBB=/system/xbin/busybox\nLOGCAT=$(BB grep -o logcat.alive /system/build.prop)\nif BB [ -n $LOGCAT ]\nthen\nrm -f /dev/log/main\nelse\ntouch /dev/log/main\nfi";
-    private static final String LOGCAT_ALIVE_PATH = "/system/etc/init.d/73-propmodder_logcat_alive";
-    private static final String LOGCAT_REMOVE = "rm -f /dev/log/main";
+    private static final String LOGCAT_ON = "rm -f /dev/log/main ";
+    private static final String LOGCAT_OFF = "#rm -f /dev/log/main";
 
     private static final String WIFI_SCAN_PREF = "pref_wifi_interval";
     private static final String WIFI_SCAN_PROP = "wifi.supplicant_scan_interval";
@@ -114,7 +110,7 @@ public class PropModderActivity extends PreferenceActivity
     private ListPreference mRingDelayPref;
     private ListPreference mFastUpPref;
     private ListPreference mProxDelayPref;
-    private ListPreference mLogcatPref;
+    private CheckBoxPreference mLogcatPref;
     private ListPreference mWifiScanPref;
     private ListPreference mSleepPref;
     private CheckBoxPreference mTcpStackPref;
@@ -159,10 +155,10 @@ public class PropModderActivity extends PreferenceActivity
                 SystemProperties.get(PROX_DELAY_PROP, PROX_DELAY_DEFAULT)));
         mProxDelayPref.setOnPreferenceChangeListener(this);
 
-        mLogcatPref = (ListPreference) prefSet.findPreference(LOGCAT_PREF);
-        mLogcatPref.setValue(SystemProperties.get(LOGCAT_PERSIST_PROP,
-                SystemProperties.get(LOGCAT_PROP, LOGCAT_DEFAULT)));
-        mLogcatPref.setOnPreferenceChangeListener(this);
+        mLogcatPref = (CheckBoxPreference) prefSet.findPreference(LOGCAT_PREF);
+        boolean log = false;
+        log = RootHelper.runRootCommand("grep -q \"#rm -f /dev/log/main\" /system/etc/init.d/90liquid");
+        mLogcatPref.setChecked(!log);
 
         mWifiScanPref = (ListPreference) prefSet.findPreference(WIFI_SCAN_PREF);
         mWifiScanPref.setValue(SystemProperties.get(WIFI_SCAN_PERSIST_PROP,
@@ -181,7 +177,7 @@ public class PropModderActivity extends PreferenceActivity
         boolean tcpstack3 = SystemProperties.getBoolean(TCP_STACK_PROP_3, true);
         boolean tcpstack4 = SystemProperties.getBoolean(TCP_STACK_PROP_4, true);
         mTcpStackPref.setChecked(SystemProperties.getBoolean(
-                LOGCAT_PERSIST_PROP, tcpstack0 && tcpstack1 && tcpstack2 && tcpstack3 && tcpstack4));
+                TCP_STACK_PERSIST_PROP, tcpstack0 && tcpstack1 && tcpstack2 && tcpstack3 && tcpstack4));
 
         mCheckInPref = (CheckBoxPreference) prefSet.findPreference(CHECK_IN_PREF);
         boolean checkin = SystemProperties.getBoolean(CHECK_IN_PROP, true);
@@ -199,21 +195,6 @@ public class PropModderActivity extends PreferenceActivity
                 Log.d(TAG, "We need to make /system/tmp dir");
                 RootHelper.remountRW();
                 RootHelper.runRootCommand("mkdir /system/tmp");
-            } finally {
-                RootHelper.remountRO();
-            }
-        }
-
-        RootHelper.logcatAlive();
-        File logcat_alive_script = new File(LOGCAT_ALIVE_PATH);
-        boolean logcat_script_exists = logcat_alive_script.exists();
-
-        if (!logcat_script_exists) {
-            try {
-                Log.d(TAG, String.format("logcat_alive script not found @ '%s'", LOGCAT_ALIVE_PATH));
-                RootHelper.remountRW();
-                RootHelper.logcatAlive();
-                RootHelper.runRootCommand(String.format("chmod 777 %s", LOGCAT_ALIVE_PATH));
             } finally {
                 RootHelper.remountRO();
             }
@@ -239,9 +220,6 @@ public class PropModderActivity extends PreferenceActivity
                         newValue.toString());
             } else if (preference == mProxDelayPref) {
                  return doMod(PROX_DELAY_PERSIST_PROP, PROX_DELAY_PROP,
-                        newValue.toString());
-            } else if (preference == mLogcatPref) {
-                 return doMod(LOGCAT_PERSIST_PROP, LOGCAT_PROP,
                         newValue.toString());
             } else if (preference == mWifiScanPref) {
                  return doMod(WIFI_SCAN_PERSIST_PROP, WIFI_SCAN_PROP,
@@ -272,8 +250,10 @@ public class PropModderActivity extends PreferenceActivity
             value = mCheckInPref.isChecked();
             doMod(null, CHECK_IN_PROP_HTC, String.valueOf(value ? 1 : DISABLE));
             return doMod(CHECK_IN_PERSIST_PROP, CHECK_IN_PROP, String.valueOf(value ? 1 : DISABLE));
+        } else if (preference == mLogcatPref) {
+            value = mLogcatPref.isChecked();
+            return RootHelper.runRootCommand(String.format(LOGCAT_CMD, String.valueOf(value ? LOGCAT_ON : LOGCAT_OFF)));
         }
-
         return false;
     }
 
@@ -298,10 +278,6 @@ public class PropModderActivity extends PreferenceActivity
                 success = RootHelper.runRootCommand(String.format(SD_SPEED_CMD, value));
             } else {
                 if (RootHelper.propExists(key)) {
-                    if (value.equals("rm_log")) {
-                        Log.d(TAG, "value == rm_log");
-                        success = RootHelper.runRootCommand(LOGCAT_REMOVE);
-                    }
                     if (value.equals(DISABLE)) {
                         Log.d(TAG, String.format("value == %s", DISABLE));
                         success = RootHelper.killProp(String.format(KILL_PROP_CMD, key));

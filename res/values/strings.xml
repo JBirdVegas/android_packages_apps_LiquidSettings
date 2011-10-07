@@ -714,7 +714,8 @@
     <string name="pref_prox_delay_title">Proximity Delay</string>
     <string name="pref_prox_delay_summary">Sensor delay during calls</string>
     <string name="pref_rem_logcat_title">Remove Logcat</string>
-    <string name="pref_rem_logcat_summary">Enabling boosts performance</string>
+    <string name="pref_rem_logcat_summaryOn">Click to enable logcat on next boot</string>
+    <string name="pref_rem_logcat_summaryOff">Disabling logcat will boost performance</string>
     <string name="pref_wifi_interval_title">Wifi Interval</string>
     <string name="pref_wifi_interval_summary">Time between wifi scans</string>
     <string name="pref_sleep_title">Sleep Mode</string>
