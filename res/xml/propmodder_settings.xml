@@ -70,12 +70,10 @@
             android:entries="@array/entries_prox_delay"
             android:entryValues="@array/values_prox_delay" />
 
-        <ListPreference android:key="pref_rem_logcat"
-            android:dialogTitle="@string/pref_rem_logcat_title"
+        <CheckBoxPreference android:key="pref_rem_logcat"
             android:title="@string/pref_rem_logcat_title"
-            android:summary="@string/pref_rem_logcat_summary"
-            android:entries="@array/entries_rem_logcat"
-            android:entryValues="@array/values_rem_logcat" />
+            android:summaryOn="@string/pref_rem_logcat_summaryOn"
+            android:summaryOff="@string/pref_rem_logcat_summaryOff" />
 
         <ListPreference android:key="pref_wifi_interval"
             android:dialogTitle="@string/pref_wifi_interval_title"
