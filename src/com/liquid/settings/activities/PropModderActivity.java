@@ -104,6 +104,21 @@ public class PropModderActivity extends PreferenceActivity
 
     private static final String SD_SPEED_PREF = "pref_sd_speed";
 
+    public static final String THREE_G_PREF = "pref_3g_speed";
+    public static final String THREE_G_PERSIST_PROP = "persist_3g_speed";
+    public static final String THREE_G_PROP_0 = "ro.ril.enable.3g.prefix";
+    public static final String THREE_G_PROP_1 = "ro.ril.hep";
+    public static final String THREE_G_PROP_2 = FAST_UP_PROP;
+    public static final String THREE_G_PROP_3 = "ro.ril.enable.dtm";
+    public static final String THREE_G_PROP_4 = "ro.ril.gprsclass";
+    public static final String THREE_G_PROP_5 = "ro.ril.hsdpa.category";
+    public static final String THREE_G_PROP_6 = "ro.ril.enable.a53";
+    public static final String THREE_G_PROP_7 = "ro.ril.hsupa.category";
+
+    public static final String GPU_PREF = "pref_gpu";
+    public static final String GPU_PERSIST_PROP = "persist_gpu";
+    public static final String GPU_PROP = "debug.sf.hw";
+
     private ListPreference mHeapsizePref;
     private ListPreference mLcdDensityPref;
     private ListPreference mMaxEventsPref;
@@ -116,6 +131,8 @@ public class PropModderActivity extends PreferenceActivity
     private CheckBoxPreference mTcpStackPref;
     private CheckBoxPreference mCheckInPref;
     private ListPreference mSdSpeedPref;
+    private CheckBoxPreference m3gSpeedPref;
+    private CheckBoxPreference mGpuPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -199,6 +216,21 @@ public class PropModderActivity extends PreferenceActivity
                 RootHelper.remountRO();
             }
         }
+
+        m3gSpeedPref = (CheckBoxPreference) prefSet.findPreference(THREE_G_PREF);
+        boolean speed3g0 = SystemProperties.getBoolean(THREE_G_PROP_0, false);
+        boolean speed3g1 = SystemProperties.getBoolean(THREE_G_PROP_1, false);
+        boolean speed3g2 = SystemProperties.getBoolean(THREE_G_PROP_2, false);
+        boolean speed3g3 = SystemProperties.getBoolean(THREE_G_PROP_3, false);
+        boolean speed3g4 = SystemProperties.getBoolean(THREE_G_PROP_4, false);
+        boolean speed3g5 = SystemProperties.getBoolean(THREE_G_PROP_5, false);
+        boolean speed3g6 = SystemProperties.getBoolean(THREE_G_PROP_6, false);
+        boolean speed3g7 = SystemProperties.getBoolean(THREE_G_PROP_7, false);
+        m3gSpeedPref.setChecked(SystemProperties.getBoolean(THREE_G_PERSIST_PROP, speed3g0 && speed3g1 && speed3g2 && speed3g3 && speed3g4 && speed3g5 && speed3g6 && speed3g7));
+
+        mGpuPref = (CheckBoxPreference) prefSet.findPreference(GPU_PREF);
+        boolean gpu = SystemProperties.getBoolean(GPU_PROP, false);
+        mGpuPref.setChecked(SystemProperties.getBoolean(GPU_PERSIST_PROP, gpu));
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -253,8 +285,21 @@ public class PropModderActivity extends PreferenceActivity
         } else if (preference == mLogcatPref) {
             value = mLogcatPref.isChecked();
             return RootHelper.runRootCommand(String.format(LOGCAT_CMD, String.valueOf(value ? LOGCAT_ON : LOGCAT_OFF)));
+        } else if (preference == m3gSpeedPref) {
+            value = m3gSpeedPref.isChecked();
+            return doMod(THREE_G_PERSIST_PROP, THREE_G_PROP_0, String.valueOf(value ? 1 : DISABLE))
+            && doMod(null, THREE_G_PROP_1, String.valueOf(value ? 1 : DISABLE))
+            && doMod(null, THREE_G_PROP_2, String.valueOf(value ? 2 : DISABLE))
+            && doMod(null, THREE_G_PROP_3, String.valueOf(value ? 1 : DISABLE))
+            && doMod(null, THREE_G_PROP_4, String.valueOf(value ? 12 : DISABLE))
+            && doMod(null, THREE_G_PROP_5, String.valueOf(value ? 8 : DISABLE))
+            && doMod(null, THREE_G_PROP_6, String.valueOf(value ? 1 : DISABLE))
+            && doMod(null, THREE_G_PROP_7, String.valueOf(value ? 5 : DISABLE));
+        } else if (preference == mGpuPref) {
+            value = mGpuPref.isChecked();
+            return doMod(GPU_PERSIST_PROP, GPU_PROP, String.valueOf(value ? 1 : DISABLE));
         }
-        return false;
+    return false;
     }
 
     private boolean doMod(String persist, String key, String value) {

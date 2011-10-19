@@ -726,6 +726,10 @@
     <string name="pref_check_in_summary">Stop sending usage data</string>
     <string name="pref_sd_speed_title">SDCard Booster</string>
     <string name="pref_sd_speed_summary">Modify read ahead buffer</string>
+    <string name="pref_3g_speed_title">3G Speed Hack</string>
+    <string name="pref_3g_speed_summary">Uncap 3g speed</string>
+    <string name="pref_gpu_title">GPU Acceleration</string>
+    <string name="pref_gpu_summary">To enable hardware acceleration where the GPU controls the UI instead of the CPU</string>
 
     <!-- Prop Viewer -->
     <string name="propviewer_title">Prop Viewer</string>
