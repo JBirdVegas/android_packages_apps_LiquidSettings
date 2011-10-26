@@ -1130,7 +1130,7 @@
     <string-array name="values_jbirdvegas">
         <item>http://bit.ly/oCWMo0</item>
         <item>https://github.com/JBirdVegas</item>
-        <item>https://market.android.com/developer?pub=n00bware</item>
+        <item>market://search?q=n00bware</item>
         <item>http://twitter.com/#!/JBird_Vegas</item>
         <item>https://plus.google.com/115602572254983357301</item>
     </string-array>
