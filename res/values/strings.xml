@@ -254,9 +254,12 @@
 
     <!-- Interface -->					  
     <string name="ui_title">Interface</string>
+    <string name="ui_other">Other</string>
     <string name="ui_summary">Phone look &amp; feel</string>
     <string name="pref_pinch_reflow_title">Reflow After Zoom</string>
     <string name="pref_pinch_reflow_summary">Reflow web after pinch zoom</string>
+    <string name="pref_share_screenshot_title">Screenshot Share</string>
+    <string name="pref_share_screenshot_summary">Share menu after screenshot</string>
     <string name="pref_power_prompt_title">Reboot Prompt</string>
     <string name="pref_power_prompt_summary">Extra dialog with recovery</string>
 

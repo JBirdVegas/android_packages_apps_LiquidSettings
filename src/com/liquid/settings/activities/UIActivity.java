@@ -40,6 +40,7 @@ public class UIActivity extends PreferenceActivity
     private static final String PINCH_REFLOW_PREF = "pref_pinch_reflow";
     private static final String RENDER_EFFECT_PREF = "pref_render_effect";
     private static final String POWER_PROMPT_PREF = "power_dialog_prompt";
+    private static final String SHARE_SCREENSHOT_PREF = "pref_share_screenshot";
     private static final String OVERSCROLL_PREF = "pref_overscroll_effect";
     private static final String OVERSCROLL_COLOR = "pref_overscroll_color";
     private static final String OVERSCROLL_WEIGHT_PREF = "pref_overscroll_weight";
@@ -47,6 +48,7 @@ public class UIActivity extends PreferenceActivity
     private PreferenceScreen mTrackballScreen;
     private CheckBoxPreference mPinchReflowPref;
     private CheckBoxPreference mPowerPromptPref;
+    private CheckBoxPreference mShareScreenshotPref;
     private ListPreference mRenderEffectPref;
     private ListPreference mOverscrollPref;
     private ListPreference mOverscrollColor;
@@ -74,7 +76,11 @@ public class UIActivity extends PreferenceActivity
 
         mPowerPromptPref = (CheckBoxPreference) prefSet.findPreference(POWER_PROMPT_PREF);
         mPowerPromptPref.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_DIALOG_PROMPT, 1) == 1);   
+                Settings.System.POWER_DIALOG_PROMPT, 1) == 1);
+
+        mShareScreenshotPref = (CheckBoxPreference) prefSet.findPreference(SHARE_SCREENSHOT_PREF);
+        mShareScreenshotPref.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.SHARE_SCREENSHOT, 0) == 1);
         
         mRenderEffectPref = (ListPreference) prefSet.findPreference(RENDER_EFFECT_PREF);
         mRenderEffectPref.setOnPreferenceChangeListener(this);
@@ -112,6 +118,11 @@ public class UIActivity extends PreferenceActivity
 	    } else if (preference == mPowerPromptPref) {
             value = mPowerPromptPref.isChecked();
             Settings.System.putInt(getContentResolver(), Settings.System.POWER_DIALOG_PROMPT,
+                    value ? 1 : 0);
+            return true;
+        } else if (preference == mShareScreenshotPref) {
+            value = mShareScreenshotPref.isChecked();
+            Settings.System.putInt(getContentResolver(), Settings.System.SHARE_SCREENSHOT,
                     value ? 1 : 0);
             return true;
         }

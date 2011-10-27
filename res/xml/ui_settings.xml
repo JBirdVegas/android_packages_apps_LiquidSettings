@@ -63,6 +63,11 @@
             android:entries="@array/entries_render_effect"
 			android:entryValues="@array/values_render_effect" />
 
+    </PreferenceCategory>
+
+    <!-- Other -->
+	<PreferenceCategory android:title="@string/ui_other">
+
 		<CheckBoxPreference android:key="pref_pinch_reflow"
 			android:title="@string/pref_pinch_reflow_title" 
             android:summary="@string/pref_pinch_reflow_summary" />
@@ -70,6 +75,10 @@
         <CheckBoxPreference android:key="power_dialog_prompt"
             android:title="@string/pref_power_prompt_title" 
             android:summary="@string/pref_power_prompt_summary" />
+
+        <CheckBoxPreference android:key="pref_share_screenshot"
+            android:title="@string/pref_share_screenshot_title" 
+            android:summary="@string/pref_share_screenshot_summary" />
 
     </PreferenceCategory>
 
