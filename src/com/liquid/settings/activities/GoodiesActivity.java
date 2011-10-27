@@ -131,8 +131,6 @@ public class GoodiesActivity extends PreferenceActivity {
     private static final String GOLAUNCHER_COMMAND = "GoLauncher_Command";
 	private static final String LAUNCHERPRO_COMMAND = "LauncherPro_Command";
 	private static final String STOCKLAUNCHER_COMMAND = "StockLauncher_Command";
-    private static final String STOCKMESSAGING_COMMAND = "StockMessaging_Command";
-    private static final String OTHERMESSAGING_COMMAND = "OtherMessaging_Command";
 	private static final String STOCKMUSIC_COMMAND = "StockMusic_Command";
 	private static final String OTHERMUSIC_COMMAND = "OtherMusic_Command";
     private static final String STOCKSTATUSBAR_COMMAND = "StockStatusBar_Command";
@@ -854,25 +852,7 @@ public class GoodiesActivity extends PreferenceActivity {
 		findPreference(STOCKLAUNCHER_COMMAND).setOnPreferenceClickListener(
 				new OnPreferenceClickListener() {
 					public boolean onPreferenceClick(Preference preference) {
-						RunSuCommand("sleep 1 && stlauncher", "Install default stock launcher?");
-						return true;
-					}
-				}
-		);
-
-		findPreference(STOCKMESSAGING_COMMAND).setOnPreferenceClickListener(
-				new OnPreferenceClickListener() {
-					public boolean onPreferenceClick(Preference preference) {
-						RunSuCommand("sleep 1 && stmms", "Install included messaging app?");
-						return true;
-					}
-				}
-		);
-
-		findPreference(OTHERMESSAGING_COMMAND).setOnPreferenceClickListener(
-				new OnPreferenceClickListener() {
-					public boolean onPreferenceClick(Preference preference) {
-						RunSuCommand("sleep 1 && thmms", "Install alternate messaging app?");
+						RunSuCommand("sleep 1 && stlauncher", "Install latest ics launcher?");
 						return true;
 					}
 				}

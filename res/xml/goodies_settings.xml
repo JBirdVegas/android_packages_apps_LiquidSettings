@@ -605,8 +605,8 @@
                     </PreferenceScreen>
 
                     <PreferenceScreen android:key="StockLauncher_Command"
-                            android:title="Stock"
-                            android:summary="Install stock launcher">
+                            android:title="Ics Launcher"
+                            android:summary="Install ics launcher">
                     </PreferenceScreen>
                 </PreferenceCategory>
 
@@ -619,18 +619,6 @@
                     <PreferenceScreen android:key="ThemeGmail_Command"
                             android:title="Themed"
                             android:summary="Install themed Gmail app">
-                    </PreferenceScreen>
-                </PreferenceCategory>
-
-                <PreferenceCategory android:title="Messaging">
-                    <PreferenceScreen android:key="StockMessaging_Command"
-                            android:title="Stock"
-                            android:summary="Install stock MMS app">
-                    </PreferenceScreen>
-
-                    <PreferenceScreen android:key="OtherMessaging_Command"
-                            android:title="Other"
-                            android:summary="Install other MMS app">
                     </PreferenceScreen>
                 </PreferenceCategory>
 
