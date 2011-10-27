@@ -19,11 +19,6 @@
     <!-- Lockscreen -->
     <PreferenceCategory android:key="pref_category_button_settings"
         android:title="@string/general_title">
-
-        <!-- Disable -->
-        <CheckBoxPreference android:key="pref_lockscreen_disable_on_security"
-            android:title="@string/pref_lockscreen_disable_on_security_title"
-            android:summary="@string/pref_lockscreen_disable_on_security_summary" />
         
         <!-- Gestures -->                
         <PreferenceScreen android:key="lockscreen_gestures"
