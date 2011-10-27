@@ -383,6 +383,8 @@
     <string name="pref_screentimeout_mode_summary">Choose screen off modes</string>
     <string name="pref_ring_mode_title">Sound</string>
     <string name="pref_ring_mode_summary">Choose sound button modes</string>
+    <string name="brightness_mode_auto">Auto</string>
+    <string name="brightness_mode_dim">Dim</string>
     <string name="sound_mode_silent">Silent</string>
     <string name="sound_mode_vibrate">Vibrate</string>
     <string name="sound_mode_sound">Sound</string>
