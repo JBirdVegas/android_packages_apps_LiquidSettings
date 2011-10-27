@@ -73,7 +73,6 @@ public class UIStatusBarActivity extends PreferenceActivity
         addPreferencesFromResource(R.xml.ui_status_bar);
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        
 		mStatusBarCompactCarrier = (CheckBoxPreference) prefSet.findPreference(PREF_STATUS_BAR_COMPACT_CARRIER);
         mStatusBarBrightnessControl = (CheckBoxPreference) prefSet.findPreference(PREF_STATUS_BAR_BRIGHTNESS_CONTROL);
 		mStatusBarPhoneSignal = (CheckBoxPreference) prefSet.findPreference(PREF_STATUS_BAR_PHONE_SIGNAL);
@@ -224,7 +223,6 @@ public class UIStatusBarActivity extends PreferenceActivity
                     carrierLabelCustom);
             return true;
         }
-
         return false;
     }
 
@@ -256,7 +254,6 @@ public class UIStatusBarActivity extends PreferenceActivity
                     value ? 1 : 0);
             return true;
         }
-
         return false;
     }
 
