@@ -1170,7 +1170,7 @@
 
     <string-array name="values_jrummy16">
         <item>http://bit.ly/nsdv1z</item>
-        <item>https://market.android.com/developer?pub=JRummy16</item>
+        <item>market://search?q=JRummy16</item>
         <item>http://twitter.com/#!/jrummy16</item>
         <item>https://plus.google.com/101898662480093123223</item>
     </string-array>
