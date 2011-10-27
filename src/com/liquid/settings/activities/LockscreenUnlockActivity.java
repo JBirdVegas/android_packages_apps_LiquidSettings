@@ -111,8 +111,7 @@ public class LockscreenUnlockActivity extends PreferenceActivity {
         } else if (preference == mQuickUnlockScreenPref) {
             value = mQuickUnlockScreenPref.isChecked();
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, value ? 1 : 0);
-            refreshDisableUnlock();        
+                    Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, value ? 1 : 0);       
             return true;
         } else if (preference == mTrackballUnlockPref) {
             value = mTrackballUnlockPref.isChecked();
@@ -136,7 +135,6 @@ public class LockscreenUnlockActivity extends PreferenceActivity {
             value = mDisableUnlockTab.isChecked();
             Settings.Secure.putInt(getContentResolver(),
                     Settings.Secure.LOCKSCREEN_GESTURES_DISABLE_UNLOCK, value ? 1 : 0);
-            refreshDisableUnlock();
             return true;        
         }    
         return false;
@@ -157,17 +155,21 @@ public class LockscreenUnlockActivity extends PreferenceActivity {
         final File mStoreFile = new File(Environment.getDataDirectory(),
                 "/misc/lockscreen_gestures");
         boolean GestureCanUnlock = false;
+        boolean GestureEnabled = Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_GESTURES_ENABLED, 0) == 1;
         boolean trackCanUnlock = Settings.System.getInt(getContentResolver(),
                 Settings.System.TRACKBALL_UNLOCK_SCREEN, 0) == 1;
         boolean menuCanUnlock = Settings.System.getInt(getContentResolver(),
                 Settings.System.MENU_UNLOCK_SCREEN, 0) == 1;
-        GestureLibrary gl = GestureLibraries.fromFile(mStoreFile);
-        if (gl.load()) {
-            for (String name : gl.getGestureEntries()) {
-                String[] payload = name.split("___", 2);
-				if ("UNLOCK".equals(payload[1])) {
-                    GestureCanUnlock = true;
-                    break;
+        if (GestureEnabled) {
+            GestureLibrary gl = GestureLibraries.fromFile(mStoreFile);
+            if (gl.load()) {
+                for (String name : gl.getGestureEntries()) {
+                    String[] payload = name.split("___", 2);
+                    if ("UNLOCK".equals(payload[1])) {
+                        GestureCanUnlock = true;
+                        break;
+                    }
                 }
             }
         }
