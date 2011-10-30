@@ -48,6 +48,8 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
     private static final String LOCKSCREEN_CALENDARS = "lockscreen_calendars";
     private static final String LOCKSCREEN_CALENDAR_ALARM = "lockscreen_calendar_alarm";
     private static final String LOCKSCREEN_CALENDAR_REMINDERS_ONLY = "lockscreen_calendar_reminders_only";
+    private static final String LOCKSCREEN_CALENDAR_SHOW_LOCATION = "lockscreen_calendar_show_location";
+    private static final String LOCKSCREEN_CALENDAR_SHOW_DESCRIPTION = "lockscreen_calendar_show_description";
     private static final String LOCKSCREEN_CALENDAR_LOOKAHEAD = "lockscreen_calendar_lookahead";
 
     private CheckBoxPreference mMusicControlPref;
@@ -61,6 +63,8 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
     private ListPreference mLockscreenWidgetLayout;
     private MultiSelectListPreference mCalendarsPref;
     private ListPreference mCalendarAlarmLookaheadPref;
+    private ListPreference mCalendarShowLocationPref;
+    private ListPreference mCalendarShowDescriptionPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -124,6 +128,20 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
         mCalendarAlarmLookaheadPref.setValue(String.valueOf(calendarAlarmLookaheadPref));
         mCalendarAlarmLookaheadPref.setOnPreferenceChangeListener(this);
 
+        mCalendarShowLocationPref = (ListPreference) prefSet
+                .findPreference(LOCKSCREEN_CALENDAR_SHOW_LOCATION);
+        int calendarShowLocationPref = Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_CALENDAR_SHOW_LOCATION, 0);
+        mCalendarShowLocationPref.setValue(String.valueOf(calendarShowLocationPref));
+        mCalendarShowLocationPref.setOnPreferenceChangeListener(this);
+
+        mCalendarShowDescriptionPref = (ListPreference) prefSet
+                .findPreference(LOCKSCREEN_CALENDAR_SHOW_DESCRIPTION);
+        int calendarShowDescriptionPref = Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_CALENDAR_SHOW_DESCRIPTION, 0);
+        mCalendarShowDescriptionPref.setValue(String.valueOf(calendarShowDescriptionPref));
+        mCalendarShowDescriptionPref.setOnPreferenceChangeListener(this);
+
         mCalendarAlarmPref = (CheckBoxPreference) prefSet.findPreference(LOCKSCREEN_CALENDAR_ALARM);
         mCalendarAlarmPref.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_CALENDAR_ALARM, 0) == 1);
@@ -182,6 +200,16 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
             int lockscreenMusicHeadsetPref = Integer.valueOf((String) newValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_MUSIC_CONTROLS_HEADSET, lockscreenMusicHeadsetPref);
+            return true;
+         } else if (preference == mCalendarShowLocationPref) {
+            int calendarShowLocationPref = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_CALENDAR_SHOW_LOCATION, calendarShowLocationPref);
+            return true;
+        } else if (preference == mCalendarShowDescriptionPref) {
+            int calendarShowDescriptionPref = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_CALENDAR_SHOW_DESCRIPTION, calendarShowDescriptionPref);
             return true;
         } else if (preference == mCalendarAlarmLookaheadPref) {
             long calendarAlarmLookaheadPref = Long.valueOf((String) newValue);

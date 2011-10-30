@@ -652,7 +652,11 @@
     <string name="pref_lockscreen_calendar_reminders_only_title">Reminders Only</string>
     <string name="pref_lockscreen_calendar_reminders_only_summary">Show events with reminders</string>
     <string name="pref_lockscreen_calendar_lookahead_title">Future Events</string>
-    <string name="pref_lockscreen_calendar_lookahead_summary">Lookahead into future events</string>    
+    <string name="pref_lockscreen_calendar_lookahead_summary">Lookahead into future events</string>
+    <string name="pref_lockscreen_calendar_show_location_title">Display Location</string>
+    <string name="pref_lockscreen_calendar_show_location_summary">Event location under title</string>
+    <string name="pref_lockscreen_calendar_show_description_title">Display Description</string>
+    <string name="pref_lockscreen_calendar_show_description_summary">Event description under title</string>    
     <string name="pref_lockscreen_music_controls_title">Music Controls</string>
     <string name="pref_lockscreen_music_controls_summary">Display music controls</string>                                                                                               
     <string name="pref_lockscreen_now_playing_title">Now Playing</string>
