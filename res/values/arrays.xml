@@ -605,7 +605,7 @@
 
     <string-array name="pref_lockscreen_style_entries">
         <item>Slider</item>
-        <item>Invisible</item>
+        <item>Rotary</item>
         <item>Sense</item>
         <item>Lense</item>
         <item>Ring</item>
