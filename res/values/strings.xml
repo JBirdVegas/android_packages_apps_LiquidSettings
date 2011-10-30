@@ -639,12 +639,16 @@
     <!-- Widgets -->
     <string name="lockscreen_music_title">Music</string>
     <string name="lockscreen_widgets_note_title">Note</string>
-    <string name="lockscreen_calendar_title">Calendar</string>    
+    <string name="lockscreen_calendar_title">Calendar</string>   
     <string name="lockscreen_widgets_note_summary">Lense hides all widgets except music</string>
     <string name="pref_lockscreen_always_battery_title">Battery Status</string>                                                           
     <string name="pref_lockscreen_always_battery_summary">Display battery status</string>
     <string name="pref_lockscreen_widgets_layout_title">Widgets Layout</string>
     <string name="pref_lockscreen_widgets_layout_summary">Change widgets alignment</string>
+    <string name="pref_lockscreen_widget_layout_entry_default">Default</string>
+    <string name="pref_lockscreen_widget_layout_entry_hidden">Hidden</string>
+    <string name="pref_lockscreen_widget_layout_entry_centered">Centered</string>
+    <string name="pref_lockscreen_widget_layout_entry_right">Right</string>
     <string name="pref_lockscreen_calendar_alarm_title">Next Reminder</string>
     <string name="pref_lockscreen_calendar_alarm_summary">Display next calendar event</string>
     <string name="pref_lockscreen_calendars_title">Event Calendars</string>
