@@ -47,12 +47,14 @@ public class SoundQuietHoursActivity extends PreferenceActivity
     private static final String KEY_QUIET_HOURS_MUTE = "quiet_hours_mute";
     private static final String KEY_QUIET_HOURS_STILL = "quiet_hours_still";
     private static final String KEY_QUIET_HOURS_DIM = "quiet_hours_dim";
+    private static final String KEY_QUIET_HOURS_HAPTIC = "quiet_hours_haptic";
 
     private Preference mQuietHoursEnd;
     private Preference mQuietHoursStart;
     private CheckBoxPreference mQuietHoursMute;
     private CheckBoxPreference mQuietHoursStill;
     private CheckBoxPreference mQuietHoursDim;
+    private CheckBoxPreference mQuietHoursHaptic;
     private CheckBoxPreference mQuietHoursEnabled;
 
     private String returnTime(String t) {
@@ -64,7 +66,6 @@ public class SoundQuietHoursActivity extends PreferenceActivity
         int mn = hr;
         hr = hr / 60;
         mn = mn % 60;
-
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.HOUR_OF_DAY, hr);
         cal.set(Calendar.MINUTE, mn);
@@ -94,6 +95,7 @@ public class SoundQuietHoursActivity extends PreferenceActivity
         mQuietHoursMute = (CheckBoxPreference) findPreference(KEY_QUIET_HOURS_MUTE);
         mQuietHoursStill = (CheckBoxPreference) findPreference(KEY_QUIET_HOURS_STILL);
         mQuietHoursDim = (CheckBoxPreference) findPreference(KEY_QUIET_HOURS_DIM);
+        mQuietHoursHaptic = (CheckBoxPreference) findPreference(KEY_QUIET_HOURS_HAPTIC);
     }
 
     @Override
@@ -124,8 +126,11 @@ public class SoundQuietHoursActivity extends PreferenceActivity
             mQuietHoursEnd.setSummary(returnTime(Settings.System.getString(getContentResolver(),
                     Settings.System.QUIET_HOURS_END)));
             return true;
+        } else if (preference == mQuietHoursHaptic) {
+            Settings.System.putInt(getContentResolver(), Settings.System.QUIET_HOURS_HAPTIC,
+                    mQuietHoursHaptic.isChecked() ? 1 : 0);
+            return true;
         }
-
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
@@ -145,7 +150,6 @@ public class SoundQuietHoursActivity extends PreferenceActivity
                     Settings.System.QUIET_HOURS_END)));
             return true;
         }
-
         return false;
     }
 
@@ -157,7 +161,6 @@ public class SoundQuietHoursActivity extends PreferenceActivity
             case DIALOG_QUIET_HOURS_END:
                 return createTimePicker(Settings.System.QUIET_HOURS_END);
         }
-
         return super.onCreateDialog(id);
     }
 
@@ -194,7 +197,6 @@ public class SoundQuietHoursActivity extends PreferenceActivity
                 }
             }
         });
-
         return dlg;
     }
 

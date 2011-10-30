@@ -838,6 +838,9 @@
     <string name="quiet_hours_dim">Dim LED</string>
     <string name="quiet_hours_dim_on">LED will dim if possible</string>
     <string name="quiet_hours_dim_off">LED will be full brightness</string>
+    <string name="quiet_hours_haptic">Haptic Feedback</string>
+    <string name="quiet_hours_haptic_on">Haptic feedback disabled</string>
+    <string name="quiet_hours_haptic_off">Haptic feedback enabled</string>
 
     <!-- System -->
     <string name="about_device_title">About</string>
