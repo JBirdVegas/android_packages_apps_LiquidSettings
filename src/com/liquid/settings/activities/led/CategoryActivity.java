@@ -82,7 +82,7 @@ public class CategoryActivity extends PreferenceActivity implements
         if (pref == mCategoryAddPref) {
             AlertDialog dialog = new AlertDialog.Builder(this).create();
             LayoutInflater factory = LayoutInflater.from(this);
-            final View textEntryView = factory.inflate(R.layout.add_cat, null);
+            final View textEntryView = factory.inflate(R.layout.addcat, null);
 
             dialog.setTitle(R.string.trackball_category_add_title);
             dialog.setView(textEntryView);
