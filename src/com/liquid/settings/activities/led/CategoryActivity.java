@@ -44,6 +44,7 @@ public class CategoryActivity extends PreferenceActivity implements
 
     private Set<String> mCategories;
     private SharedPreferences mPrefs;
+
     private Preference mCategoryAddPref;
     private ListPreference mCategoryRemovePref;
 
@@ -52,12 +53,15 @@ public class CategoryActivity extends PreferenceActivity implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.led_categories);
         setResult(RESULT_CANCELED);
+
         mCategoryAddPref = findPreference("category_add");
         mCategoryRemovePref = (ListPreference) findPreference("category_remove");
         mCategoryRemovePref.setOnPreferenceChangeListener(this);
+
         mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         String[] catList = fetchCategories(mPrefs);
         mCategories = new HashSet<String>(Arrays.asList(catList));
+
         updateRemoveEntries();
     }
 
@@ -69,6 +73,7 @@ public class CategoryActivity extends PreferenceActivity implements
             saveCategories();
             updateRemoveEntries();
         }
+
         return true;
     }
 
@@ -77,14 +82,22 @@ public class CategoryActivity extends PreferenceActivity implements
         if (pref == mCategoryAddPref) {
             AlertDialog dialog = new AlertDialog.Builder(this).create();
             LayoutInflater factory = LayoutInflater.from(this);
-            final View textEntryView = factory.inflate(R.layout.addcat, null);
+            final View textEntryView = factory.inflate(R.layout.add_cat, null);
+
             dialog.setTitle(R.string.trackball_category_add_title);
             dialog.setView(textEntryView);
             dialog.setButton(DialogInterface.BUTTON_POSITIVE, getString(android.R.string.ok),
                     new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     EditText textBox = (EditText) textEntryView.findViewById(R.id.cat_text);
-                    mCategories.add(textBox.getText().toString());
+                    String name = textBox.getText().toString();
+
+                    if (name.contains("=")) {
+                        showDisallowedNameError();
+                        return;
+                    }
+
+                    mCategories.add(name);
                     saveCategories();
                     updateRemoveEntries();
                 }
@@ -94,6 +107,7 @@ public class CategoryActivity extends PreferenceActivity implements
             dialog.show();
             return false;
         }
+
         return super.onPreferenceTreeClick(screen, pref);
     }
 
@@ -110,6 +124,7 @@ public class CategoryActivity extends PreferenceActivity implements
         SharedPreferences.Editor editor = mPrefs.edit();
         editor.putString(KEY_CATEGORY_LIST, LedUtils.stringFromArray(categories, '|'));
         editor.commit();
+
         Intent resultIntent = new Intent();
         resultIntent.putExtra(EXTRA_CATEGORIES, categories);
         setResult(RESULT_OK, resultIntent);
@@ -120,5 +135,14 @@ public class CategoryActivity extends PreferenceActivity implements
         mCategoryRemovePref.setEntries(categories);
         mCategoryRemovePref.setEntryValues(categories);
         mCategoryRemovePref.setEnabled(categories.length > 0);
+    }
+
+    private void showDisallowedNameError() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.trackball_category_add_error_title))
+               .setMessage(getString(R.string.trackball_category_add_error_summary))
+               .setCancelable(false)
+               .setPositiveButton(android.R.string.ok, null);
+        builder.create().show();
     }
 }

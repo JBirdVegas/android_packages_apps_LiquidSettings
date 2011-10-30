@@ -312,14 +312,16 @@
         <item>6</item>
     </string-array>
 
-    <string-array name="pref_trackball_force_mode_entries">
-        <item>Default</item>
-        <item>Force LED Off</item>
-        <item>Force LED Events</item>
-        <item>Force LED On</item>
+    <string-array name="pref_trackball_force_mode_entries" translatable="false">
+        <item>@string/trackball_force_mode_category</item>
+        <item>@string/trackball_force_mode_application</item>
+        <item>@string/trackball_force_mode_off</item>
+        <item>@string/trackball_force_mode_events</item>
+        <item>@string/trackball_force_mode_on</item>
     </string-array>
 
     <string-array name="pref_trackball_force_mode_values" translatable="false">
+        <item>category</item>
         <item>default</item>
         <item>forceoff</item>
         <item>forceeventon</item>

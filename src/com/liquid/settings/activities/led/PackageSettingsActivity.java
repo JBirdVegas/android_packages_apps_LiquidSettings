@@ -52,12 +52,18 @@ public class PackageSettingsActivity extends PreferenceActivity implements
     public static final String EXTRA_FORCE_MODE = "forcemode";
     public static final String EXTRA_PACKAGE = "package";
     public static final String EXTRA_TITLE = "title";
+
+    // Categories settings will be stored in this package
+    public static final String CATEGORY_PACKAGE_PREFIX = "com.liquid.led.categories_settings.";
+
     private static final String COLOR_RANDOM = "random";
     private static final String VALUE_DEFAULT = "default";
 
     private Set<String> mCategories;
     private SharedPreferences mPrefs;
+
     private int[] mColorList;
+
     private ListPreference mCategoryPref;
     private ListPreference mForceModePref;
     private ListPreference mColorPref;
@@ -68,6 +74,7 @@ public class PackageSettingsActivity extends PreferenceActivity implements
     private Preference mSavePref;
 
     private Intent mResultIntent = new Intent();
+
     private Handler mHandler = new Handler();
     private NotificationManager mNM;
     private static final int NOTIFICATION_ID = 400;
@@ -88,41 +95,75 @@ public class PackageSettingsActivity extends PreferenceActivity implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.led_package);
         setResult(RESULT_CANCELED);
+
         mCategoryPref = (ListPreference) findPreference("category");
         mCategoryPref.setOnPreferenceChangeListener(this);
         populateCategories();
+
         mForceModePref = (ListPreference) findPreference("force_mode");
         mForceModePref.setOnPreferenceChangeListener(this);
+
         mColorPref = (ListPreference) findPreference("color");
         mColorPref.setOnPreferenceChangeListener(this);
-        populateColors();
 
         mBlinkPref = (ListPreference) findPreference("blink");
+        mBlinkPref.setOnPreferenceChangeListener(this);
+
         mCustomPref = findPreference("custom_color");
         mTestPref = findPreference("test_color");
         mResetPref = findPreference("reset");
         mSavePref = findPreference("save");
-        if (getResources().getBoolean(R.bool.has_rgb_notification_led)) {
-            mBlinkPref.setOnPreferenceChangeListener(this);
-        } else {
-            PreferenceScreen screen = getPreferenceScreen();
-            screen.removePreference(mBlinkPref);
-            screen.removePreference(mCustomPref);
-        }
+
         String[] colorList = getResources().getStringArray(
                 com.android.internal.R.array.notification_led_random_color_set);
         mColorList = new int[colorList.length];
         for (int i = 0; i < colorList.length; i++) {
             mColorList[i] = Color.parseColor(colorList[i]);
         }
+
         mNM = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        populateColors();
+        updateUiForCapabilities();
         loadInitialData();
+    }
+
+    private void updateUiForCapabilities() {
+        PreferenceScreen screen = getPreferenceScreen();
+        Resources res = getResources();
+
+        if (res.getBoolean(R.bool.has_single_notification_led)) {
+            screen.removePreference(mColorPref);
+        }
+        if (!res.getBoolean(R.bool.has_rgb_notification_led)) {
+            screen.removePreference(mBlinkPref);
+            screen.removePreference(mCustomPref);
+            screen.removePreference(findPreference("color_notice"));
+        }
     }
 
     private void loadInitialData() {
         Intent intent = getIntent();
+
         setTitle(intent.getStringExtra(EXTRA_TITLE));
         mResultIntent.putExtra(EXTRA_PACKAGE, intent.getStringExtra(EXTRA_PACKAGE));
+
+        String pkgName = intent.getStringExtra(EXTRA_PACKAGE);
+        if (pkgName.startsWith(PackageSettingsActivity.CATEGORY_PACKAGE_PREFIX)) {
+            // We are editing a category setting, hide "category" list
+            PreferenceScreen screen = (PreferenceScreen) findPreference("package_screen");
+            screen.removePreference(mCategoryPref);
+
+            // Also remove "Use category settings" from LED modes
+            CharSequence[] oldArray = mForceModePref.getEntries();
+            CharSequence[] newArray = Arrays.copyOfRange(oldArray, 1, oldArray.length);
+            mForceModePref.setEntries(newArray);
+
+            oldArray = mForceModePref.getEntryValues();
+            newArray = Arrays.copyOfRange(oldArray, 1, oldArray.length);
+            mForceModePref.setEntryValues(newArray);
+        }
+
         setPrefWithDefault(mCategoryPref, intent, EXTRA_CATEGORY);
         setPrefWithDefault(mBlinkPref, intent, EXTRA_BLINK);
         setPrefWithDefault(mForceModePref, intent, EXTRA_FORCE_MODE);
@@ -141,7 +182,7 @@ public class PackageSettingsActivity extends PreferenceActivity implements
     }
 
     private void updateEnabledStates(String forceModeValue) {
-        boolean isOn = !TextUtils.equals(forceModeValue, "forceoff");
+        boolean isOn = !TextUtils.equals(forceModeValue, "forceoff") && !TextUtils.equals(forceModeValue, "category");
         mCustomPref.setEnabled(isOn);
         mTestPref.setEnabled(isOn);
         mColorPref.setEnabled(isOn);
@@ -152,17 +193,16 @@ public class PackageSettingsActivity extends PreferenceActivity implements
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String[] catList = CategoryActivity.fetchCategories(prefs);
         List<String> categories = new ArrayList<String>(Arrays.asList(catList));
+
         categories.add(0, ""); /* empty string = default category */
         mCategoryPref.setEntryValues(categories.toArray(new String[0]));
+
         categories.set(0, getResources().getString(R.string.trackball_category_misc));
         mCategoryPref.setEntries(categories.toArray(new String[0]));
     }
 
     private void populateColors() {
-        if (getResources().getBoolean(R.bool.has_mixable_dual_notification_led)) {
-            mColorPref.setEntries(R.array.entries_mixable_dual_led_colors);
-            mColorPref.setEntryValues(R.array.values_mixable_dual_led_colors);
-        } else if (getResources().getBoolean(R.bool.has_dual_notification_led)) {
+        if (getResources().getBoolean(R.bool.has_dual_notification_led)) {
             mColorPref.setEntries(R.array.entries_dual_led_colors);
             mColorPref.setEntryValues(R.array.values_dual_led_colors);
         } else {
@@ -218,11 +258,15 @@ public class PackageSettingsActivity extends PreferenceActivity implements
                 getContentResolver(), Settings.System.TRACKBALL_SCREEN_ON, 0);
         String color = findSetting(mColorPref, EXTRA_COLOR);
         String blink = findSetting(mBlinkPref, EXTRA_BLINK);
+
         if (color == null || blink == null) {
             return;
         }
+
         final Notification notification = new Notification();
+
         notification.flags |= Notification.FLAG_SHOW_LIGHTS;
+
         if (blink.equals(VALUE_DEFAULT)) {
             notification.ledOnMS =
                     getResources().getInteger(com.android.internal.R.integer.config_defaultNotificationLedOn);
@@ -232,6 +276,7 @@ public class PackageSettingsActivity extends PreferenceActivity implements
             notification.ledOnMS = 500;
             notification.ledOffMS = Integer.parseInt(blink) * 1000;
         }
+
         if (color.equals(VALUE_DEFAULT)) {
             notification.ledARGB =
                 getResources().getColor(com.android.internal.R.color.config_defaultNotificationColor);
@@ -242,9 +287,11 @@ public class PackageSettingsActivity extends PreferenceActivity implements
         } else {
             notification.ledARGB = Color.parseColor(color);
         }
+
         prepareSettingsForTest();
         mHandler.removeCallbacks(mCancelTestRunnable);
         mNM.notify(NOTIFICATION_ID, notification);
+
         AlertDialog.Builder endFlash = new AlertDialog.Builder(this);
         endFlash.setMessage(R.string.dialog_clear_flash);
         endFlash.setCancelable(false);
@@ -275,6 +322,7 @@ public class PackageSettingsActivity extends PreferenceActivity implements
             mResultIntent.putExtra(EXTRA_FORCE_MODE, value);
             updateEnabledStates(value);
         }
+
         return true;
     }
 
@@ -283,12 +331,14 @@ public class PackageSettingsActivity extends PreferenceActivity implements
         if (pref == mCustomPref) {
             String colorValue = findSetting(mColorPref, EXTRA_COLOR);
             int color = -1;
+
             if (colorValue != null && !colorValue.equals(COLOR_RANDOM)) {
                 try {
                     color = Color.parseColor(colorValue);
                 } catch (IllegalArgumentException e) {
                 }
             }
+
             ColorPickerDialog cp = new ColorPickerDialog(this, mPackageColorListener, color);
             cp.show();
         } else if (pref == mTestPref) {
@@ -298,6 +348,7 @@ public class PackageSettingsActivity extends PreferenceActivity implements
         } else if (pref == mSavePref) {
             done(Intent.ACTION_EDIT);
         }
+
         return false;
     }
 
@@ -306,10 +357,12 @@ public class PackageSettingsActivity extends PreferenceActivity implements
         @Override
         public void colorUpdate(int color) {
             final Notification notification = new Notification();
+
             notification.flags |= Notification.FLAG_SHOW_LIGHTS;
             notification.ledOnMS = 500;
             notification.ledOffMS = 0;
             notification.ledARGB = color;
+
             prepareSettingsForTest();
             mHandler.removeCallbacks(mCancelTestRunnable);
             mNM.notify(NOTIFICATION_ID, notification);
@@ -321,6 +374,7 @@ public class PackageSettingsActivity extends PreferenceActivity implements
             String colorString = String.format("#%02x%02x%02x",
                     Color.red(color), Color.green(color), Color.blue(color));
             mResultIntent.putExtra(EXTRA_COLOR, colorString);
+
             mHandler.removeCallbacks(mCancelTestRunnable);
             mHandler.post(mCancelTestRunnable);
         }

@@ -45,12 +45,13 @@ import java.util.TreeSet;
 import com.liquid.settings.R;
 
 public class NotificationActivity extends PreferenceActivity {
-
     public Handler mHandler = new Handler();
     public String mGlobalPackage;
+
     private static final int REQ_CATEGORY_LIST = 100;
     private static final int REQ_APPLICATION = 101;
     private static final int REQ_ADVANCED = 102;
+
     private Set<String> mCategories;
     private Preference mCategoryListPref;
     private Preference mAdvancedPref;
@@ -79,7 +80,6 @@ public class NotificationActivity extends PreferenceActivity {
             builder.append(category);
             return builder.toString();
         }
-
         public static PackageSettings fromString(String value) {
             if (TextUtils.isEmpty(value)) {
                 return null;
@@ -93,18 +93,13 @@ public class NotificationActivity extends PreferenceActivity {
             item.color = items[1];
             item.blink = items[2];
             item.forceMode = items[3];
+
             if (items.length == 4) {
                 item.category = "";
             } else {
-                StringBuilder builder = new StringBuilder();
-                for (int i = 4; i < items.length; i++) {
-                    if (i > 4) {
-                        builder.append("=");
-                    }
-                    builder.append(items[i]);
-                }
-                item.category = builder.toString();
+                item.category = items[4];
             }
+
             return item;
         }
     };
@@ -116,6 +111,7 @@ public class NotificationActivity extends PreferenceActivity {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.led_settings);
         initApplicationList();
+
         mCategoryListPref = findPreference("categories");
         mAdvancedPref = findPreference("advanced");
     }
@@ -123,16 +119,23 @@ public class NotificationActivity extends PreferenceActivity {
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen screen, Preference pref) {
         String key = pref.getKey();
+
         if (pref == mCategoryListPref) {
             Intent intent = new Intent(this, CategoryActivity.class);
             startActivityForResult(intent, REQ_CATEGORY_LIST);
         } else if (pref == mAdvancedPref) {
             Intent intent = new Intent(this, AdvancedActivity.class);
             startActivityForResult(intent, REQ_ADVANCED);
-        } else if (key != null && key.startsWith("app_")) {
+        } else if (key != null && (key.startsWith("app_") || key.startsWith("cat_"))) {
             String pkg = key.substring(4);
+
+            if (key.startsWith("cat_")) {
+                pkg = PackageSettingsActivity.CATEGORY_PACKAGE_PREFIX + pkg;
+            }
+
             PackageSettings settings = mPackages.get(pkg);
             Intent intent = new Intent(this, PackageSettingsActivity.class);
+
             intent.putExtra(PackageSettingsActivity.EXTRA_PACKAGE, pkg);
             intent.putExtra(PackageSettingsActivity.EXTRA_TITLE, pref.getTitle().toString());
             if (settings != null) {
@@ -141,8 +144,10 @@ public class NotificationActivity extends PreferenceActivity {
                 intent.putExtra(PackageSettingsActivity.EXTRA_FORCE_MODE, settings.forceMode);
                 intent.putExtra(PackageSettingsActivity.EXTRA_CATEGORY, settings.category);
             }
+
             startActivityForResult(intent, REQ_APPLICATION);
         }
+
         return super.onPreferenceTreeClick(screen, pref);
     }
 
@@ -178,6 +183,8 @@ public class NotificationActivity extends PreferenceActivity {
                 List<String> categories =
                         Arrays.asList(data.getStringArrayExtra(CategoryActivity.EXTRA_CATEGORIES));
                 boolean packageChanged = false;
+
+                /* make sure to clear out all references to deleted categories */
                 for (PackageSettings pkg : mPackages.values()) {
                     if (TextUtils.isEmpty(pkg.category)) {
                         continue;
@@ -191,8 +198,10 @@ public class NotificationActivity extends PreferenceActivity {
                     savePackageList();
                 }
             }
+
             initApplicationList();
         }
+
         super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -200,8 +209,10 @@ public class NotificationActivity extends PreferenceActivity {
         final ProgressDialog pbarDialog =
                 ProgressDialog.show(this, getString(R.string.dialog_trackball_loading),
                                     getString(R.string.dialog_trackball_packagelist), true, false);
+
         Thread t = new Thread() {
             public void run() {
+                /* pretend an intent to close any open category preference screen */
                 onNewIntent(new Intent());
                 parsePackageList();
                 populateApplicationList();
@@ -220,6 +231,7 @@ public class NotificationActivity extends PreferenceActivity {
         String baseString = Settings.System.getString(getContentResolver(),
                             Settings.System.NOTIFICATION_PACKAGE_COLORS);
         String[] array = LedUtils.arrayFromString(baseString, '|');
+
         mPackages = new HashMap<String, PackageSettings>();
         if (array != null) {
             for (String item : array) {
@@ -266,6 +278,7 @@ public class NotificationActivity extends PreferenceActivity {
         if (resId >= 0) {
             return getResources().getString(resId);
         }
+
         return null;
     }
 
@@ -295,11 +308,13 @@ public class NotificationActivity extends PreferenceActivity {
 
     private Set<String> getCategoryList() {
         Set<String> categories = new TreeSet<String>();
+
         for (PackageSettings settings : mPackages.values()) {
             if (settings.category != null) {
                 categories.add(settings.category);
             }
         }
+
         return categories;
     }
 
@@ -307,14 +322,19 @@ public class NotificationActivity extends PreferenceActivity {
         final PreferenceCategory parent = (PreferenceCategory) findPreference("applications");
         Map<String, PackageInfo> sortedPackages = new TreeMap<String, PackageInfo>();
         Map<String, PreferenceScreen> categories = new HashMap<String, PreferenceScreen>();
+
         for (PackageInfo pkgInfo : getPackageList()) {
             sortedPackages.put(getPackageName(pkgInfo), pkgInfo);
         }
+
         parent.removeAll();
+
         PreferenceScreen unconfGroup = getPreferenceManager().createPreferenceScreen(this);
         unconfGroup.setKey("applications_unconf");
         unconfGroup.setTitle(getResources().getString(R.string.trackball_category_unconfigured));
         parent.addPreference(unconfGroup);
+        createEditCategorySettings(unconfGroup);
+
         for (String category : getCategoryList()) {
             PreferenceScreen categoryGroup = getPreferenceManager().createPreferenceScreen(this);
             categoryGroup.setKey("applications_" + category);
@@ -324,27 +344,43 @@ public class NotificationActivity extends PreferenceActivity {
             }
             categoryGroup.setTitle(category);
             parent.addPreference(categoryGroup);
+            createEditCategorySettings(categoryGroup);
         }
+
         for (Map.Entry<String, PackageInfo> pkgEntry : sortedPackages.entrySet()) {
             String pkg = pkgEntry.getValue().packageName;
+
             if (TextUtils.isEmpty(pkg)) {
                 continue;
             }
+
             PackageSettings settings = mPackages.get(pkg);
             PreferenceScreen catScreen = unconfGroup;
+
             if (settings != null) {
                 catScreen = categories.get(settings.category);
             }
+
             if (catScreen != null) {
                 Preference appName = getPreferenceManager().createPreferenceScreen(this);
                 String shortPackageName = pkgEntry.getKey();
+
                 appName.setKey("app_" + pkg);
                 appName.setTitle(shortPackageName);
                 catScreen.addPreference(appName);
             }
         }
-        if (unconfGroup.getPreferenceCount() == 0) {
+
+        if (unconfGroup.getPreferenceCount() == 1) { // 1 because of the "edit category setting"
             parent.removePreference(unconfGroup);
         }
+    }
+
+    private void createEditCategorySettings(PreferenceScreen cat) {
+        Preference editCat = getPreferenceManager().createPreferenceScreen(this);
+        editCat.setKey("cat_" + cat.getKey().substring("applications_".length()));
+        editCat.setTitle(R.string.trackball_category_edit_title);
+        editCat.setSummary(R.string.trackball_category_edit_summary);
+        cat.addPreference(editCat);
     }
 }

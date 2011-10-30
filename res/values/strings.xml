@@ -299,8 +299,12 @@
     <string name="trackball_category_screen">Manage Categories</string>
     <string name="trackball_category_add_title">Add Category</string>
     <string name="trackball_category_add_summary">Add category to the list</string>
+    <string name="trackball_category_add_error_title">Error!</string>
+    <string name="trackball_category_add_error_summary">Category Name May Not Contain \'=\'</string>
     <string name="trackball_category_remove_title">Remove Category</string>
     <string name="trackball_category_remove_summary">Remove category from list</string>
+    <string name="trackball_category_edit_title">Edit Category</string>
+    <string name="trackball_category_edit_summary">Edit category settings</string>
     <string name="trackball_reset_all">Reset All</string>
     <string name="trackball_color_notice_title">NOTE:</string>
     <string name="trackball_color_notice_summary">Some colors only display on certain devices</string>
@@ -334,6 +338,11 @@
     <string name="trackball_color_entry_light_blue">Light Blue</string>
     <string name="trackball_color_entry_random">Random</string>
     <string name="trackball_color_entry_amber">Amber</string>
+    <string name="trackball_force_mode_category">Use Category Settings</string>
+    <string name="trackball_force_mode_application">Use App Settings</string>
+    <string name="trackball_force_mode_off">Force LED Off</string>
+    <string name="trackball_force_mode_events">Force On For Events</string>
+    <string name="trackball_force_mode_on">Force LED On</string>
     <string name="notification_battery_warning_title">WARNING: May cause battery drain</string>
     <string name="notification_battery_warning">This option has been proven to increase the amount of battery drain by ~3% per hour</string>
 
