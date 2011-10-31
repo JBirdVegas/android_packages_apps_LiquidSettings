@@ -18,7 +18,13 @@ package com.liquid.settings.activities;
 
 import java.io.File;
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
@@ -118,6 +124,7 @@ public class PropModderActivity extends PreferenceActivity
     public static final String GPU_PREF = "pref_gpu";
     public static final String GPU_PERSIST_PROP = "persist_gpu";
     public static final String GPU_PROP = "debug.sf.hw";
+    private int NOTE_ID;
 
     private ListPreference mHeapsizePref;
     private ListPreference mLcdDensityPref;
@@ -133,6 +140,7 @@ public class PropModderActivity extends PreferenceActivity
     private ListPreference mSdSpeedPref;
     private CheckBoxPreference m3gSpeedPref;
     private CheckBoxPreference mGpuPref;
+    private NotificationManager mNoteMan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -342,7 +350,31 @@ public class PropModderActivity extends PreferenceActivity
         } finally {
             RootHelper.remountRO();
         }
+        if (success) {
+            //quick notification when we are successfull
+            displayNotification("success", key, value);
+        }
+        if (!success) {
+            //quick notification when we are unsuccessfull
+            displayNotification("fail", key, value);
+        }
 
         return success;
     }
+
+    public void displayNotification(String success, String prop, String value) {
+        mNoteMan = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        Notification note = new Notification(R.drawable.ic_propmodder, String.format("%s: { %s to %s }",
+                 success, prop, value), System.currentTimeMillis());
+
+        Context context = getApplicationContext();
+        CharSequence contentTitle = "LiquidSettings";
+        CharSequence contentText = "this won't be seen as we are canceling instantly";
+        Intent notifyIntent = new Intent(android.content.Intent.ACTION_VIEW,Uri.parse("http://github.com/LiquidSmoothROMs"));
+        PendingIntent intent = PendingIntent.getActivity(PropModderActivity.this, 0, notifyIntent, android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+        note.setLatestEventInfo(context, contentTitle, contentText, intent);
+        mNoteMan.notify(NOTE_ID, note);
+        mNoteMan.cancel(NOTE_ID);
+    }
+
 }
