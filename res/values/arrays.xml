@@ -785,11 +785,9 @@
         <item>DeskClock</item>
         <item>Email</item>
         <item>Gmail</item>
-        <item>File Manager</item>
         <item>LauncherPro</item>
         <item>LiveWallpapers</item>
         <item>News and Weather</item>
-        <item>Terminal Emulator</item>
         <item>Titanium Backup</item>
     </string-array>
     
@@ -799,11 +797,9 @@
         <item>rmdeskclock</item>
         <item>rmemail</item>
         <item>rmgmail</item>
-        <item>rmfilemanager</item>
         <item>rmlauncherpro</item>
         <item>rmlivewallpapers</item>
         <item>rmgenie</item>
-        <item>rmterminal</item>
         <item>rmtitanium</item>
     </string-array>
 
