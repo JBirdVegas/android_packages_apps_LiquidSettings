@@ -39,8 +39,8 @@ import android.widget.TimePicker;
 
 import com.liquid.settings.R;
 
-public class SoundActivity extends PreferenceActivity implements 
-        OnPreferenceChangeListener {
+public class SoundActivity extends PreferenceActivity 
+    implements OnPreferenceChangeListener {
 
     private static final int DIALOG_QUIET_HOURS_START = 1;
     private static final int DIALOG_QUIET_HOURS_END = 2;
@@ -53,6 +53,7 @@ public class SoundActivity extends PreferenceActivity implements
     private static final String VIBRATE_IN_CALL = "vibrate-in-call";
     private static final String DEFAULT_VOLUME_MEDIA = "default-volume-media";
     private static final String LOCK_VOLUME_KEYS = "lock-volume-keys";
+    private static final String VOLUME_KEY_BEEPS = "volume-key-beeps";
     private static final String RINGS_SPEAKER = "ring-speaker";
     private static final String RINGS_ATTENUATION = "ring-attn";
     private static final String RINGS_LIMITVOL = "ring-limitvol";
@@ -103,6 +104,11 @@ public class SoundActivity extends PreferenceActivity implements
         p = (CheckBoxPreference) prefSet.findPreference(LOCK_VOLUME_KEYS);
         p.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCK_VOLUME_KEYS, 0) != 0);
+        p.setOnPreferenceChangeListener(this);
+
+        p = (CheckBoxPreference) prefSet.findPreference(VOLUME_KEY_BEEPS);
+        p.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.VOLUME_KEY_BEEPS, 1) != 0);
         p.setOnPreferenceChangeListener(this);
         
         p = (CheckBoxPreference) prefSet.findPreference(RINGS_SPEAKER);
@@ -175,6 +181,9 @@ public class SoundActivity extends PreferenceActivity implements
         } else if (key.equals(VIBRATE_IN_CALL)) {
             Settings.System.putInt(getContentResolver(), Settings.System.VIBRATE_IN_CALL,
                     getBoolean(newValue) ? 1 : 0);
+        } else if (key.equals(VOLUME_KEY_BEEPS)) {
+            Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_KEY_BEEPS,
+                    getBoolean(newValue) ? 1 : 0);
         } else if (key.equals(DEFAULT_VOLUME_MEDIA)) {
             Settings.System.putInt(getContentResolver(), Settings.System.DEFAULT_VOLUME_CONTROL_MEDIA,
                     getBoolean(newValue) ? 1 : 0);
@@ -210,7 +219,6 @@ public class SoundActivity extends PreferenceActivity implements
             SystemProperties.set(getKey(key), String.valueOf(getInt(newValue)));
             mHandler.sendMessage(mHandler.obtainMessage(0, key));
         }
-
         return true;
     }
 
@@ -223,7 +231,6 @@ public class SoundActivity extends PreferenceActivity implements
             case DIALOG_QUIET_HOURS_END:
                 return createTimePicker(Settings.System.QUIET_HOURS_END);
         }
-
         return super.onCreateDialog(id);
     }
 
@@ -260,7 +267,6 @@ public class SoundActivity extends PreferenceActivity implements
                         ListPreference p = (ListPreference) findPreference(msg.obj.toString());
                         p.setSummary(p.getEntry());
                     }
-
                     break;
             }
         }
