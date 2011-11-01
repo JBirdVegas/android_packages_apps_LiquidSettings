@@ -18,15 +18,51 @@ package com.liquid.settings.activities;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.liquid.settings.R;
+import com.liquid.settings.utilities.RootHelper;
 
 public class MainActivity extends PreferenceActivity {
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    /*TODO unsure of what command to send to make bootloader reboot */
 
-		addPreferencesFromResource(R.xml.liquid_settings);
-	}
+    /* handles for our menu hard key press */
+    private final int MENU_REBOOT = 1;
+    private final int MENU_RECOVERY = 2;
+/*  private final int MENU_BOOTLOADER = 3; */
+    private final int MODE_RECOVERY = 1;
+/*  private final int MODE_BOOTLOADER = 69 I have no idea what we need to do to boot into bootloader */
+    private final String REBOOT = "Reboot";
+    private final String RECOVERY = "Recovery";
+/*  private final String BOOTLOADER = "Bootloader"; */
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.liquid_settings);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        boolean result = super.onCreateOptionsMenu(menu);
+        menu.add(0, MENU_REBOOT, 0, RECOVERY).setIcon(R.drawable.app_icon);
+        menu.add(0, MENU_RECOVERY, 0, REBOOT).setIcon(R.drawable.ic_application);
+/*      menu.add(0, MENU_BOOTLOADER, 0, BOOTLOADER).setIcon(R.drawable.bootloader); */
+        return result;
+    }
+ 
+    /* Handle the menu selection */
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case MENU_REBOOT:
+            return RootHelper.runRootCommand("reboot");
+        case MENU_RECOVERY:
+            return RootHelper.reboot(MODE_RECOVERY);
+/*      case MENU_BOOTLOADER:
+            return RootHelper.reboot(MODE_BOOTLOADER); */
+        }
+        return false;
+    }
 }

@@ -79,13 +79,20 @@ public class RootHelper {
     }
 
     public static boolean remountRW() {
-        Log.d(TAG, "Remounting /system rw");
-        return runRootCommand(String.format(REMOUNT_CMD, "rw"));
+        if (!runRootCommand(String.format(REMOUNT_CMD, "rw"))) {
+            throw new RuntimeException("Could not remount /system rw");
+        } else {
+            return true;
+        }
     }
 
     public static boolean remountRO() {
         Log.d(TAG, "Remounting /system ro");
-        return runRootCommand(String.format(REMOUNT_CMD, "ro"));
+        if (!runRootCommand(String.format(REMOUNT_CMD, "ro"))) {
+            throw new RuntimeException("Could not remount /system ro");
+        } else {
+            return true;
+        }
     }
 
     public static void updateShowBuild() {
@@ -103,5 +110,10 @@ public class RootHelper {
         Log.d(TAG, "Installing script to control logcat persistance");
         runRootCommand(String.format("echo %s > %s", LOGCAT_ALIVE_SCRIPT, LOGCAT_ALIVE_PATH));
         return runRootCommand("chmod 777 " + LOGCAT_ALIVE_PATH);
+    }
+
+    public static boolean reboot(int mode) {
+        Log.d(TAG, String.format("sending %i command into /data/.recovery_mode", mode));
+        return runRootCommand(String.format("echo %i > /data/.recovery_mode")) && runRootCommand("reboot");
     }
 }
