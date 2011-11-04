@@ -80,7 +80,7 @@ public class UIStatusBarActivity extends PreferenceActivity
         mStatusBarBatteryLowBatt = (CheckBoxPreference) prefSet.findPreference(PREF_STATUS_BAR_BATTERY_LOW_BATT);    
 
         mStatusBarCompactCarrier.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_COMPACT_CARRIER, 0) == 1));
+                Settings.System.STATUS_BAR_COMPACT_CARRIER, 1) == 1));
 
         mStatusBarBrightnessControl.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.STATUS_BAR_BRIGHTNESS_TOGGLE, 0) == 1));
