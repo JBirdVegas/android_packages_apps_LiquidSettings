@@ -47,8 +47,8 @@ public class MainActivity extends PreferenceActivity {
 
     public boolean onCreateOptionsMenu(Menu menu){
         boolean result = super.onCreateOptionsMenu(menu);
-        menu.add(0, MENU_REBOOT, 0, RECOVERY).setIcon(R.drawable.app_icon);
-        menu.add(0, MENU_RECOVERY, 0, REBOOT).setIcon(R.drawable.ic_application);
+        menu.add(0, MENU_REBOOT, 0, RECOVERY).setIcon(R.drawable.menu_recovery);
+        menu.add(0, MENU_RECOVERY, 0, REBOOT).setIcon(R.drawable.menu_reboot);
 /*      menu.add(0, MENU_BOOTLOADER, 0, BOOTLOADER).setIcon(R.drawable.bootloader); */
         return result;
     }

@@ -49,6 +49,7 @@ public class PropModderActivity extends PreferenceActivity
     private static final String SD_SPEED_CMD = "busybox sed -i \"/179:0/ c echo %s > /sys/devices/virtual/bdi/179:0/read_ahead_kb\" /system/etc/init.d/90liquid";
     private static final String SD_SPEED_ONtheFLY = "echo %s > /sys/devices/virtual/bdi/179:0/read_ahead_kb";
     private static final String LOGCAT_CMD = "busybox sed -i \"/rm -f /dev/log/main c %s\" /system/etc/init.d/90liquid";
+    private static final String FIND_CMD = "grep -q \"%s\" /system/build.prop";
 
     private static final String VM_HEAPSIZE_PREF = "pref_vm_heapsize";
     private static final String VM_HEAPSIZE_PROP = "dalvik.vm.heapsize";
@@ -196,22 +197,35 @@ public class PropModderActivity extends PreferenceActivity
         mSleepPref.setOnPreferenceChangeListener(this);
 
         mTcpStackPref = (CheckBoxPreference) prefSet.findPreference(TCP_STACK_PREF);
-        boolean tcpstack0 = SystemProperties.getBoolean(TCP_STACK_PROP_0, true);
-        boolean tcpstack1 = SystemProperties.getBoolean(TCP_STACK_PROP_1, true);
-        boolean tcpstack2 = SystemProperties.getBoolean(TCP_STACK_PROP_2, true);
-        boolean tcpstack3 = SystemProperties.getBoolean(TCP_STACK_PROP_3, true);
-        boolean tcpstack4 = SystemProperties.getBoolean(TCP_STACK_PROP_4, true);
-        mTcpStackPref.setChecked(SystemProperties.getBoolean(
-                TCP_STACK_PERSIST_PROP, tcpstack0 && tcpstack1 && tcpstack2 && tcpstack3 && tcpstack4));
+        boolean stack = RootHelper.runRootCommand(String.format(FIND_CMD, TCP_STACK_PROP_0));
+        mTcpStackPref.setChecked(stack);
 
         mCheckInPref = (CheckBoxPreference) prefSet.findPreference(CHECK_IN_PREF);
-        boolean checkin = SystemProperties.getBoolean(CHECK_IN_PROP, true);
-        mCheckInPref.setChecked(SystemProperties.getBoolean(
-                CHECK_IN_PERSIST_PROP, !checkin));
+        boolean checkin = RootHelper.runRootCommand(String.format(FIND_CMD, CHECK_IN_PROP));
+        mCheckInPref.setChecked(checkin);
 
         mSdSpeedPref = (ListPreference) prefSet.findPreference(SD_SPEED_PREF);
         mSdSpeedPref.setOnPreferenceChangeListener(this);
 
+        m3gSpeedPref = (CheckBoxPreference) prefSet.findPreference(THREE_G_PREF);
+        boolean speed3g0 = RootHelper.runRootCommand(String.format(FIND_CMD, THREE_G_PROP_0));
+        boolean speed3g1 = RootHelper.runRootCommand(String.format(FIND_CMD, THREE_G_PROP_1));
+        boolean speed3g3 = RootHelper.runRootCommand(String.format(FIND_CMD, THREE_G_PROP_3));
+        boolean speed3g6 = RootHelper.runRootCommand(String.format(FIND_CMD, THREE_G_PROP_6));
+        m3gSpeedPref.setChecked(speed3g0 && speed3g1 && speed3g3 && speed3g6);
+
+        mGpuPref = (CheckBoxPreference) prefSet.findPreference(GPU_PREF);
+        boolean gpu = RootHelper.runRootCommand(String.format(FIND_CMD, GPU_PROP));
+        mGpuPref.setChecked(gpu);
+
+        /*
+         * we have some requirements so we check
+         * and create if needed
+         * TODO: .exists() is ok but we should use
+         *     : .isDirectory() and .isFile() to be sure
+         *     : as .exists() returns positive if a txt file
+         *     : exists @ /system/tmp
+         */
         File tmpDir = new File("/system/tmp");
         boolean exists = tmpDir.exists();
 
@@ -224,21 +238,6 @@ public class PropModderActivity extends PreferenceActivity
                 RootHelper.remountRO();
             }
         }
-
-        m3gSpeedPref = (CheckBoxPreference) prefSet.findPreference(THREE_G_PREF);
-        boolean speed3g0 = SystemProperties.getBoolean(THREE_G_PROP_0, false);
-        boolean speed3g1 = SystemProperties.getBoolean(THREE_G_PROP_1, false);
-        boolean speed3g2 = SystemProperties.getBoolean(THREE_G_PROP_2, false);
-        boolean speed3g3 = SystemProperties.getBoolean(THREE_G_PROP_3, false);
-        boolean speed3g4 = SystemProperties.getBoolean(THREE_G_PROP_4, false);
-        boolean speed3g5 = SystemProperties.getBoolean(THREE_G_PROP_5, false);
-        boolean speed3g6 = SystemProperties.getBoolean(THREE_G_PROP_6, false);
-        boolean speed3g7 = SystemProperties.getBoolean(THREE_G_PROP_7, false);
-        m3gSpeedPref.setChecked(SystemProperties.getBoolean(THREE_G_PERSIST_PROP, speed3g0 && speed3g1 && speed3g2 && speed3g3 && speed3g4 && speed3g5 && speed3g6 && speed3g7));
-
-        mGpuPref = (CheckBoxPreference) prefSet.findPreference(GPU_PREF);
-        boolean gpu = SystemProperties.getBoolean(GPU_PROP, false);
-        mGpuPref.setChecked(SystemProperties.getBoolean(GPU_PERSIST_PROP, gpu));
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
