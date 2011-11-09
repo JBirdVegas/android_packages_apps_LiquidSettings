@@ -780,7 +780,6 @@
     </string-array>
 
     <string-array name="entries_system_removal" translatable="false">
-        <item>App Manager</item>
         <item>CarHome</item>
         <item>DeskClock</item>
         <item>Email</item>
@@ -788,11 +787,11 @@
         <item>LauncherPro</item>
         <item>LiveWallpapers</item>
         <item>News and Weather</item>
+        <item>RomToolbox</item>
         <item>Titanium Backup</item>
     </string-array>
     
     <string-array name="values_system_removal" translatable="false">
-        <item>rmappmanager</item>
         <item>rmcarhome</item>
         <item>rmdeskclock</item>
         <item>rmemail</item>
@@ -800,6 +799,7 @@
         <item>rmlauncherpro</item>
         <item>rmlivewallpapers</item>
         <item>rmgenie</item>
+        <item>rmromtoolbox</item>
         <item>rmtitanium</item>
     </string-array>
 
