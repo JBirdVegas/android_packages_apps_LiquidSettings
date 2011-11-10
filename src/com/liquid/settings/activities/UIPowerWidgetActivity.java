@@ -77,11 +77,11 @@ public class UIPowerWidgetActivity extends PreferenceActivity
         mPowerWidget.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.EXPANDED_VIEW_WIDGET, 1) == 1));
         mPowerWidgetHideOnChange.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.EXPANDED_HIDE_ONCHANGE, 0) == 1));
+                Settings.System.EXPANDED_HIDE_ONCHANGE, 1) == 1));
         mPowerWidgetHideIndicator.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.EXPANDED_HIDE_INDICATOR, 0) == 1));
+                Settings.System.EXPANDED_HIDE_INDICATOR, 1) == 1));
 		mPowerWidgetHideScrollBar.setChecked((Settings.System.getInt(getContentResolver(),
-				Settings.System.EXPANDED_HIDE_SCROLLBAR, 0) == 1));
+				Settings.System.EXPANDED_HIDE_SCROLLBAR, 1) == 1));
         mPowerWidgetLoc = (CheckBoxPreference) prefSet.findPreference(POWER_WIDGET_LOC);
         mPowerWidgetHapticFeedback.setValue(Integer.toString(Settings.System.getInt(getContentResolver(),
                 Settings.System.EXPANDED_HAPTIC_FEEDBACK, 2)));
