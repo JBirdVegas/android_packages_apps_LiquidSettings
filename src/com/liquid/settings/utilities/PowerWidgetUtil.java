@@ -96,8 +96,7 @@ public class PowerWidgetUtil {
                              + BUTTON_DELIMITER + BUTTON_BRIGHTNESS
                              + BUTTON_DELIMITER + BUTTON_GPS
                              + BUTTON_DELIMITER + BUTTON_SOUND
-                             + BUTTON_DELIMITER + BUTTON_WIFI
-                             + BUTTON_DELIMITER + BUTTON_FLASHLIGHT;
+                             + BUTTON_DELIMITER + BUTTON_WIFI;
 
     public static String getCurrentButtons(Context context) {
         String buttons = Settings.System.getString(context.getContentResolver(), Settings.System.WIDGET_BUTTONS);
