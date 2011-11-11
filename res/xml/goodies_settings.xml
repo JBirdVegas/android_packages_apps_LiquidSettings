@@ -19,44 +19,6 @@
 	xmlns:liquid="http://schemas.android.com/apk/res/com.liquid.settings">
 
         <PreferenceCategory 
-            android:title="Jrummy">
-
-            <!-- App Manager -->
-            <com.liquid.settings.provider.IconPreferenceScreen
-                android:key="app_manager"
-                liquid:icon="@drawable/ic_manager"
-                android:title="@string/app_manager_title"
-                android:summary="@string/app_manager_summary">
-                <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.jrummy.app.managerfree"
-                    android:targetClass="com.jrummy.app.managerfree.AppManager" />
-            </com.liquid.settings.provider.IconPreferenceScreen>
-
-            <!-- Font Installer -->
-            <com.liquid.settings.provider.IconPreferenceScreen
-                android:key="font_installer"
-                liquid:icon="@drawable/ic_fonts"
-                android:title="@string/font_installer_title"
-                android:summary="@string/font_installer_summary">
-                <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.jrummy.font.installer"
-                    android:targetClass="com.jrummy.font.installer.MainActivity" />
-            </com.liquid.settings.provider.IconPreferenceScreen>
-
-            <!-- Theme Chooser -->
-            <com.liquid.settings.provider.IconPreferenceScreen
-                android:key="theme_chooser"
-                liquid:icon="@drawable/ic_themes"
-                android:title="@string/theme_chooser_title"
-                android:summary="@string/theme_chooser_summary">
-                <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.jrummy.list.tmobile.themes"
-                    android:targetClass="com.jrummy.list.tmobile.themes.ListThemes" />
-            </com.liquid.settings.provider.IconPreferenceScreen>
-    
-        </PreferenceCategory>
-
-        <PreferenceCategory 
             android:title="Liquid">
 
             <!-- Boot -->

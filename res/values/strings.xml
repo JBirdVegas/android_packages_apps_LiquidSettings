@@ -854,12 +854,6 @@
     <string name="about_device_summary">Hardware &amp; software</string>
     <string name="goodies_title">Goodies</string>
     <string name="goodies_summary">Nom Nom for your phone</string>
-    <string name="app_manager_title">App Manager</string>
-    <string name="app_manager_summary">Easily manage your apps</string>
-    <string name="font_installer_title">Font Installer</string>
-    <string name="font_installer_summary">Browse and install fonts</string>
-    <string name="theme_chooser_title">Theme Chooser</string>
-    <string name="theme_chooser_summary">Browse and install themes</string>
     <string name="battery_history_title">History</string>
     <string name="battery_history_summary">Battery usage summary</string>
     <string name="power_usage_title">Power</string>
