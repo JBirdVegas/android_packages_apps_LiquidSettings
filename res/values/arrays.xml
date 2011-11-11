@@ -35,9 +35,9 @@
     </string-array>
 
     <string-array name="entries_status_bar_battery">
-        <item>Stock</item>
         <item>Icon</item>
-        <item>Bar</item>
+        <item>Percent</item>
+        <item>StatusBar</item>
         <item>Hide</item>
     </string-array>
 
