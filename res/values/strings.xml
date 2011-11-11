@@ -586,8 +586,6 @@
     <string name="pref_lockscreen_ring_custom_apps_notset">Not Set</string>
     <string name="pref_lockscreen_ring_unlock_middle_title">Unlock Middle</string>
     <string name="pref_lockscreen_ring_unlock_middle_summary">Switch unlock with launcher</string>
-    <string name="pref_lockscreen_ring_minimal_title">Minimal Style</string>
-    <string name="pref_lockscreen_ring_minimal_summary">Ring in middle to unlock</string>
     <string name="pref_lockscreen_custom_background_title">Background</string>
     <string name="pref_lockscreen_custom_background_dialog_title">Select Background</string>
     <string name="pref_lockscreen_custom_background_summary_color">Current: Color</string>

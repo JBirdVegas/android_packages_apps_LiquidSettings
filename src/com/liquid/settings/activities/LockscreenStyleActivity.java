@@ -54,7 +54,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
     private static final String LOCKSCREEN_CUSTOM_APP_ACTIVITY = "pref_lockscreen_custom_app_activity";
     private static final String LOCKSCREEN_ROTARY_UNLOCK_DOWN_TOGGLE = "pref_lockscreen_rotary_unlock_down_toggle";
     private static final String LOCKSCREEN_RING_UNLOCK_MIDDLE_TOGGLE = "pref_lockscreen_ring_unlock_middle_toggle";
-    private static final String LOCKSCREEN_RING_MINIMAL_TOGGLE = "pref_lockscreen_ring_minimal_toggle";
     private static final String LOCKSCREEN_ROTARY_HIDE_ARROWS_TOGGLE = "pref_lockscreen_rotary_hide_arrows_toggle";  
     private static final String LOCKSCREEN_HIDE_CARRIER_PREF = "pref_lockscreen_hide_carrier";
     private static final String LOCKSCREEN_CUSTOM_ICON_STYLE = "pref_lockscreen_custom_icon_style";
@@ -63,10 +62,10 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
     private CheckBoxPreference mCustomAppTogglePref;
     private CheckBoxPreference mRotaryUnlockDownToggle;
     private CheckBoxPreference mRingUnlockMiddleToggle;
-    private CheckBoxPreference mRingMinimalToggle;
     private CheckBoxPreference mRotaryHideArrowsToggle;
     private CheckBoxPreference mHideCarrierPref;
     private CheckBoxPreference mCustomIconStyle;
+    
     private ListPreference mLockscreenStylePref;
     private ListPreference mInCallStylePref;
     private Preference mCustomAppActivityPref;
@@ -215,11 +214,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
         mRingUnlockMiddleToggle.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_RING_UNLOCK_MIDDLE, 0) == 1);
 
-        mRingMinimalToggle = (CheckBoxPreference) prefSet
-                .findPreference(LOCKSCREEN_RING_MINIMAL_TOGGLE);
-        mRingMinimalToggle.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_RING_MINIMAL, 0) == 1);
-
         mRotaryHideArrowsToggle = (CheckBoxPreference) prefSet
                 .findPreference(LOCKSCREEN_ROTARY_HIDE_ARROWS_TOGGLE);
         mRotaryHideArrowsToggle.setChecked(Settings.System.getInt(getContentResolver(),
@@ -241,6 +235,7 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                 Settings.System.LOCKSCREEN_CUSTOM_ICON_STYLE, 1) == 2);
 
         updateStylePrefs(mLockscreenStyle, mInCallStyle);
+
         mCustomAppActivityPref = prefSet
                 .findPreference(LOCKSCREEN_CUSTOM_APP_ACTIVITY);
 
@@ -257,6 +252,7 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
         int resId;
         String value = Settings.System.getString(getContentResolver(),
                 Settings.System.LOCKSCREEN_BACKGROUND);
+
         if (value == null) {
             resId = R.string.pref_lockscreen_custom_background_summary_default;
         } else if (value.isEmpty()) {
@@ -264,6 +260,7 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
         } else {
             resId = R.string.pref_lockscreen_custom_background_summary_color;
         }
+
         mCustomBackground.setSummary(getResources().getString(resId));
     }
     
@@ -291,6 +288,7 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                 if (wallpaperTemporary.exists()) {
                     wallpaperTemporary.renameTo(wallpaperImage);
                 }
+
                 wallpaperImage.setReadOnly();
                 Toast.makeText(this, getResources().getString(R.string.
                         pref_lockscreen_custom_background_result_successful), Toast.LENGTH_LONG).show();
@@ -302,10 +300,12 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                 if (wallpaperTemporary.exists()) {
                     wallpaperTemporary.delete();
                 }
+
                 Toast.makeText(this, getResources().getString(R.string.
                         pref_lockscreen_custom_background_result_not_successful), Toast.LENGTH_LONG).show();
             }
         }
+
         mPicker.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -317,20 +317,15 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                     Settings.System.LOCKSCREEN_CUSTOM_APP_TOGGLE, value ? 1 : 0);
             updateStylePrefs(mLockscreenStyle, mInCallStyle);
             return true;
-        } else if (preference == mRingUnlockMiddleToggle) {
-            value = mRingUnlockMiddleToggle.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_RING_UNLOCK_MIDDLE, value ? 1 : 0);
-            return true;
-        } else if (preference == mRingMinimalToggle) {
-            value = mRingMinimalToggle.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_RING_MINIMAL, value ? 1 : 0);
-            return true;
         } else if (preference == mRotaryUnlockDownToggle) {
             value = mRotaryUnlockDownToggle.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_ROTARY_UNLOCK_DOWN, value ? 1 : 0);
+            return true;
+        } else if (preference == mRingUnlockMiddleToggle) {
+            value = mRingUnlockMiddleToggle.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_RING_UNLOCK_MIDDLE, value ? 1 : 0);
             return true;
         } else if (preference == mRotaryHideArrowsToggle) {
             value = mRotaryHideArrowsToggle.isChecked();
@@ -427,6 +422,7 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                 mPicker.pickShortcut();
             }
         }
+
         return false;
     }
 
@@ -477,11 +473,13 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                     intent.putExtra("scale", true);
                     intent.putExtra("scaleUpIfNeeded", false);
                     intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+
                     int width = getWindowManager().getDefaultDisplay().getWidth();
                     int height = getWindowManager().getDefaultDisplay().getHeight();
                     Rect rect = new Rect();
                     Window window = getWindow();
                     window.getDecorView().getWindowVisibleDisplayFrame(rect);
+
                     int statusBarHeight = rect.top;
                     int contentViewTop = window.findViewById(Window.ID_ANDROID_CONTENT).getTop();
                     int titleBarHeight = contentViewTop - statusBarHeight;
@@ -506,8 +504,10 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                     updateCustomBackgroundSummary();
                     break;
             }
+
             return true;
         }
+
         return false;
     }
 
@@ -538,8 +538,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                 mRotaryHideArrowsToggle.setEnabled(true);
             }
 
-            mRingMinimalToggle.setChecked(false);
-            mRingMinimalToggle.setChecked(false);
             mRotaryUnlockDownToggle.setChecked(false);
             mRotaryUnlockDownToggle.setEnabled(false);
             mRingUnlockMiddleToggle.setChecked(false);
@@ -555,8 +553,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
 			    mRotaryUnlockDownToggle.setEnabled(false);
 			}
 
-            mRingMinimalToggle.setChecked(false);
-            mRingMinimalToggle.setChecked(false);
             mRingUnlockMiddleToggle.setChecked(false);
             mRingUnlockMiddleToggle.setEnabled(false);
         } else if (lockscreenStyle == LockscreenStyle.Ring) {
@@ -572,11 +568,8 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
             }
 
             if (mCustomAppTogglePref.isChecked() == true) {
-                mRingMinimalToggle.setChecked(false);
-                mRingMinimalToggle.setChecked(false);
                 mRingUnlockMiddleToggle.setEnabled(true);
             } else {
-                mRingMinimalToggle.setEnabled(true);
                 mRingUnlockMiddleToggle.setChecked(false);
                 mRingUnlockMiddleToggle.setEnabled(false);
             }
@@ -601,24 +594,22 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
         boolean value = mRotaryUnlockDownToggle.isChecked();
         Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_ROTARY_UNLOCK_DOWN,
                 value ? 1 : 0);
+
         value = mRotaryHideArrowsToggle.isChecked();
         Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_ROTARY_HIDE_ARROWS,
                 value ? 1 : 0);
+
         value = mCustomAppTogglePref.isChecked();
         Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_CUSTOM_APP_TOGGLE,
                 value ? 1 : 0);
+
         value = mHideCarrierPref.isChecked();
         Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_HIDE_CARRIER,
                 value ? 1 : 0);
+
         value = mCustomIconStyle.isChecked();
         Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_CUSTOM_ICON_STYLE,
                 value ? 2 : 1);
-        value = mRingUnlockMiddleToggle.isChecked();
-        Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_RING_UNLOCK_MIDDLE,
-                value ? 1 : 0);
-        value = mRingMinimalToggle.isChecked();
-        Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_RING_MINIMAL,
-                value ? 1 : 0);
     }
 
     private String getCustomRingAppSummary() {
@@ -630,6 +621,7 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
             }
             summary += items[q];
         }
+
         return summary;
     }
 
@@ -642,6 +634,7 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                 items.add(mPicker.getFriendlyNameForUri(uri));
             }
         }
+
         return items.toArray(new String[0]);
     }
 }
