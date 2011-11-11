@@ -53,7 +53,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
     private static final String LOCKSCREEN_CUSTOM_APP_TOGGLE = "pref_lockscreen_custom_app_toggle";
     private static final String LOCKSCREEN_CUSTOM_APP_ACTIVITY = "pref_lockscreen_custom_app_activity";
     private static final String LOCKSCREEN_ROTARY_UNLOCK_DOWN_TOGGLE = "pref_lockscreen_rotary_unlock_down_toggle";
-    private static final String LOCKSCREEN_RING_UNLOCK_MIDDLE_TOGGLE = "pref_lockscreen_ring_unlock_middle_toggle";
     private static final String LOCKSCREEN_ROTARY_HIDE_ARROWS_TOGGLE = "pref_lockscreen_rotary_hide_arrows_toggle";  
     private static final String LOCKSCREEN_HIDE_CARRIER_PREF = "pref_lockscreen_hide_carrier";
     private static final String LOCKSCREEN_CUSTOM_ICON_STYLE = "pref_lockscreen_custom_icon_style";
@@ -61,7 +60,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
 
     private CheckBoxPreference mCustomAppTogglePref;
     private CheckBoxPreference mRotaryUnlockDownToggle;
-    private CheckBoxPreference mRingUnlockMiddleToggle;
     private CheckBoxPreference mRotaryHideArrowsToggle;
     private CheckBoxPreference mHideCarrierPref;
     private CheckBoxPreference mCustomIconStyle;
@@ -209,11 +207,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
         mRotaryUnlockDownToggle.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_ROTARY_UNLOCK_DOWN, 0) == 1);
 
-        mRingUnlockMiddleToggle = (CheckBoxPreference) prefSet
-                .findPreference(LOCKSCREEN_RING_UNLOCK_MIDDLE_TOGGLE);
-        mRingUnlockMiddleToggle.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_RING_UNLOCK_MIDDLE, 0) == 1);
-
         mRotaryHideArrowsToggle = (CheckBoxPreference) prefSet
                 .findPreference(LOCKSCREEN_ROTARY_HIDE_ARROWS_TOGGLE);
         mRotaryHideArrowsToggle.setChecked(Settings.System.getInt(getContentResolver(),
@@ -321,11 +314,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
             value = mRotaryUnlockDownToggle.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_ROTARY_UNLOCK_DOWN, value ? 1 : 0);
-            return true;
-        } else if (preference == mRingUnlockMiddleToggle) {
-            value = mRingUnlockMiddleToggle.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_RING_UNLOCK_MIDDLE, value ? 1 : 0);
             return true;
         } else if (preference == mRotaryHideArrowsToggle) {
             value = mRotaryHideArrowsToggle.isChecked();
@@ -540,8 +528,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
 
             mRotaryUnlockDownToggle.setChecked(false);
             mRotaryUnlockDownToggle.setEnabled(false);
-            mRingUnlockMiddleToggle.setChecked(false);
-            mRingUnlockMiddleToggle.setEnabled(false);
         } else if (lockscreenStyle == LockscreenStyle.Rotary || 
                    lockscreenStyle == LockscreenStyle.Sense) {
             mRotaryHideArrowsToggle.setEnabled(true);
@@ -552,9 +538,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
 				mRotaryUnlockDownToggle.setChecked(false);
 			    mRotaryUnlockDownToggle.setEnabled(false);
 			}
-
-            mRingUnlockMiddleToggle.setChecked(false);
-            mRingUnlockMiddleToggle.setEnabled(false);
         } else if (lockscreenStyle == LockscreenStyle.Ring) {
             mRotaryUnlockDownToggle.setChecked(false);
             mRotaryUnlockDownToggle.setEnabled(false);
@@ -565,13 +548,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
             } else {
                 mRotaryHideArrowsToggle.setChecked(false);
                 mRotaryHideArrowsToggle.setEnabled(false);
-            }
-
-            if (mCustomAppTogglePref.isChecked() == true) {
-                mRingUnlockMiddleToggle.setEnabled(true);
-            } else {
-                mRingUnlockMiddleToggle.setChecked(false);
-                mRingUnlockMiddleToggle.setEnabled(false);
             }
         }
 
@@ -621,7 +597,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
             }
             summary += items[q];
         }
-
         return summary;
     }
 
@@ -634,7 +609,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                 items.add(mPicker.getFriendlyNameForUri(uri));
             }
         }
-
         return items.toArray(new String[0]);
     }
 }
