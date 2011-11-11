@@ -92,12 +92,12 @@ public class PowerWidgetUtil {
 
     private static final String BUTTON_DELIMITER = "|";
 
-    private static final String BUTTONS_DEFAULT = PowerButton.BUTTON_BLUETOOTH
-                             + BUTTON_DELIMITER + PowerButton.BUTTON_BRIGHTNESS
-                             + BUTTON_DELIMITER + PowerButton.BUTTON_GPS
-                             + BUTTON_DELIMITER + PowerButton.BUTTON_SOUND
-                             + BUTTON_DELIMITER + PowerButton.BUTTON_WIFI
-                             + BUTTON_DELIMITER + PowerButton.BUTTON_FLASHLIGHT;
+    private static final String BUTTONS_DEFAULT = BUTTON_BLUETOOTH
+                             + BUTTON_DELIMITER + BUTTON_BRIGHTNESS
+                             + BUTTON_DELIMITER + BUTTON_GPS
+                             + BUTTON_DELIMITER + BUTTON_SOUND
+                             + BUTTON_DELIMITER + BUTTON_WIFI
+                             + BUTTON_DELIMITER + BUTTON_FLASHLIGHT;
 
     public static String getCurrentButtons(Context context) {
         String buttons = Settings.System.getString(context.getContentResolver(), Settings.System.WIDGET_BUTTONS);
