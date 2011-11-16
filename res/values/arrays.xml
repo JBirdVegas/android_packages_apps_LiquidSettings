@@ -770,11 +770,10 @@
         <item>DeskClock</item>
         <item>Email</item>
         <item>Gmail</item>
-        <item>Jdk Updater</item>
+        <item>JdkUpdater</item>
         <item>LauncherPro</item>
         <item>LiveWallpapers</item>
         <item>News and Weather</item>
-        <item>Parchment</item>
         <item>RomToolbox</item>
         <item>Titanium Backup</item>
     </string-array>
@@ -788,7 +787,6 @@
         <item>rmlauncherpro</item>
         <item>rmlivewallpapers</item>
         <item>rmgenie</item>
-        <item>rmparchment</item>
         <item>rmromtoolbox</item>
         <item>rmtitanium</item>
     </string-array>
