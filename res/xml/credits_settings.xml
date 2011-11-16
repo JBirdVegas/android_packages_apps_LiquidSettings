@@ -54,13 +54,6 @@
             android:entries="@array/entries_revnumbers"
             android:entryValues="@array/values_revnumbers" />
 
-        <ListPreference android:key="pref_jdkoreclipse"
-            android:dialogTitle="@string/jdkoreclipse_title"
-            android:title="@string/jdkoreclipse_title"
-            android:summary="@string/kernel_dev_summary"
-            android:entries="@array/entries_jdkoreclipse"
-            android:entryValues="@array/values_jdkoreclipse" />
-
         <ListPreference android:key="pref_jrummy16"
             android:dialogTitle="@string/jrummy16_title"
             android:title="@string/jrummy16_title"
@@ -87,6 +80,16 @@
             android:title="T-Mobile"
             android:key="credits_tmobile_key"
 	        android:summary="Their awesome open source theming engine" />
+
+        <PreferenceScreen
+            android:title="Jbroom"
+            android:key="credits_jbroom_key"
+	        android:summary="Maintains and updates rommanager/romtoolbox" />
+
+        <PreferenceScreen
+            android:title="R3Ds"
+            android:key="credits_reds_key"
+	        android:summary="Forum releases and themes are very badass" />
 
     </PreferenceCategory>
 

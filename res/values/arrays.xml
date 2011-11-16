@@ -770,7 +770,6 @@
         <item>DeskClock</item>
         <item>Email</item>
         <item>Gmail</item>
-        <item>JdkUpdater</item>
         <item>LauncherPro</item>
         <item>LiveWallpapers</item>
         <item>News and Weather</item>
@@ -783,7 +782,6 @@
         <item>rmdeskclock</item>
         <item>rmemail</item>
         <item>rmgmail</item>
-        <item>rmjdkupdater</item>
         <item>rmlauncherpro</item>
         <item>rmlivewallpapers</item>
         <item>rmgenie</item>
@@ -1151,18 +1149,6 @@
         <item>https://github.com/revnumbers</item>
         <item>http://twitter.com/#!/RevNumbers</item>
         <item>https://plus.google.com/108022993108279010175</item>
-    </string-array>
-
-    <string-array name="entries_jdkoreclipse">
-        <item>Donate</item>
-        <item>GitHub</item>
-        <item>Twitter</item>
-    </string-array>
-
-    <string-array name="values_jdkoreclipse">
-        <item>http://bit.ly/iP7lEQ</item>
-        <item>https://github.com/jdkoreclipse</item>
-        <item>http://twitter.com/#!/jdkoreclipse</item>
     </string-array>
 
     <string-array name="entries_jrummy16">

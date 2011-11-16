@@ -720,7 +720,7 @@
     <string name="pref_lock_mms_summary">Keep mms from closing</string>
 
     <!-- Prop Modder -->
-    <string name="propmodder_title">Prop Modder</string>
+    <string name="propmodder_title">PropModder</string>
     <string name="propmodder_summary">Modify build prop values</string>
     <string name="pref_vm_heapsize_title">VM Heapsize</string>
     <string name="pref_vm_heapsize_summary">Max virtual memory size</string>
@@ -753,7 +753,7 @@
     <string name="pref_gpu_summary">Enable hardware acceleration</string>
 
     <!-- Prop Viewer -->
-    <string name="propviewer_title">Prop Viewer</string>
+    <string name="propviewer_title">PropViewer</string>
     <string name="propviewer_summary">Display build prop values</string>
     <string name="propviewer_dialog">System Prop Values</string>
     <string name="propviewer_loading">Loading Prop Values\u2026</string>
@@ -878,10 +878,8 @@
     <string name="liquidzgrl_summary">Team Liquid graphics guru</string>
     <string name="jbirdvegas_title">JBirdVegas</string>
     <string name="revnumbers_title">RevNumbers</string>
-    <string name="jdkoreclipse_title">Jdkoreclipse</string>
     <string name="jrummy16_title">Jrummy16</string>
     <string name="jrummy16_summary">Great friend and amazing apps</string>
     <string name="dev_team_summary">Team Liquid developer</string>
-    <string name="kernel_dev_summary">Team Liquid kernel developer</string>
 
 </resources>
