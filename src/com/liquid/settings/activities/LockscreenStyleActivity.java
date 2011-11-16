@@ -242,16 +242,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
 
         mCustomAppActivityPref = prefSet
                 .findPreference(LOCKSCREEN_CUSTOM_APP_ACTIVITY);
-
-        mCategoryStyleGeneral = (PreferenceCategory) prefSet.
-                findPreference(CATEGORY_STYLE_GENERAL);
-
-        mCategoryStyleLockscreen = (PreferenceCategory) prefSet.
-                findPreference(CATEGORY_STYLE_LOCKSCREEN);
-
-        mCategoryStyleInCall = (PreferenceCategory) prefSet.
-                findPreference(CATEGORY_STYLE_INCALL);
-
         updateStylePrefs(mLockscreenStyle, mInCallStyle);
 
         mCustomBackground = (ListPreference) prefSet
