@@ -760,6 +760,8 @@
     <string name="propviewer_error">Error While Loading\u2026</string>
     <string name="propviewer_unknown">Unknown</string>
     <string name="propviewer_version">Version</string>
+    <string name="parchment_title">Parchment</string>
+    <string name="parchment_summary">Modify and save text files</string>
 
     <!-- Spare Parts -->
     <string name="spareparts_title">Spare Parts</string>

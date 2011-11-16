@@ -19,6 +19,32 @@
 	xmlns:liquid="http://schemas.android.com/apk/res/com.liquid.settings">
 
         <PreferenceCategory 
+            android:title="JBird">
+
+            <!-- Parchment -->
+            <com.liquid.settings.provider.IconPreferenceScreen
+                liquid:icon="@drawable/ic_parchment"
+                android:title="@string/parchment_title"
+                android:summary="@string/parchment_summary">
+                <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.n00bware.parchment"
+                    android:targetClass="com.n00bware.parchment.ParchmentActivity" />
+            </com.liquid.settings.provider.IconPreferenceScreen>
+
+            <!-- Prop Modder -->
+            <com.liquid.settings.provider.IconPreferenceScreen
+                android:key="propmodder_settings"
+                liquid:icon="@drawable/ic_propmodder"
+                android:title="@string/propmodder_title"
+                android:summary="@string/propmodder_summary">
+                <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.liquid.settings"
+                    android:targetClass="com.liquid.settings.activities.PropModderActivity" />
+            </com.liquid.settings.provider.IconPreferenceScreen>
+
+        </PreferenceCategory>
+
+        <PreferenceCategory 
             android:title="Liquid">
 
             <!-- Boot -->
