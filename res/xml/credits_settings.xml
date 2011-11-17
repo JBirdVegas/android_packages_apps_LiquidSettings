@@ -17,7 +17,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:title="Appreciations">
+        android:title="Developers">
 
         <ListPreference android:key="pref_team_liquid"
             android:dialogTitle="@string/team_liquid_title"
@@ -68,6 +68,21 @@
             android:entries="@array/entries_jrummy16"
             android:entryValues="@array/values_jrummy16" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Appreciations">
+
+        <PreferenceScreen
+            android:title="Jbroom"
+            android:key="credits_jbroom_key"
+	        android:summary="Updates and maintains rom manager/toolbox" />
+
+        <PreferenceScreen
+            android:title="Raziel23x"
+            android:key="credits_raziel_key"
+	        android:summary="Created and maintains our website/forums" />
+
         <PreferenceScreen
             android:title="R3Ds"
             android:key="credits_reds_key"
@@ -82,11 +97,6 @@
 
     <PreferenceCategory 
         android:title="Recognitions">
-
-        <PreferenceScreen
-            android:title="Jbroom"
-            android:key="credits_jbroom_key"
-	        android:summary="Updates and maintains rom manager/toolbox" />
 
         <PreferenceScreen
             android:title="CyanogenMod"
