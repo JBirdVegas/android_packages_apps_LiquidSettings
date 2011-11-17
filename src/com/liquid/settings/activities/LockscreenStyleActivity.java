@@ -59,8 +59,7 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
     private static final String LOCKSCREEN_ROTARY_UNLOCK_DOWN_TOGGLE = "pref_lockscreen_rotary_unlock_down_toggle";
     private static final String LOCKSCREEN_RING_UNLOCK_MIDDLE_TOGGLE = "pref_lockscreen_ring_unlock_middle_toggle";
     private static final String LOCKSCREEN_RING_MINIMAL_TOGGLE = "pref_lockscreen_ring_minimal_toggle";
-    private static final String LOCKSCREEN_ROTARY_HIDE_ARROWS_TOGGLE = "pref_lockscreen_rotary_hide_arrows_toggle";  
-    private static final String LOCKSCREEN_HIDE_CARRIER_PREF = "pref_lockscreen_hide_carrier";
+    private static final String LOCKSCREEN_ROTARY_HIDE_ARROWS_TOGGLE = "pref_lockscreen_rotary_hide_arrows_toggle";
     private static final String LOCKSCREEN_CUSTOM_ICON_STYLE = "pref_lockscreen_custom_icon_style";
     private static final String LOCKSCREEN_CUSTOM_BACKGROUND = "pref_lockscreen_background";
 
@@ -72,7 +71,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
     private CheckBoxPreference mRingUnlockMiddleToggle;
     private CheckBoxPreference mRingMinimalToggle;
     private CheckBoxPreference mRotaryHideArrowsToggle;
-    private CheckBoxPreference mHideCarrierPref;
     private CheckBoxPreference mCustomIconStyle;
     private ListPreference mLockscreenStylePref;
     private ListPreference mInCallStylePref;
@@ -237,11 +235,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                 .findPreference(LOCKSCREEN_CUSTOM_APP_TOGGLE);
         mCustomAppTogglePref.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_CUSTOM_APP_TOGGLE, 0) == 1);
-       
-	    mHideCarrierPref = (CheckBoxPreference) prefSet
-		        .findPreference(LOCKSCREEN_HIDE_CARRIER_PREF);
-        mHideCarrierPref.setChecked(Settings.System.getInt(getContentResolver(),
-        	    Settings.System.LOCKSCREEN_HIDE_CARRIER, 0) == 1);
         
         mCustomIconStyle = (CheckBoxPreference) prefSet
                 .findPreference(LOCKSCREEN_CUSTOM_ICON_STYLE);
@@ -261,7 +254,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                 findPreference(CATEGORY_STYLE_INCALL);
 
         updateStylePrefs(mLockscreenStyle, mInCallStyle);
-
         mCustomBackground = (ListPreference) prefSet
                 .findPreference(LOCKSCREEN_CUSTOM_BACKGROUND);
         mCustomBackground.setOnPreferenceChangeListener(this);
@@ -353,11 +345,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
             value = mRotaryHideArrowsToggle.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_ROTARY_HIDE_ARROWS, value ? 1 : 0);        
-            return true;
-        } else if (preference == mHideCarrierPref) {
-            value = mHideCarrierPref.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_HIDE_CARRIER, value ? 1 : 0);
             return true;
         } else if (preference == mCustomIconStyle) {
             value = mCustomIconStyle.isChecked();
@@ -637,9 +624,6 @@ public class LockscreenStyleActivity extends PreferenceActivity implements
                 value ? 1 : 0);
         value = mCustomAppTogglePref.isChecked();
         Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_CUSTOM_APP_TOGGLE,
-                value ? 1 : 0);
-        value = mHideCarrierPref.isChecked();
-        Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_HIDE_CARRIER,
                 value ? 1 : 0);
         value = mCustomIconStyle.isChecked();
         Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_CUSTOM_ICON_STYLE,

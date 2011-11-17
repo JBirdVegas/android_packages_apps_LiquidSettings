@@ -40,6 +40,10 @@
             android:entryValues="@array/pref_lockscreen_widget_layout_values"
             android:defaultValue="2" />
 
+        <CheckBoxPreference android:key="pref_lockscreen_hide_carrier"
+            android:title="@string/pref_lockscreen_hide_carrier_title"
+            android:summary="@string/pref_lockscreen_hide_carrier_summary" />
+
     </PreferenceCategory>
 
     <!-- Calendar -->

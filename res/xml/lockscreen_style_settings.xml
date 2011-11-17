@@ -71,30 +71,25 @@
         android:summary="@string/pref_lockscreen_rotary_hide_arrows_summary"
         android:order="30" />
 
-    <CheckBoxPreference android:key="pref_lockscreen_hide_carrier"
-        android:title="@string/pref_lockscreen_hide_carrier_title"
-        android:summary="@string/pref_lockscreen_hide_carrier_summary"
-        android:order="40" />
-
     <CheckBoxPreference android:key="pref_lockscreen_custom_icon_style"
         android:title="@string/pref_lockscreen_custom_icon_style_title"
         android:summary="@string/pref_lockscreen_custom_icon_style_summary"
         android:dependency="pref_lockscreen_custom_app_toggle"
-        android:order="50" />
+        android:order="40" />
 
     <Preference android:key="pref_lockscreen_custom_app_activity"
         android:dependency="pref_lockscreen_custom_app_toggle"
         android:title="@string/pref_lockscreen_custom_app_activity_title"
-        android:order="60" />
+        android:order="50" />
 
     <CheckBoxPreference android:key="pref_lockscreen_ring_unlock_middle_toggle"
         android:title="@string/pref_lockscreen_ring_unlock_middle_title"
         android:summary="@string/pref_lockscreen_ring_unlock_middle_summary"
-        android:order="70" />
+        android:order="60" />
 
     <CheckBoxPreference android:key="pref_lockscreen_ring_minimal_toggle"
         android:title="@string/pref_lockscreen_ring_minimal_title"
         android:summary="@string/pref_lockscreen_ring_minimal_summary"
-        android:order="72" />
+        android:order="62" />
 
 </PreferenceScreen>
