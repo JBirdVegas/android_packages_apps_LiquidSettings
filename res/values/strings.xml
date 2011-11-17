@@ -577,7 +577,9 @@
     <string name="pref_lockscreen_appearance_title">Appearance</string>
     <string name="pref_lockscreen_customize_title">Customize</string>
     <string name="pref_lockscreen_custom_app_toggle_title">Custom App</string>            
-    <string name="pref_lockscreen_custom_app_toggle_summary">Slider, dimple, or ring</string>                                                            
+    <string name="pref_lockscreen_custom_app_toggle_tab_summary">Shows two slider sets</string>
+    <string name="pref_lockscreen_custom_app_toggle_rotary_summary">Shows custom app dimple</string>
+    <string name="pref_lockscreen_custom_app_toggle_ring_summary">Shows middle third ring</string>                                                          
     <string name="pref_lockscreen_custom_app_activity_title">Select App</string>
     <string name="pref_lockscreen_custom_apps_dialog_title_set">Select Shortcut</string>
     <string name="pref_lockscreen_custom_apps_dialog_title_unset">Unset Shortcut</string>
