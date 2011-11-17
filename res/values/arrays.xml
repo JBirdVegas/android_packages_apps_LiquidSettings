@@ -1151,6 +1151,20 @@
         <item>https://plus.google.com/108022993108279010175</item>
     </string-array>
 
+    <string-array name="entries_cush2push">
+        <item>Donate</item>
+        <item>GitHub</item>
+        <item>Twitter</item>
+        <item>Google+</item>
+    </string-array>
+
+    <string-array name="values_cush2push">
+        <item>http://bit.ly/v7pZbT</item>
+        <item>https://github.com/cush2push</item>
+        <item>http://twitter.com/#!/realcush2push</item>
+        <item>https://plus.google.com/104890861987692688239</item>
+    </string-array>
+
     <string-array name="entries_jrummy16">
         <item>Donate</item>
         <item>Market</item>

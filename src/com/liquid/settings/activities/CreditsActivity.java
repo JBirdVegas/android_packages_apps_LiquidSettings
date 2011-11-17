@@ -35,6 +35,7 @@ public class CreditsActivity extends PreferenceActivity
     private static final String LIQUIDZGRL_PREF = "pref_liquidzgrl";
     private static final String JBIRDVEGAS_PREF = "pref_jbirdvegas";
     private static final String REVNUMBERS_PREF = "pref_revnumbers";
+    private static final String CUSH2PUSH_PREF = "pref_cush2push";
     private static final String JRUMMY16_PREF = "pref_jrummy16";
     
     private ListPreference mTeamLiquid;
@@ -42,6 +43,7 @@ public class CreditsActivity extends PreferenceActivity
     private ListPreference mLiquidzgrl;
     private ListPreference mJBirdVegas;
     private ListPreference mRevNumbers;
+    private ListPreference mCush2Push;
     private ListPreference mJrummy16;
     
     @Override
@@ -67,6 +69,9 @@ public class CreditsActivity extends PreferenceActivity
         mRevNumbers = (ListPreference) prefSet.findPreference(REVNUMBERS_PREF);
         mRevNumbers.setOnPreferenceChangeListener(this);
 
+        mCush2Push = (ListPreference) prefSet.findPreference(CUSH2PUSH_PREF);
+        mCush2Push.setOnPreferenceChangeListener(this);
+
         mJrummy16 = (ListPreference) prefSet.findPreference(JRUMMY16_PREF);
         mJrummy16.setOnPreferenceChangeListener(this);
     }
@@ -77,7 +82,6 @@ public class CreditsActivity extends PreferenceActivity
                 return launchBrowser(newValue.toString());
             }
         }
-
         return false;
     }
 
@@ -87,7 +91,6 @@ public class CreditsActivity extends PreferenceActivity
             startActivity(browserIntent);
 			return true;
         }
-
         return false;
     }
 }

@@ -54,6 +54,13 @@
             android:entries="@array/entries_revnumbers"
             android:entryValues="@array/values_revnumbers" />
 
+        <ListPreference android:key="pref_cush2push"
+            android:dialogTitle="@string/cush2push_title"
+            android:title="@string/cush2push_title"
+            android:summary="@string/dev_team_summary"
+            android:entries="@array/entries_cush2push"
+            android:entryValues="@array/values_cush2push" />
+
         <ListPreference android:key="pref_jrummy16"
             android:dialogTitle="@string/jrummy16_title"
             android:title="@string/jrummy16_title"
@@ -61,10 +68,25 @@
             android:entries="@array/entries_jrummy16"
             android:entryValues="@array/values_jrummy16" />
 
+        <PreferenceScreen
+            android:title="R3Ds"
+            android:key="credits_reds_key"
+	        android:summary="Forum releases and his themes are amazing" />
+
+        <PreferenceScreen
+            android:title="Yakitori"
+            android:key="credits_yakitori_key"
+	        android:summary="Amazing theme support from very beginning" />
+
     </PreferenceCategory>
 
     <PreferenceCategory 
         android:title="Recognitions">
+
+        <PreferenceScreen
+            android:title="Jbroom"
+            android:key="credits_jbroom_key"
+	        android:summary="Updates and maintains rom manager/toolbox" />
 
         <PreferenceScreen
             android:title="CyanogenMod"
@@ -80,16 +102,6 @@
             android:title="T-Mobile"
             android:key="credits_tmobile_key"
 	        android:summary="Their awesome open source theming engine" />
-
-        <PreferenceScreen
-            android:title="Jbroom"
-            android:key="credits_jbroom_key"
-	        android:summary="Maintains and updates rommanager/romtoolbox" />
-
-        <PreferenceScreen
-            android:title="R3Ds"
-            android:key="credits_reds_key"
-	        android:summary="Forum releases and themes are very badass" />
 
     </PreferenceCategory>
 
