@@ -45,7 +45,6 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
     private static final String LOCKSCREEN_ALWAYS_MUSIC_CONTROLS = "lockscreen_always_music_controls";
     private static final String LOCKSCREEN_ALWAYS_BATTERY = "lockscreen_always_battery";
     private static final String LOCKSCREEN_WIDGETS_LAYOUT = "pref_lockscreen_widgets_layout";
-    private static final String LOCKSCREEN_HIDE_CARRIER_PREF = "pref_lockscreen_hide_carrier";
     private static final String LOCKSCREEN_CALENDARS = "lockscreen_calendars";
     private static final String LOCKSCREEN_CALENDAR_ALARM = "lockscreen_calendar_alarm";
     private static final String LOCKSCREEN_CALENDAR_REMINDERS_ONLY = "lockscreen_calendar_reminders_only";
@@ -56,7 +55,6 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
     private CheckBoxPreference mMusicControlPref;
     private CheckBoxPreference mNowPlayingPref;
     private CheckBoxPreference mAlbumArtPref;
-    private CheckBoxPreference mHideCarrierPref;
     private CheckBoxPreference mAlwaysMusicControlPref;
     private CheckBoxPreference mAlwaysBatteryPref;
     private CheckBoxPreference mCalendarAlarmPref;
@@ -109,10 +107,6 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
         mAlwaysBatteryPref = (CheckBoxPreference) prefSet.findPreference(LOCKSCREEN_ALWAYS_BATTERY);
         mAlwaysBatteryPref.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_ALWAYS_BATTERY, 1) == 1);
-
-	    mHideCarrierPref = (CheckBoxPreference) prefSet.findPreference(LOCKSCREEN_HIDE_CARRIER_PREF);
-        mHideCarrierPref.setChecked(Settings.System.getInt(getContentResolver(),
-        	    Settings.System.LOCKSCREEN_HIDE_CARRIER, 0) == 1);
 
         mCalendarsPref = (MultiSelectListPreference) prefSet.findPreference(LOCKSCREEN_CALENDARS);
         mCalendarsPref.setValue(Settings.System.getString(getContentResolver(),
@@ -186,11 +180,6 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_ALWAYS_BATTERY,
                     value ? 1 : 0);
             return true;
-        } else if (preference == mHideCarrierPref) {
-            value = mHideCarrierPref.isChecked();
-            Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_HIDE_CARRIER,
-                    value ? 1 : 0);
-            return true;
         } else if (preference == mCalendarAlarmPref) {
             value = mCalendarAlarmPref.isChecked();
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_CALENDAR_ALARM,
@@ -244,10 +233,8 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
     }
 
     private static class CalendarEntries {
-
         private final static String CALENDARS_WHERE = Calendar.CalendarsColumns.SELECTED + "=1 AND "
                 + Calendar.CalendarsColumns.ACCESS_LEVEL + ">=200";
-
         private final CharSequence[] mEntries;
         private final CharSequence[] mEntryValues;
 

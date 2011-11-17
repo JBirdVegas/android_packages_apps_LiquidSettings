@@ -605,8 +605,6 @@
     <string name="pref_lockscreen_rotary_unlock_down_summary">Drag down to unlock</string>														   
     <string name="pref_lockscreen_rotary_hide_arrows_title">Hide Arrows</string>
     <string name="pref_lockscreen_rotary_hide_arrows_summary">Hide rotary hint arrows</string> 	  														  	
-    <string name="pref_lockscreen_hide_carrier_title">Hide Carrier</string>
-    <string name="pref_lockscreen_hide_carrier_summary">Hide carrier name label</string>
     <string name="pref_lockscreen_style_title">Lock Style</string>
     <string name="pref_lockscreen_style_summary">Current lock widget style</string>   
     <string name="pref_in_call_style_title">Answer Style</string>
