@@ -112,7 +112,7 @@ public class RootHelper {
         return runRootCommand("chmod 777 " + LOGCAT_ALIVE_PATH);
     }
 
-    public static boolean recovery {
+    public static boolean recovery() {
         Log.d(TAG, "rebooting into recovery");
         return runRootCommand(String.format("echo 1 > /data/.recovery_mode", mode)) && runRootCommand("reboot");
     }
