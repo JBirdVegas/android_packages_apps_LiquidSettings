@@ -76,20 +76,22 @@ public class GeneralActivity extends PreferenceActivity
                     .removePreference(mBacklightScreen);
         }
 
-        boolean animateScreenLights = getResources().getBoolean(
-                com.android.internal.R.bool.config_animateScreenLights);
+        /* Electron Beam control */
         mElectronBeamAnimationOn = (CheckBoxPreference)prefSet.findPreference(ELECTRON_BEAM_ANIMATION_ON);
-        mElectronBeamAnimationOn.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.ELECTRON_BEAM_ANIMATION_ON,
-                getResources().getBoolean(com.android.internal.R.bool.config_enableScreenOnAnimation) ? 1 : 0) == 1);
         mElectronBeamAnimationOff = (CheckBoxPreference)prefSet.findPreference(ELECTRON_BEAM_ANIMATION_OFF);
-        mElectronBeamAnimationOff.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.ELECTRON_BEAM_ANIMATION_OFF,
-                getResources().getBoolean(com.android.internal.R.bool.config_enableScreenOffAnimation) ? 1 : 0) == 1);
-
-        if (animateScreenLights) {
-            prefSet.removePreference(mElectronBeamAnimationOn);
-            prefSet.removePreference(mElectronBeamAnimationOff);
+        if (getResources().getBoolean(com.android.internal.R.bool.config_enableScreenAnimation)) {
+            mElectronBeamAnimationOn.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.ELECTRON_BEAM_ANIMATION_ON,
+                    getResources().getBoolean(com.android.internal.R.bool.config_enableScreenOnAnimation) ? 1 : 0) == 1);
+            mElectronBeamAnimationOff.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.ELECTRON_BEAM_ANIMATION_OFF,
+                    getResources().getBoolean(com.android.internal.R.bool.config_enableScreenOffAnimation) ? 1 : 0) == 1);
+        } else {
+            /* Hide Electron Beam controls if disabled */
+            ((PreferenceCategory) prefSet.findPreference(GENERAL_CATEGORY))
+                .removePreference(mElectronBeamAnimationOn);
+            ((PreferenceCategory) prefSet.findPreference(GENERAL_CATEGORY))
+                .removePreference(mElectronBeamAnimationOff);
         }
 
         mRotation0Pref = (CheckBoxPreference) prefSet.findPreference(ROTATION_0_PREF);

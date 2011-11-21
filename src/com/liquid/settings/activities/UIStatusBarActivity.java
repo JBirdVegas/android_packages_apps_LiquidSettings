@@ -123,7 +123,7 @@ public class UIStatusBarActivity extends PreferenceActivity
         mStatusBarSignal.setOnPreferenceChangeListener(this);
 
         int statusBarBattery = Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_BATTERY, 1);
+                Settings.System.STATUS_BAR_BATTERY, 0);
         mStatusBarBattery.setValue(String.valueOf(statusBarBattery));
         mStatusBarBattery.setOnPreferenceChangeListener(this);
 

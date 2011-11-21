@@ -33,17 +33,6 @@
                 android:targetClass="com.liquid.settings.activities.SparePartsActivity" />
         </com.liquid.settings.provider.IconPreferenceScreen>
 
-        <!-- Prop Modder -->
-        <com.liquid.settings.provider.IconPreferenceScreen
-            android:key="propmodder_settings"
-            liquid:icon="@drawable/ic_propmodder"
-            android:title="@string/propmodder_title"
-            android:summary="@string/propmodder_summary">
-            <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.liquid.settings"
-                android:targetClass="com.liquid.settings.activities.PropModderActivity" />
-        </com.liquid.settings.provider.IconPreferenceScreen>
-
         <ListPreference android:key="pref_compcache_size"
             android:dialogTitle="@string/pref_compcache_title"
             android:title="@string/pref_compcache_title"

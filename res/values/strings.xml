@@ -532,6 +532,7 @@
        
     <!-- Lockscreen -->
     <string name="lockscreen_title">Lockscreen</string>
+    <string name="lockscreen_options_title">Options</string>
     <string name="lockscreen_summary">Personalize lockscreen</string>
     <string name="pref_lockscreen_disable_on_security_title">Disable</string>
     <string name="pref_lockscreen_disable_on_security_summary">Only when secure</string>
@@ -576,16 +577,20 @@
     <string name="pref_lockscreen_appearance_title">Appearance</string>
     <string name="pref_lockscreen_customize_title">Customize</string>
     <string name="pref_lockscreen_custom_app_toggle_title">Custom App</string>            
-    <string name="pref_lockscreen_custom_app_toggle_summary">Slider, dimple, or ring</string>                                                            
+    <string name="pref_lockscreen_custom_app_toggle_tab_summary">Shows two slider sets</string>
+    <string name="pref_lockscreen_custom_app_toggle_rotary_summary">Shows custom app dimple</string>
+    <string name="pref_lockscreen_custom_app_toggle_ring_summary">Shows middle third ring</string>                                                          
     <string name="pref_lockscreen_custom_app_activity_title">Select App</string>
-    <string name="pref_lockscreen_ring_custom_apps_dialog_title_set">Select Shortcut</string>
-    <string name="pref_lockscreen_ring_custom_apps_dialog_title_unset">Unset Shortcut</string>
-    <string name="pref_lockscreen_ring_custom_apps_dialog_cancel">Cancel</string>
-    <string name="pref_lockscreen_ring_custom_apps_dialog_add">Add</string>
-    <string name="pref_lockscreen_ring_custom_apps_dialog_remove">Remove</string>
-    <string name="pref_lockscreen_ring_custom_apps_notset">Not Set</string>
+    <string name="pref_lockscreen_custom_apps_dialog_title_set">Select Shortcut</string>
+    <string name="pref_lockscreen_custom_apps_dialog_title_unset">Unset Shortcut</string>
+    <string name="pref_lockscreen_custom_apps_dialog_cancel">Cancel</string>
+    <string name="pref_lockscreen_custom_apps_dialog_add">Add</string>
+    <string name="pref_lockscreen_custom_apps_dialog_remove">Remove</string>
+    <string name="pref_lockscreen_custom_apps_notset">Not Set</string>
     <string name="pref_lockscreen_ring_unlock_middle_title">Unlock Middle</string>
     <string name="pref_lockscreen_ring_unlock_middle_summary">Switch unlock with launcher</string>
+    <string name="pref_lockscreen_ring_minimal_title">Minimal Style</string>
+    <string name="pref_lockscreen_ring_minimal_summary">Ring in middle to unlock</string>
     <string name="pref_lockscreen_custom_background_title">Background</string>
     <string name="pref_lockscreen_custom_background_dialog_title">Select Background</string>
     <string name="pref_lockscreen_custom_background_summary_color">Current: Color</string>
@@ -600,8 +605,6 @@
     <string name="pref_lockscreen_rotary_unlock_down_summary">Drag down to unlock</string>														   
     <string name="pref_lockscreen_rotary_hide_arrows_title">Hide Arrows</string>
     <string name="pref_lockscreen_rotary_hide_arrows_summary">Hide rotary hint arrows</string> 	  														  	
-    <string name="pref_lockscreen_hide_carrier_title">Hide Carrier</string>
-    <string name="pref_lockscreen_hide_carrier_summary">Hide carrier name label</string>
     <string name="pref_lockscreen_style_title">Lock Style</string>
     <string name="pref_lockscreen_style_summary">Current lock widget style</string>   
     <string name="pref_in_call_style_title">Answer Style</string>
@@ -718,7 +721,7 @@
     <string name="pref_lock_mms_summary">Keep mms from closing</string>
 
     <!-- Prop Modder -->
-    <string name="propmodder_title">Prop Modder</string>
+    <string name="propmodder_title">PropModder</string>
     <string name="propmodder_summary">Modify build prop values</string>
     <string name="pref_vm_heapsize_title">VM Heapsize</string>
     <string name="pref_vm_heapsize_summary">Max virtual memory size</string>
@@ -733,8 +736,8 @@
     <string name="pref_prox_delay_title">Proximity Delay</string>
     <string name="pref_prox_delay_summary">Sensor delay during calls</string>
     <string name="pref_rem_logcat_title">Remove Logcat</string>
-    <string name="pref_rem_logcat_summaryOn">Click to enable logcat on next boot</string>
-    <string name="pref_rem_logcat_summaryOff">Disabling logcat will boost performance</string>
+    <string name="pref_rem_logcat_summaryOn">Enable logcat on boot</string>
+    <string name="pref_rem_logcat_summaryOff">Disable logcat on boot</string>
     <string name="pref_wifi_interval_title">Wifi Interval</string>
     <string name="pref_wifi_interval_summary">Time between wifi scans</string>
     <string name="pref_sleep_title">Sleep Mode</string>
@@ -751,13 +754,15 @@
     <string name="pref_gpu_summary">Enable hardware acceleration</string>
 
     <!-- Prop Viewer -->
-    <string name="propviewer_title">Prop Viewer</string>
+    <string name="propviewer_title">PropViewer</string>
     <string name="propviewer_summary">Display build prop values</string>
     <string name="propviewer_dialog">System Prop Values</string>
     <string name="propviewer_loading">Loading Prop Values\u2026</string>
     <string name="propviewer_error">Error While Loading\u2026</string>
     <string name="propviewer_unknown">Unknown</string>
     <string name="propviewer_version">Version</string>
+    <string name="parchment_title">Parchment</string>
+    <string name="parchment_summary">Modify and save text files</string>
 
     <!-- Spare Parts -->
     <string name="spareparts_title">Spare Parts</string>
@@ -854,12 +859,6 @@
     <string name="about_device_summary">Hardware &amp; software</string>
     <string name="goodies_title">Goodies</string>
     <string name="goodies_summary">Nom Nom for your phone</string>
-    <string name="app_manager_title">App Manager</string>
-    <string name="app_manager_summary">Easily manage your apps</string>
-    <string name="font_installer_title">Font Installer</string>
-    <string name="font_installer_summary">Browse and install fonts</string>
-    <string name="theme_chooser_title">Theme Chooser</string>
-    <string name="theme_chooser_summary">Browse and install themes</string>
     <string name="battery_history_title">History</string>
     <string name="battery_history_summary">Battery usage summary</string>
     <string name="power_usage_title">Power</string>
@@ -880,10 +879,9 @@
     <string name="liquidzgrl_summary">Team Liquid graphics guru</string>
     <string name="jbirdvegas_title">JBirdVegas</string>
     <string name="revnumbers_title">RevNumbers</string>
-    <string name="jdkoreclipse_title">Jdkoreclipse</string>
+    <string name="cush2push_title">Cush2Push</string>
     <string name="jrummy16_title">Jrummy16</string>
     <string name="jrummy16_summary">Great friend and amazing apps</string>
     <string name="dev_team_summary">Team Liquid developer</string>
-    <string name="kernel_dev_summary">Team Liquid kernel developer</string>
 
 </resources>

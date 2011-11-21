@@ -233,10 +233,8 @@ public class LockscreenWidgetsActivity extends PreferenceActivity implements
     }
 
     private static class CalendarEntries {
-
         private final static String CALENDARS_WHERE = Calendar.CalendarsColumns.SELECTED + "=1 AND "
                 + Calendar.CalendarsColumns.ACCESS_LEVEL + ">=200";
-
         private final CharSequence[] mEntries;
         private final CharSequence[] mEntryValues;
 
