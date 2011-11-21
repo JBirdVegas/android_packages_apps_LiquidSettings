@@ -18,6 +18,7 @@
     
     <!-- Application -->
     <string name="app_name">Liquid Settings</string>
+    <string name="version_name">prerelease alpha</string>
     <string name="application_title">Application</string>
     <string name="application_summary">Manage &amp; configure</string> 
     <string name="app_manage">Manage</string>
