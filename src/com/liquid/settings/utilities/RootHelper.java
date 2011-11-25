@@ -114,6 +114,6 @@ public class RootHelper {
 
     public static boolean recovery() {
         Log.d(TAG, "rebooting into recovery");
-        return runRootCommand(String.format("echo 1 > /data/.recovery_mode", mode)) && runRootCommand("reboot");
+        return runRootCommand("echo 1 > /data/.recovery_mode") && runRootCommand("reboot");
     }
 }
