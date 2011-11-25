@@ -15,9 +15,7 @@
  * limitations under the License.
  -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.liquid.settings"
-    android:versionCode="001"
-    android:versionName="@string/version_name">
+    package="com.liquid.settings">
 
     <uses-sdk android:minSdkVersion="8" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
