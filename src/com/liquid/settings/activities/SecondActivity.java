@@ -1,4 +1,7 @@
-package com.n00bware.churchkey;
+
+package com.liquid.settings.activities;
+
+import com.liquid.settings.R;
  
 import android.app.Activity;
 import android.content.Intent;
@@ -8,7 +11,7 @@ import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.View;
 import android.view.MotionEvent;
  
-public class ChurchKeyActivity extends Activity {
+public class SecondActivity extends Activity {
     private static final int SWIPE_MIN_DISTANCE = 120;
     private static final int SWIPE_MAX_OFF_PATH = 250;
     private static final int SWIPE_THRESHOLD_VELOCITY = 200;
@@ -18,10 +21,10 @@ public class ChurchKeyActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.second_layout);
  
         gestureDetector = new GestureDetector(new MyGestureDetector());
-        View mainview = (View) findViewById(R.id.mainView);
+        View mainview = (View) findViewById(R.id.mainView2);
  
         // Set the touch listener for the main view to be our custom gesture listener
         mainview.setOnTouchListener(new View.OnTouchListener() {
@@ -32,39 +35,46 @@ public class ChurchKeyActivity extends Activity {
                 return false;
             }
         });
+
+    /* add onCreate() code here */
+
     }
- 
+
+
+
+
+/* --------------> CODE HERE <----------------- */
+
+
+    /* this class must be embedded in the Activity to register the MotionEvents */
     class MyGestureDetector extends SimpleOnGestureListener {
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-
  
             if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH) {
                 return false;
             }
  
-            // right to left swipe
+            // right to left swipe next Activity
             if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                Intent intent = new Intent(ChurchKeyActivity.this.getBaseContext(), SecondActivity.class);
+                Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
     		startActivity(intent);
-    		ChurchKeyActivity.this.overridePendingTransition(
+    		SecondActivity.this.overridePendingTransition(
 			R.anim.slide_in_right,
 			R.anim.slide_out_left
     		);
             finish();
-
-    	    // left to right swipe
+    	    // left to right swipe previous Activity
             }  else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                Intent intent = new Intent(ChurchKeyActivity.this.getBaseContext(), ThirdActivity.class);
+                Intent intent = new Intent(SecondActivity.this, MainActivity.class);
     		startActivity(intent);
-    		ChurchKeyActivity.this.overridePendingTransition(
+    		SecondActivity.this.overridePendingTransition(
 			R.anim.slide_in_left, 
 			R.anim.slide_out_right
     		);
-            finish();
-
             }
- 
+            finish(); 
+
             return false;
         }
  
