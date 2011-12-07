@@ -1015,21 +1015,24 @@ private class SuServer extends AsyncTask<String, String, Void> {
             };
 
             t.start();
+
             while (t.isAlive()) {
                 String status = stdInput.readLine();
-                if (status != null)
+                if (status != null) {
                     publishProgress(status);
-                    Thread.sleep(20);
                 }
-                stdInput.close();
-                stdError.close();
-                stdOutput.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                Thread.sleep(20);
             }
-            return null;
+
+            stdInput.close();
+            stdError.close();
+            stdOutput.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
         }
     }
 }
