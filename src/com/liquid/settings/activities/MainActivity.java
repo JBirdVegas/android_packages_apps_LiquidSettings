@@ -16,12 +16,19 @@ public class MainActivity extends Activity {
     private static final int SWIPE_MAX_OFF_PATH = 250;
     private static final int SWIPE_THRESHOLD_VELOCITY = 200;
     private GestureDetector gestureDetector;
+
+    /* handles for our menu hard key press */
+    private final int MENU_REBOOT = 1;
+    private final int MENU_RECOVERY = 2;
+    private final int MODE_RECOVERY = 1;
+    private final String REBOOT = "Reboot";
+    private final String RECOVERY = "Recovery";
  
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        addPreferencesFromResource(R.xml.liquid_settings);
  
         gestureDetector = new GestureDetector(new MyGestureDetector());
         View mainview = (View) findViewById(R.id.mainView);
@@ -35,6 +42,24 @@ public class MainActivity extends Activity {
                 return false;
             }
         });
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        boolean result = super.onCreateOptionsMenu(menu);
+        menu.add(0, MENU_REBOOT, 0, REBOOT).setIcon(R.drawable.menu_reboot);
+        menu.add(0, MENU_RECOVERY, 0, RECOVERY).setIcon(R.drawable.menu_recovery);
+        return result;
+    }
+ 
+    /* Handle the menu selection */
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case MENU_REBOOT:
+            return RootHelper.runRootCommand("reboot");
+        case MENU_RECOVERY:
+            return RootHelper.recovery();
+        }
+        return false;
     }
  
     class MyGestureDetector extends SimpleOnGestureListener {

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ * Copyright (C) 2011 The Liquid Settings Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+            
+    <!-- Prop Modder -->
+    <PreferenceCategory android:key="general_category"
+        android:title="@string/general_title">
+
+        <PreferenceScreen android:key="prop_viewer"
+            android:title="@string/propviewer_title"
+            android:summary="@string/propviewer_summary">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.liquid.settings"
+                android:targetClass="com.liquid.settings.activities.PropViewerActivity" />
+        </PreferenceScreen>
+
+        <ListPreference android:key="pref_vm_heapsize"
+            android:dialogTitle="@string/pref_vm_heapsize_title"
+            android:title="@string/pref_vm_heapsize_title"
+			android:summary="@string/pref_vm_heapsize_summary"
+            android:entries="@array/entries_vm_heapsize"
+            android:entryValues="@array/entries_vm_heapsize" />
+
+        <ListPreference android:key="pref_lcd_density"
+            android:dialogTitle="@string/pref_lcd_density_title"
+            android:title="@string/pref_lcd_density_title"
+            android:summary="@string/pref_lcd_density_summary"
+            android:entries="@array/entries_lcd_density"
+            android:entryValues="@array/entries_lcd_density" />
+
+        <ListPreference android:key="pref_max_events"
+            android:dialogTitle="@string/pref_max_events_title"
+            android:title="@string/pref_max_events_title"
+            android:summary="@string/pref_max_events_summary"
+            android:entries="@array/entries_max_events"
+            android:entryValues="@array/entries_max_events" />
+
+        <ListPreference android:key="pref_ring_delay"
+            android:dialogTitle="@string/pref_ring_delay_title"
+            android:title="@string/pref_ring_delay_title"
+            android:summary="@string/pref_ring_delay_summary"
+            android:entries="@array/entries_ring_delay"
+            android:entryValues="@array/entries_ring_delay" />
+
+        <ListPreference android:key="pref_fast_upload"
+            android:dialogTitle="@string/pref_fast_upload_title"
+            android:title="@string/pref_fast_upload_title"
+            android:summary="@string/pref_fast_upload_summary"
+            android:entries="@array/entries_fast_upload"
+            android:entryValues="@array/values_fast_upload" />
+
+        <ListPreference android:key="pref_prox_delay"
+            android:dialogTitle="@string/pref_prox_delay_title"
+            android:title="@string/pref_prox_delay_title"
+            android:summary="@string/pref_prox_delay_summary"
+            android:entries="@array/entries_prox_delay"
+            android:entryValues="@array/values_prox_delay" />
+
+        <CheckBoxPreference android:key="pref_rem_logcat"
+            android:title="@string/pref_rem_logcat_title"
+            android:summaryOn="@string/pref_rem_logcat_summaryOn"
+            android:summaryOff="@string/pref_rem_logcat_summaryOff" />
+
+        <ListPreference android:key="pref_wifi_interval"
+            android:dialogTitle="@string/pref_wifi_interval_title"
+            android:title="@string/pref_wifi_interval_title" 
+            android:summary="@string/pref_wifi_interval_summary"
+            android:entries="@array/entries_wifi_interval"
+            android:entryValues="@array/entries_wifi_interval" />
+
+        <ListPreference android:key="pref_sleep"
+            android:dialogTitle="@string/pref_sleep_title"
+            android:title="@string/pref_sleep_title"
+            android:summary="@string/pref_sleep_summary"
+            android:entries="@array/entries_sleep"
+            android:entryValues="@array/values_sleep" />
+
+        <ListPreference android:key="pref_sd_speed"
+            android:dialogTitle="@string/pref_sd_speed_title"
+            android:title="@string/pref_sd_speed_title"
+            android:summary="@string/pref_sd_speed_summary"
+            android:entries="@array/entries_sd_speed"
+            android:entryValues="@array/values_sd_speed" />
+
+        <CheckBoxPreference android:key="pref_tcp_stack"
+            android:title="@string/pref_tcp_stack_title"
+            android:summary="@string/pref_tcp_stack_summary" />
+
+        <CheckBoxPreference android:key="pref_check_in"
+            android:title="@string/pref_check_in_title"
+            android:summary="@string/pref_check_in_summary" />
+
+        <CheckBoxPreference android:key="pref_3g_speed"
+            android:title="@string/pref_3g_speed_title"
+            android:summary="@string/pref_3g_speed_summary" />
+
+        <CheckBoxPreference android:key="pref_gpu"
+            android:title="@string/pref_gpu_title"
+            android:summary="@string/pref_gpu_summary" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
