@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- droid does gingy -->
+    <TextView 
+        android:text="@string/does_ginger_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/does_ginger_command"
+        android:src="@drawable/doesginger"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid does green -->
+    <TextView 
+        android:text="@string/does_green_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/does_green_command"
+        android:src="@drawable/doesgreen"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid does light blue -->
+    <TextView 
+        android:text="@string/does_light_blue_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/does_light_blue_command"
+        android:src="@drawable/doeslightblue"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid does med blue -->
+    <TextView 
+        android:text="@string/does_med_blue_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/does_med_blue_command"
+        android:src="@drawable/doesmedblue"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid does orange -->
+    <TextView 
+        android:text="@string/does_orange_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/does_orange_command"
+        android:src="@drawable/doesorange"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid does pink -->
+    <TextView 
+        android:text="@string/does_pink_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/does_pink_command"
+        android:src="@drawable/doespink"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid does purple -->
+    <TextView 
+        android:text="@string/does_purple_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/does_purple_command"
+        android:src="@drawable/doespurple"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid does red -->
+    <TextView 
+        android:text="@string/does_red_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/does_red_command"
+        android:src="@drawable/doesred"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid does smoked -->
+    <TextView 
+        android:text="@string/does_smoked_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/does_smoked_command"
+        android:src="@drawable/doessmoked"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid does two blue -->
+    <TextView 
+        android:text="@string/does_two_blue_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/does_two_blue_command"
+        android:src="@drawable/doestwoblue"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid does white -->
+    <TextView 
+        android:text="@string/does_white_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/does_white_command"
+        android:src="@drawable/doeswhite"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid does yellow -->
+    <TextView 
+        android:text="@string/does_yellow_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/does_yellow_command"
+        android:src="@drawable/doesyellow"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid eyes blue green -->
+    <TextView 
+        android:text="@string/eyes_blue_green_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/eyes_blue_green_command"
+        android:src="@drawable/eyesbluegreen"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid eyes cyan -->
+    <TextView 
+        android:text="@string/eyes_cyan_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/eyes_cyan_command"
+        android:src="@drawable/eyescyan"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid eyes green -->
+    <TextView 
+        android:text="@string/eyes_green_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/eyes_green_command"
+        android:src="@drawable/eyesgreen"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid eyes light blue -->
+    <TextView 
+        android:text="@string/eyes_light_blue_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/eyes_light_blue_command"
+        android:src="@drawable/eyeslightblue"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid eyes orange -->
+    <TextView 
+        android:text="@string/eyes_orange_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/eyes_orange_command"
+        android:src="@drawable/eyesorange"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid eyes pink -->
+    <TextView 
+        android:text="@string/eyes_pink_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/eyes_pink_command"
+        android:src="@drawable/eyespink"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid eyes purple -->
+    <TextView 
+        android:text="@string/eyes_purple_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/eyes_purple_command"
+        android:src="@drawable/eyespurple"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid eyes red -->
+    <TextView 
+        android:text="@string/eyes_red_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/eyes_red_command"
+        android:src="@drawable/eyesred"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid eyes yellow -->
+    <TextView 
+        android:text="@string/eyes_yellow_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/eyes_yellow_command"
+        android:src="@drawable/eyesyellow"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- gingy faster -->
+    <TextView 
+        android:text="@string/gingy_faster_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/gingy_faster_command"
+        android:src="@drawable/gingyfaster"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- gingy slower -->
+    <TextView 
+        android:text="@string/gingy_slower_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/gingy_slower_command"
+        android:src="@drawable/gingy_slower"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- halloween scarry -->
+    <TextView 
+        android:text="@string/hallow_scary_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/hallow_scarry_command"
+        android:src="@drawable/hallowscarry"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- halloween skull -->
+    <TextView 
+        android:text="@string/hallow_skull_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/hallow_skull_command"
+        android:src="@drawable/hallowskull"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- halloween spiral -->
+    <TextView 
+        android:text="@string/hallow_spiral_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/hallow_spiral_command"
+        android:src="@drawable/hallowspiral"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- liquid default -->
+    <TextView 
+        android:text="@string/liquid_default_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/liquid_default_command"
+        android:src="@drawable/liquiddefault"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- liquid earth -->
+    <TextView 
+        android:text="@string/liquid_earth_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/liquid_earth_command"
+        android:src="@drawable/liquidearth"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- liquid rotate -->
+    <TextView 
+        android:text="@string/liquid_rotate_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/liquid_rotate_command"
+        android:src="@drawable/liquidrotate"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- liquid smooth -->
+    <TextView 
+        android:text="@string/liquid_smooth_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/liquid_smooth_command"
+        android:src="@drawable/liquidsmooth"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- liquid sparkle -->
+    <TextView 
+        android:text="@string/liquid_sparkle_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/liquid_sparkle_command"
+        android:src="@drawable/liquidsparkle"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- liquid splash -->
+    <TextView 
+        android:text="@string/liquid_splash_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/liquid_splash_command"
+        android:src="@drawable/liquidsplash"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- other android frog -->
+    <TextView 
+        android:text="@string/other_android_frog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/other_android_frog_command"
+        android:src="@drawable/androidfrog"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- other angry birds -->
+    <TextView 
+        android:text="@string/other_angry_birds_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/other_angry_birds_command"
+        android:src="@drawable/angrybirds"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- other apple ouch -->
+    <TextView 
+        android:text="@string/other_apple_ouch_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/other_apple_ouch_command"
+        android:src="@drawable/appleouch"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- other arc reactor -->
+    <TextView 
+        android:text="@string/other_arc_reactor_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/other_arc_reactor_command"
+        android:src="@drawable/arcreactor"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- other color tblot -->
+    <TextView 
+        android:text="@string/other_color_tblot_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/other_color_tbolt_command"
+        android:src="@drawable/colortbolt"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- other cup of water -->
+    <TextView 
+        android:text="@string/other_cup_water_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/other_cup_water_command"
+        android:src="@drawable/cupofwater"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- other dark blue lfy -->
+    <TextView 
+        android:text="@string/other_dark_blue_lfy_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/other_dark_blue_lfy_command"
+        android:src="@drawable/darkbluelfy"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- other in memory of -->
+    <TextView 
+        android:text="@string/other_inmemoryof_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/other_inmemoryof_command"
+        android:src="@drawable/inmemoryof"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- other merry christmas -->
+    <TextView 
+        android:text="@string/other_merry_xmas_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/other_merry_xmas_command"
+        android:src="@drawable/merryxmas"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- other rose bloom -->
+    <TextView 
+        android:text="@string/other_rose_bloom_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/other_rose_bloom_command"
+        android:src="@drawable/rosebloom"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- other simply stunning -->
+    <TextView 
+        android:text="@string/other_simply_stunning_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/other_simply_stunning_command"
+        android:src="@drawable/simplystunning"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- other solar system -->
+    <TextView 
+        android:text="@string/other_solar_system_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/other_solar_system_command"
+        android:src="@drawable/solarsystem"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- radial default -->
+    <TextView 
+        android:text="@string/radial_default_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/radial_default_command"
+        android:src="@drawable/radialdefault"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- radial dark blue -->
+    <TextView 
+        android:text="@string/radial_dark_blue_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/radial_dark_blue_command"
+        android:src="@drawable/radialdarkblue"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- radial green -->
+    <TextView 
+        android:text="@string/radial_green_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/radial_green_command"
+        android:src="@drawable/radialgreen"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- radial light blue -->
+    <TextView 
+        android:text="@string/radial_light_blue_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/radial_light_blue_command"
+        android:src="@drawable/radiallightblue"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- radial lime green -->
+    <TextView 
+        android:text="@string/radial_lime_green_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/radial_lime_green_command"
+        android:src="@drawable/radiallimegreen"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- radial orange -->
+    <TextView 
+        android:text="@string/radial_orange_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/radial_orange_command"
+        android:src="@drawable/radialorange"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- radial pink -->
+    <TextView 
+        android:text="@string/radial_pink_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/radial_pink_command"
+        android:src="@drawable/radialpink"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- radial purple -->
+    <TextView 
+        android:text="@string/radial_purple_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/radial_purple_command"
+        android:src="@drawable/radialpurple"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- radial red -->
+    <TextView 
+        android:text="@string/radial_red_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/radial_red_command"
+        android:src="@drawable/radialred"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- radial silver -->
+    <TextView 
+        android:text="@string/radial_silver_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/radial_silver_command"
+        android:src="@drawable/radialsliver"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- radial white -->
+    <TextView 
+        android:text="@string/radial_white_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/radial_white_command"
+        android:src="@drawable/radialwhite"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- radial yellow -->
+    <TextView 
+        android:text="@string/radial_yellow_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/radial_yellow_command"
+        android:src="@drawable/radialyellow"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- sexy booby -->
+    <TextView 
+        android:text="@string/sexy_booby_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/sexy_booby_command"
+        android:src="@drawable/sexybooby"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- sexy booty -->
+    <TextView 
+        android:text="@string/sexy_booty_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/sexy_booty_command"
+        android:src="@drawable/sexybooty"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
