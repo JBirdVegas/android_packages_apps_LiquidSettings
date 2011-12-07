@@ -1,0 +1,315 @@
+<resources>
+
+    <string-array name="entries_vm_heapsize" translatable="false">
+        <item>24m</item>
+        <item>32m</item>
+        <item>36m</item>
+        <item>40m</item>
+        <item>48m</item>
+        <item>56m</item>
+        <item>64m</item>
+    </string-array>
+
+    <string-array name="entries_lcd_density" translatable="false">
+        <item>140</item>
+        <item>142</item>
+        <item>144</item>
+        <item>146</item>
+        <item>148</item>
+        <item>150</item>
+        <item>152</item>
+        <item>154</item>
+        <item>156</item>
+        <item>158</item>
+        <item>160</item>
+        <item>162</item>
+        <item>164</item>
+        <item>166</item>
+        <item>168</item>
+        <item>170</item>
+        <item>172</item>
+        <item>174</item>
+        <item>176</item>
+        <item>178</item>
+        <item>180</item>
+        <item>182</item>
+        <item>184</item>
+        <item>186</item>
+        <item>188</item>
+        <item>190</item>
+        <item>192</item>
+        <item>194</item>
+        <item>196</item>
+        <item>198</item>
+        <item>200</item>
+        <item>202</item>
+        <item>204</item>
+        <item>206</item>
+        <item>208</item>
+        <item>210</item>
+        <item>212</item>
+        <item>214</item>
+        <item>216</item>
+        <item>218</item>
+        <item>220</item>
+        <item>222</item>
+        <item>224</item>
+        <item>226</item>
+        <item>228</item>
+        <item>230</item>
+        <item>232</item>
+        <item>234</item>
+        <item>236</item>
+        <item>238</item>
+        <item>240</item>
+        <item>242</item>
+        <item>244</item>
+        <item>246</item>
+        <item>248</item>
+        <item>250</item>
+        <item>252</item>
+        <item>254</item>
+        <item>256</item>
+        <item>258</item>
+        <item>260</item>
+    </string-array>
+
+    <string-array name="entries_max_events" translatable="false">
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+        <item>50</item>
+        <item>55</item>
+        <item>65</item>
+        <item>70</item>
+        <item>75</item>
+        <item>80</item>
+        <item>85</item>
+        <item>90</item>
+        <item>95</item>
+        <item>100</item>
+        <item>105</item>
+        <item>110</item>
+        <item>120</item>
+        <item>130</item>
+        <item>140</item>
+        <item>150</item>
+        <item>175</item>
+        <item>200</item>
+        <item>225</item>
+        <item>250</item>
+        <item>275</item>
+        <item>300</item>
+    </string-array>
+
+    <string-array name="entries_ring_delay" translatable="false">
+        <item>0</item>
+        <item>200</item>
+        <item>400</item>
+        <item>600</item>
+        <item>800</item>
+        <item>1000</item>
+        <item>1200</item>
+        <item>1400</item>
+    </string-array>
+
+    <string-array name="entries_fast_upload" translatable="false">
+        <item>Default</item>
+        <item>Disabled</item>
+        <item>Enabled</item>
+        <item>Uncapped</item>
+    </string-array>
+
+    <string-array name="values_fast_upload" translatable="false">
+        <item>disable</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="entries_prox_delay" translatable="false">
+        <item>Default</item>
+        <item>0</item>
+        <item>75</item>
+        <item>150</item>
+        <item>225</item>
+        <item>300</item>
+        <item>375</item>
+        <item>450</item>
+        <item>525</item>
+        <item>600</item>
+    </string-array>
+
+    <string-array name="values_prox_delay" translatable="false">
+        <item>disable</item>
+        <item>0</item>
+        <item>75</item>
+        <item>150</item>
+        <item>225</item>
+        <item>300</item>
+        <item>375</item>
+        <item>450</item>
+        <item>525</item>
+        <item>600</item>
+    </string-array>
+
+    <string-array name="entries_rem_logcat" translatable="false">
+        <item>Completely</item>
+        <item>Until Reboot</item>
+        <item>Enable Logging</item>
+    </string-array>
+
+    <string-array name="values_rem_logcat" translatable="false">
+        <item>disable</item>
+        <item>rm_log</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="entries_wifi_interval" translatable="false">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>90</item>
+        <item>120</item>
+        <item>150</item>
+        <item>180</item>
+        <item>210</item>
+        <item>240</item>
+        <item>270</item>
+        <item>300</item>
+        <item>999</item>
+    </string-array>
+
+    <string-array name="entries_sleep">
+        <item>Disable</item>
+        <item>Power Collapse Suspend</item>
+        <item>Power Collapse (Best)</item>
+        <item>Apps Goto Sleep</item>
+        <item>Slow Clock and Wait</item>
+        <item>Wait For Interrupt</item>
+    </string-array>
+
+    <string-array name="values_sleep">
+        <item>disable</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="entries_team_liquid">
+        <item>Website</item>
+        <item>GitHub</item>
+        <item>Changelog</item>
+    </string-array>
+
+    <string-array name="values_team_liquid">
+        <item>http://liquidsmoothroms.com/</item>
+        <item>https://github.com/LiquidSmoothROMs</item>
+        <item>https://raw.github.com/LiquidSmoothROMs/changelog/gingerbread/changelog</item>
+    </string-array>
+
+    <string-array name="entries_liquid">
+        <item>Donate</item>
+        <item>GitHub</item>
+        <item>Twitter</item>
+        <item>Google+</item>
+    </string-array>
+
+    <string-array name="values_liquid">
+        <item>http://bit.ly/qGR38c</item>
+        <item>https://github.com/liquid0624</item>
+        <item>http://twitter.com/#!/liquid0624</item>
+        <item>https://plus.google.com/118324649467121287507</item>
+    </string-array>
+
+    <string-array name="entries_liquidzgrl">
+        <item>Donate</item>
+        <item>Twitter</item>
+        <item>Google+</item>
+    </string-array>
+
+    <string-array name="values_liquidzgrl">
+        <item>http://bit.ly/mYyVTn</item>
+        <item>http://twitter.com/#!/LiQuIDzGrL</item>
+        <item>https://plus.google.com/108157260483079482034</item>
+    </string-array>
+
+    <string-array name="entries_jbirdvegas">
+        <item>Donate</item>
+        <item>GitHub</item>
+        <item>Market</item>
+        <item>Twitter</item>
+        <item>Google+</item>
+    </string-array>
+
+    <string-array name="values_jbirdvegas">
+        <item>http://bit.ly/oCWMo0</item>
+        <item>https://github.com/JBirdVegas</item>
+        <item>market://search?q=n00bware</item>
+        <item>http://twitter.com/#!/JBird_Vegas</item>
+        <item>https://plus.google.com/115602572254983357301</item>
+    </string-array>
+
+    <string-array name="entries_revnumbers">
+        <item>Donate</item>
+        <item>GitHub</item>
+        <item>Twitter</item>
+        <item>Google+</item>
+    </string-array>
+
+    <string-array name="values_revnumbers">
+        <item>http://bit.ly/nNB7tK</item>
+        <item>https://github.com/revnumbers</item>
+        <item>http://twitter.com/#!/RevNumbers</item>
+        <item>https://plus.google.com/108022993108279010175</item>
+    </string-array>
+
+    <string-array name="entries_cush2push">
+        <item>Donate</item>
+        <item>GitHub</item>
+        <item>Twitter</item>
+        <item>Google+</item>
+    </string-array>
+
+    <string-array name="values_cush2push">
+        <item>http://bit.ly/v7pZbT</item>
+        <item>https://github.com/cush2push</item>
+        <item>http://twitter.com/#!/realcush2push</item>
+        <item>https://plus.google.com/104890861987692688239</item>
+    </string-array>
+
+    <string-array name="entries_jrummy16">
+        <item>Donate</item>
+        <item>Market</item>
+        <item>Twitter</item>
+        <item>Google+</item>
+    </string-array>
+
+    <string-array name="values_jrummy16">
+        <item>http://bit.ly/nsdv1z</item>
+        <item>market://search?q=JRummy16</item>
+        <item>http://twitter.com/#!/jrummy16</item>
+        <item>https://plus.google.com/101898662480093123223</item>
+    </string-array>
+
+    <string-array name="entries_sd_speed">
+        <item>1024 kb</item>
+        <item>2048 kb</item>
+        <item>3072 kb</item>
+        <item>4096 kb</item>
+        <item>5120 kb</item>
+        <item>6144 kb</item>
+    </string-array>
+
+    <string-array name="values_sd_speed">
+        <item>1024</item>
+        <item>2048</item>
+        <item>3072</item>
+        <item>4096</item>
+        <item>5120</item>
+        <item>6144</item>
+    </string-array>
+
+</resources>
