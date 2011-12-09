@@ -5,12 +5,12 @@
 
     <!-- droid does gingy -->
     <TextView 
-        android:text="@string/does_ginger_title"
+        android:text="@string/does_gingy_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <ImageButton id="@+id/does_ginger_command"
-        android:src="@drawable/doesginger"
+    <ImageButton id="@+id/does_gingy_command"
+        android:src="@drawable/doesgingy"
         android:background="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
