@@ -10,11 +10,20 @@ import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.View;
 import android.view.MotionEvent;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
  
 public class GoodiesActivity extends Activity {
     private static final int SWIPE_MIN_DISTANCE = 120;
     private static final int SWIPE_MAX_OFF_PATH = 250;
     private static final int SWIPE_THRESHOLD_VELOCITY = 200;
+    private static final String EXIT = "; exit\n";
     private GestureDetector gestureDetector;
  
     /** Called when the activity is first created. */
@@ -127,33 +136,44 @@ public class GoodiesActivity extends Activity {
         String WHAT = new String();
         StringBuilder cmds = new StringBuilder();
 
-        if (color.equals("gingy")) {
-            WHAT = "doesginger.zip";
-        } else if (color.equals("green") {
-            WHAT = "doesgreen.zip";
-        } else if (color.equals("light_blue")) {
-            WHAT = "doeslightblue.zip";
-        } else if (color.equals("med_blue")) {
-            WHAT = "doesmedblue.zip";
-        } else if (color.equals("orange")) {
-            WHAT = "doesorange.zip";
-        } else if (color.equals("pink")) {
-            WHAT = "doespink.zip";
-        } else if (color.equals("purple")) {
-            WHAT = "doespurple.zip";
-        } else if (color.equals("red")) {
-            WHAT = "doesred.zip";
-        } else if (color.equals("smoked")) {
-            WHAT = "doessmoked.zip";
-        } else if (color.equals("two_blue")) {
-            WHAT = "doestwoblue.zip";
-        } else if (color.equals("white")) {
-            WHAT = "doeswhite.zip";
-        } else if (color.equals("yellow")) {
-            WHAT = "doesyellow.zip";
-        } else {
-            Log.wtf(TAG, "shit is all fucked up");
-            finish();
+
+        switch (color.equals()) {
+            case "gingy":
+                WHAT = "doesginger.zip";
+                break;
+            case "green":
+                WHAT = "doesgreen.zip";
+                break;
+            case "light_blue":
+                WHAT = "doeslightblue.zip";
+                break;
+            case "med_blue":
+                WHAT = "doesmedblue.zip";
+                break;
+            case "orange":
+                WHAT = "doesorange.zip";
+                break;
+            case "pink"
+                WHAT = "doespink.zip";
+                break;
+            case "purple":
+                WHAT = "doespurple.zip";
+                break;
+            case "red":
+                WHAT = "doesred.zip";
+                break;
+            case "smoked":
+                WHAT = "doessmoked.zip";
+                break;
+            case "two_blue":
+                WHAT = "doestwoblue.zip";
+                break;
+            case "white":
+                WHAT = "doeswhite.zip";
+                break;
+            case "yellow":
+                WHAT = "doesyellow.zip";
+                break;
         }
 
         cmds.append("busybox mount -o rw,remount -t yaffs2 /dev/block/mtdblock1 /system");
@@ -230,6 +250,115 @@ public class GoodiesActivity extends Activity {
         @Override
         public boolean onDown(MotionEvent e) {
 	        	return true;
+        }
+    }
+
+    private class SuServer extends AsyncTask<String, String, Void> {
+        private ProgressDialog pd;
+
+        @Override
+        protected void onPreExecute() {
+            pd = ProgressDialog.show(GoodiesActivity.this, "Working", "Running Command...", true, false);
+        }
+
+        @Override
+        protected void onProgressUpdate(String... values) {
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            pd.dismiss();
+
+        }
+
+        @Override
+        protected Void doInBackground(String script, String path) {
+            final Process p;
+
+            try {
+                File tmpDir = new File(Environment.getExternalStorageDirectory().toString() + "/.liquid");
+                if (!tmpDir.exists()) {
+                    tmpDir.mkdir();
+                }
+
+                //must be full path http:// and all
+                URL url = new URL(path);
+                String dl_path = Environment.getExternalStorageDirectory().toString() + "/.liquid/bootanimation.zip";
+
+                File dl_file = new File(dl_path);
+
+                //timer so we can moniter progress later
+                long startTime = System.currentTimeMillis();
+
+                //open connection and read inputStreams
+                URLConnection connecter = url.openConnection();
+                InputStream incomming_data = connecter.getInputStream();
+                BufferedInputStream input_buffer = new BufferedInputStream(incomming_data);
+
+                ByteArrayBuffer ba_buffer = new ByteArrayBuffer(1024);
+                int current = 0;
+                while ((current = input_buffer.read()) != -1) {
+                    ba_buffer.append((byte) currnet);
+                }
+
+                FileOptputStream file_out = new FileOpenStream(dl_file);
+                file_out.write(ba_buffer.toByteArray());
+                file_out.close();
+                Log.d
+            } catch (IOException ioe) {
+                Log.d(TAG, "Error: " + ioe);
+                ioe.printStackTrace();
+                //not sure what to do here dl has failed we can't proceed
+                //maybe we throw a runtimeExeption?
+                //for now we will just finish
+                finish();
+            }
+
+            //now we have our file local
+            //lets move it around to apply
+            try {
+                p = Runtime.getRuntime().exec("su -c sh");
+                BufferedReader stdInput = new BufferedReader( new InputStreamReader(p.getInputStream()));
+                //TODO:
+                //I'm commenting this for now but consider it marked for
+                //execution if we don't add in some usage of this reader
+                //BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+                BufferedWriter stdOutput = new BufferedWriter(new OutputStreamWriter(p.getOutputStream()));
+
+                stdOutput.write(script);
+                stdOutput.write(EXIT);
+                stdOutput.flush();
+                Thread t = new Thread() {
+                    public void run() {
+                        try {
+                            p.waitFor();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                t.start();
+
+                while (t.isAlive()) {
+                    String status = stdInput.readLine();
+                    if (status != null) {
+                        publishProgress(status);
+                    }
+                    Thread.sleep(20);
+                }
+
+                stdInput.close();
+                stdError.close();
+                stdOutput.close();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            } catch (InterruptedException ie) {
+                ie.printStackTrace();
+            } catch (NullPointerException npe) {
+                npe.printStackTrace();
+            }
+            return null;
         }
     }
 }
