@@ -147,6 +147,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <!-- droid eyes green -->
+    <TextView 
+        android:text="@string/eyes_green_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/eyes_green_command"
+        android:src="@drawable/eyesgreen"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- droid eyes light blue -->
+    <TextView 
+        android:text="@string/eyes_light_blue_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton id="@+id/eyes_light_blue_command"
+        android:src="@drawable/eyeslightblue"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <!-- droid eyes blue green -->
     <TextView 
         android:text="@string/eyes_blue_green_title"
@@ -171,29 +195,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <!-- droid eyes green -->
-    <TextView 
-        android:text="@string/eyes_green_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ImageButton id="@+id/eyes_green_command"
-        android:src="@drawable/eyesgreen"
-        android:background="@null"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <!-- droid eyes light blue -->
-    <TextView 
-        android:text="@string/eyes_light_blue_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ImageButton id="@+id/eyes_light_blue_command"
-        android:src="@drawable/eyeslightblue"
-        android:background="@null"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
     <!-- droid eyes orange -->
     <TextView 

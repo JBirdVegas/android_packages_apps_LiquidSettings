@@ -129,9 +129,81 @@ public class GoodiesActivity extends Activity {
                 droidDoes("yellow");
         });
 
-    }
+        /* Droid eyes */
+        ImageButton eyes_green_button = (ImageButton) findViewById("eyes_green_command");
+        eyes_green_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                droidEyes("green");
+        });
+
+        ImageButton eyes_light_blue_button = (ImageButton) findViewById("eyes_light_blue_command");
+        eyes_light_blue_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                droidEyes("light_blue");
+        });
+
+        ImageButton eyes_blue_green_button = (ImageButton) findViewById("eyes_blue_green_command");
+        eyes_blue_green_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                droidEyes("blue_green");
+        });
+
+        ImageButton eyes_cyan_button = (ImageButton) findViewById("eyes_cyan_command");
+        eyes_cyan_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                droidEyes("cyan");
+        });
+
+
+        ImageButton eyes_orange_button = (ImageButton) findViewById("eyes_orange_command");
+        eyes_orange_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                droidDoes("orange");
+        });
+
+        ImageButton eyes_pink_button = (ImageButton) findViewById("eyes_pink_command");
+        eyes_pink_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                droidDoes("pink");
+        });
+
+        ImageButton eyes_purple_button = (ImageButton) findViewById("eyes_purple_command");
+        eyes_purple_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                droidDoes("purple");
+        });
+
+        ImageButton eyes_red_button = (ImageButton) findViewById("eyes_red_command");
+        eyes_red_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                droidDoes("red");
+        });
+
+        ImageButton eyes_yellow_button = (ImageButton) findViewById("eyes_yellow_command");
+        eyes_red_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                droidDoes("yellow");
+        });
+
+        ImageButton gingy_faster_button = (ImageButton) findViewById("gingy_faster_command");
+        eyes_red_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                specialBranding("faster");
+        });
+
+        ImageButton gingy_slower_button = (ImageButton) findViewById("gingy_slower_command");
+        eyes_red_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                specialBranding("slower");
+        });
+
+
+
+  }
 
     private boolean buildMoveScript() {
+
+        String SPACE = " ; ";
         StringBuilder cmds = new StringBuilder();
         cmds.append("busybox mount -o rw,remount -t yaffs2 /dev/block/mtdblock1 /system");
         cmds.append(SPACE);
@@ -153,8 +225,8 @@ public class GoodiesActivity extends Activity {
 
     private void droidDoes(String color) {
 
-        String SPACE = " ; ";
         String WHAT = new String();
+        String PROMPT = "Install droid does boot animation?";
 
         switch (color.equals()) {
             case "gingy":
@@ -196,12 +268,74 @@ public class GoodiesActivity extends Activity {
         }
 
         buildMoveScript();
+        String final_webpage = String.format("http://android.markjohnston.us/DL/LGB/BOOTS/DROID/DOES/%s", WHAT)
+
+        //suServer signature changed now including the webaddress 
+        runSuCommand(PROMPT, final_webpage);
+    }
+
+    private void droidEyes(String color) {
+
+        String PROMPT = "Install droid eyes boot animation?";
+        String WHAT = new String();
+
+        switch (color.equals()) {
+            case "green":
+                WHAT = "eyesgreen.zip";
+                break;
+            case "light_blue":
+                WHAT = "eyeslightblue.zip";
+                break;
+            case "blue_green":
+                WHAT = "eyesbluegreen.zip";
+                break;
+            case "cyan":
+                WHAT = "eyescyan.zip";
+                break;
+            case "orange":
+                WHAT = "eyesorange.zip";
+                break;
+            case "pink"
+                WHAT = "eyespink.zip";
+                break;
+            case "purple":
+                WHAT = "eyespurple.zip";
+                break;
+            case "red":
+                WHAT = "eyesred.zip";
+                break;
+            case "yellow":
+                WHAT = "eyesyellow.zip";
+                break;
+        }
+
+        buildMoveScript();
+        String final_webpage = String.format("http://android.markjohnston.us/DL/LGB/BOOTS/DROID/EYES/%s", WHAT)
+
+        //suServer signature changed now including the webaddress 
+        runSuCommand(PROMPT, final_webpage);
+    }
+
+    private void specialBranding(String branding) {
+
+        String WHAT = new String();
+        String PROMPT = "Install a special boot animation?";
+
+        switch (branding.equals()) {
+            case "faster":
+                WHAT = "GINGY/gingyfaster.zip";
+                break;
+            case "slower":
+                WHAT = "GINGY/gingyslower.zip";
+                break;
+        }
+
+        buildMoveScript();
         String final_webpage = String.format("http://android.markjohnston.us/DL/LGB/BOOTS/DROID/%s", WHAT)
 
         //suServer signature changed now including the webaddress 
-        runSuCommand
+        runSuCommand(PROMPT, final_webpage);
     }
-
     private void runSuCommand(final String message, String web){
         //we recieve the message to display && the website
         //now we need to check to see if 
