@@ -20,17 +20,18 @@ import java.net.URL;
 import java.net.URLConnection;
  
 public class GoodiesActivity extends Activity {
+
     private static final int SWIPE_MIN_DISTANCE = 120;
     private static final int SWIPE_MAX_OFF_PATH = 250;
     private static final int SWIPE_THRESHOLD_VELOCITY = 200;
-    private static final String EXIT = "; exit\n";
+    private String SU_CMDS = null;
     private GestureDetector gestureDetector;
  
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.second_layout);
+        setContentView(R.layout.goodies_settings);
  
         gestureDetector = new GestureDetector(new MyGestureDetector());
         View mainview = (View) findViewById(R.id.mainView2);
@@ -130,12 +131,30 @@ public class GoodiesActivity extends Activity {
 
     }
 
-    private droidDoes(String color) {
+    private boolean buildMoveScript() {
+        StringBuilder cmds = new StringBuilder();
+        cmds.append("busybox mount -o rw,remount -t yaffs2 /dev/block/mtdblock1 /system");
+        cmds.append(SPACE);
+        cmds.append("busybox mv /sdcard/doesgingy.zip /sdcard/bootanimation.zip");
+        cmds.append(SPACE);
+        cmds.append("busybox cp -R /sdcard/bootanimation.zip /data/local/");
+        cmds.append(SPACE);
+        cmds.append("busybox rm /sdcard/bootanimation.zip");
+        cmds.append(SPACE);
+        cmds.append("busybox mount -o ro,remount -t yaffs2 /dev/block/mtdblock1 /system");
+        cmds.append(SPACE);
+        cmds.append("sync");
+        cmds.append(SPACE);
+        cmds.append("exit");
+
+        SU_CMDS = cmds.toString();
+
+    }
+
+    private void droidDoes(String color) {
 
         String SPACE = " ; ";
         String WHAT = new String();
-        StringBuilder cmds = new StringBuilder();
-
 
         switch (color.equals()) {
             case "gingy":
@@ -176,42 +195,36 @@ public class GoodiesActivity extends Activity {
                 break;
         }
 
-        cmds.append("busybox mount -o rw,remount -t yaffs2 /dev/block/mtdblock1 /system");
-        cmds.append(SPACE);
-        cmds.append("busybox mv /sdcard/doesgingy.zip /sdcard/bootanimation.zip");
-        cmds.append(SPACE);
-        cmds.append("busybox cp -R /sdcard/bootanimation.zip /data/local/");
-        cmds.append(SPACE);
-        cmds.append("busybox rm /sdcard/bootanimation.zip");
-        cmds.append(SPACE);
-        cmds.append("busybox mount -o ro,remount -t yaffs2 /dev/block/mtdblock1 /system");
-        cmds.append(SPACE);
-        cmds.append("sync");
-        cmds.append("exit");
-//TODO FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        buildMoveScript();
+        String final_webpage = String.format("http://android.markjohnston.us/DL/LGB/BOOTS/DROID/%s", WHAT)
+
+        //suServer signature changed now including the webaddress 
+        runSuCommand
     }
 
-    private void RunSuCommand(final String CommandStr, String YesNoString){
-        //TODO this method need updating we changed everything about it
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage(YesNoString)
-            .setCancelable(false)
-            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    //TODO add in SuServer embeddedd class
-                    // embedded in the SuServer class we need to use java for file download
-                    // bb is cool for moving
-                    // see example http://www.helloandroid.com/tutorials/how-download-fileimage-url-your-device
-                    new SuServer().execute(CommandStr);
-                }
-            })
-            .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
+    private void runSuCommand(final String message, String web){
+        //we recieve the message to display && the website
+        //now we need to check to see if 
+        //SU_CMDS is still null; and we will reset it to null in the async
+        if (SU_CMDS !=null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        new SuServer().execute(CommandStr);
                     }
-            });
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
 
             AlertDialog alertDialog = builder.create();
             builder.show();
+        } else {
+            Toast.makeText(this, "shit is all fucked up over here", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /* this class must be embedded in the Activity to register the MotionEvents */
@@ -226,20 +239,20 @@ public class GoodiesActivity extends Activity {
             // right to left swipe next Activity
             if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
                 Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
-    		startActivity(intent);
-    		SecondActivity.this.overridePendingTransition(
-			R.anim.slide_in_right,
-			R.anim.slide_out_left
-    		);
+                    startActivity(intent);
+                    SecondActivity.this.overridePendingTransition(
+                    R.anim.slide_in_right,
+                    R.anim.slide_out_left
+                );
             finish();
-    	    // left to right swipe previous Activity
+            // left to right swipe previous Activity
             }  else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
                 Intent intent = new Intent(SecondActivity.this, MainActivity.class);
-    		startActivity(intent);
-    		SecondActivity.this.overridePendingTransition(
-			R.anim.slide_in_left, 
-			R.anim.slide_out_right
-    		);
+                    startActivity(intent);
+                    SecondActivity.this.overridePendingTransition(
+                    R.anim.slide_in_left, 
+                    R.anim.slide_out_right
+                );
             }
             finish(); 
 
@@ -249,7 +262,7 @@ public class GoodiesActivity extends Activity {
         // It is necessary to return true from onDown for the onFling event to register
         @Override
         public boolean onDown(MotionEvent e) {
-	        	return true;
+            return true;
         }
     }
 
@@ -295,7 +308,8 @@ public class GoodiesActivity extends Activity {
                 InputStream incomming_data = connecter.getInputStream();
                 BufferedInputStream input_buffer = new BufferedInputStream(incomming_data);
 
-                ByteArrayBuffer ba_buffer = new ByteArrayBuffer(1024);
+                //TODO is 2048 better than 1024?
+                ByteArrayBuffer ba_buffer = new ByteArrayBuffer(2048);
                 int current = 0;
                 while ((current = input_buffer.read()) != -1) {
                     ba_buffer.append((byte) currnet);
@@ -308,6 +322,7 @@ public class GoodiesActivity extends Activity {
             } catch (IOException ioe) {
                 Log.d(TAG, "Error: " + ioe);
                 ioe.printStackTrace();
+                //TODO:
                 //not sure what to do here dl has failed we can't proceed
                 //maybe we throw a runtimeExeption?
                 //for now we will just finish
@@ -317,6 +332,7 @@ public class GoodiesActivity extends Activity {
             //now we have our file local
             //lets move it around to apply
             try {
+                String EXIT = ";\nexit\n";
                 p = Runtime.getRuntime().exec("su -c sh");
                 BufferedReader stdInput = new BufferedReader( new InputStreamReader(p.getInputStream()));
                 //TODO:
@@ -345,6 +361,7 @@ public class GoodiesActivity extends Activity {
                     if (status != null) {
                         publishProgress(status);
                     }
+                    //TODO Liquid why do we sleep here?
                     Thread.sleep(20);
                 }
 

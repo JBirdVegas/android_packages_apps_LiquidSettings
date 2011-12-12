@@ -71,9 +71,9 @@ public class MainActivity extends Activity {
                 return false;
             }
  
-            // right to left swipe
+            // right to left swipe next activity for now GoodiesActivity
             if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                Intent intent = new Intent(MainActivity.this, GoodiesActivity.class);
     		startActivity(intent);
     		MainActivity.this.overridePendingTransition(
 			R.anim.slide_in_right,
@@ -81,7 +81,8 @@ public class MainActivity extends Activity {
     		);
             finish();
 
-    	    // left to right swipe
+    	    // left to right swipe previous activity
+            // TODO how do we want to handle this jump back to last or bump and stay here?
             }  else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
                 Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
     		startActivity(intent);

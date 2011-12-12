@@ -60,7 +60,7 @@ public class ThirdActivity extends Activity {
     	    // left to right swipe previous Activity
             }  else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
                 Log.d("DEBUG-------", "right");
-                Intent intent = new Intent(ThirdActivity.this, SecondActivity.class);
+                Intent intent = new Intent(ThirdActivity.this, GoodiesActivity.class);
     		startActivity(intent);
     		ThirdActivity.this.overridePendingTransition(
                     R.anim.slide_in_left, 
