@@ -3,4 +3,32 @@
     <string name="app_name">Liquid Settings</string>
     <string name="version_name">ICS v.001</string>
 
+    <!-- boot animation titles -->
+    <!-- droid does -->
+    <string name="bootanimation_title">Bootanimations title string</string>
+    <string name="does_gingy_title">Droid does gingy</string>
+    <string name="does_green_title">Droid does green</string>
+    <string name="does_light_blue_title">Droid does light blue</string>
+    <string name="does_med_title">Droid does med blue</string>
+    <string name="does_orange_title">Droid does orange</string>
+    <string name="does_pink_title">Droid does pink</string>
+    <string name="does_purple_title">Droid does purple</string>
+    <string name="does_red_title">Droid does red</string>
+    <string name="does_smoked_title">Droid does smoked</string>
+    <string name="does_two_blue_title">Droid does two blue</string>
+    <string name="does_white_title">Droid does white</string>
+    <string name="does_yellow_title">Droid does yellow</string>
+
+    <!-- droid eyes -->
+    <string name="does_eyes_green_title">Droid eyes green</string>
+    <string name="does_eyes_light_blue_title">Droid eyes light blue</string>
+    <string name="droid_eyes_blue_green_title">Droid eyes blue_green</string>
+    <string name="droid_eyes_cyan_title">Droid eyes cyan</string>
+    <string name="droid_eyes_orange_title">Droid eyes orange</string>
+    <string name="droid_eyes_pink_title">Droid eyes pink</string>
+    <string name="droid_eyes_purple_title">Droid eyes purple</string>
+    <string name="droid_eyes_red_title">Droid eyes red</string>
+    <string name="droid_eyes_yellow_title">Droid eyes yellow </string>
+
+
 </resources>
