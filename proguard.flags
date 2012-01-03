@@ -1,0 +1,7 @@
+# Keep all Fragments in this package, which are used by reflection.
+-keep class com.liquid.rootkit.activities.*
+-keep class com.liquid.rootkit.activities.PowerWidget.*
+-keep class com.liquid.rootkit.*
+-keep class com.liquid.rootkit.utils.*
+-keep class com.liquid.rootkit.widget.*
+-keep class com.liquid.rootkit.switches.*
