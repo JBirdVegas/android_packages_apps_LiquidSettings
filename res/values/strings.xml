@@ -30,5 +30,24 @@
     <string name="droid_eyes_red_title">Droid eyes red</string>
     <string name="droid_eyes_yellow_title">Droid eyes yellow </string>
 
+    <!-- special branding -->
+    <string name="gingy_faster_title">make gingy faster</string>
+    <string name="gingy_slower_title">make gingy slower</string>
+    <string name="hallow_scary_title">Halloween scary</string>
+    <string name="hallow_skull_title">Halloween skull</string>
+    <string name="hallow_spiral_title">Halloween spiral</string>
+    <string name="liquid_default_title">LiquidSmoothROMs default</string>
+    <string name="liquid_earth_title">LiquidSmoothROMs Liquid Earth</string>
+    <string name="liquid_smooth_title">LiquidSmoothROMs Liquid Smooth</string>
+    <string name="liquid_sparkle_title">LiquidSmoothROMs Liquid Sparkle</string>
+    <string name="liquid_splash_title">LiquidSmoothROMs Liquid Splash</string>
+    <string name="other_android_frog_title">Android frog</string>
+    <string name="other_angry_birds_title">Angry birds</string>
+    <string name="other_apple_ouch_title">Apple ouch</string>
+    <string name="other_arc_reactor_title">Arc reactor</string>
+    <string name="other_color_tblot_title">ThunderBolt in color</string>
+    <string name="other_cup_water_title">Cup of water</string>
+    <string name="other_dark_blue_lfy_title">LiquidFroyo Dark Blue</string>
+    <string name="other_inmemoryof_title">In memory of\u2026</string>
 
 </resources>
