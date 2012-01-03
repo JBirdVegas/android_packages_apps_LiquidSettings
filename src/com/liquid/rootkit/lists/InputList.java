@@ -1,5 +1,5 @@
 
-package com.cyanogenmod.settings.lists;
+package com.liquid.rootkit.lists;
 
 import java.util.ArrayList;
 
