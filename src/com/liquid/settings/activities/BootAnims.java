@@ -38,6 +38,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.net.URL;
 import java.net.URLConnection;
  
@@ -727,7 +729,6 @@ public class BootAnims extends Activity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         new SuServer().execute(SU_CMDS);
-                        SU_CMDS = null;
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -772,6 +773,12 @@ public class BootAnims extends Activity {
                 /* DEBUG */
                 Log.d(TAG, String.format("WEBPATH: {%s}", WEBPATH));
                 Log.d(TAG, String.format("SU_CMDS: {%s}", SU_CMDS));
+
+                try {
+                    InetAddress i = InetAddress.getByName(WEBPATH);
+                } catch (UnknownHostException e1) {
+                    e1.printStackTrace();
+                }
 
                 //must be full path http:// and all
                 URL url = new URL(WEBPATH);
