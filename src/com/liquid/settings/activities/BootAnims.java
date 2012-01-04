@@ -743,7 +743,7 @@ public class BootAnims extends Activity {
     }
 
     private class SuServer extends AsyncTask<String, String, Void> {
-        private ProgressDialog pd;
+        //private ProgressDialog pd;
 
         @Override
         protected void onPreExecute() {
@@ -756,8 +756,7 @@ public class BootAnims extends Activity {
 
         @Override
         protected void onPostExecute(Void result) {
-            pd.dismiss();
-
+            //pd.dismiss();
         }
 
         @Override
