@@ -26,7 +26,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <Button
             android:id="@+id/addButton"
             android:onClick="addGesture"
@@ -35,8 +34,5 @@
             android:layout_weight="1"
             android:enabled="false"
             android:text="@string/gestures_button_add" />
-
     </LinearLayout>
-
 </LinearLayout>
-

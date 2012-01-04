@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<!-- Expanded View Power Widget -->
+	<PreferenceCategory
+		android:title="@string/general_title">
+		<CheckBoxPreference
+			android:key="show_search"
+			android:title="@string/title_nav_hide_search"
+			android:summary="@string/summary_nav_hide_search"
+			android:persistent="false"
+			android:defaultValue="true" />
+		<PreferenceScreen
+			android:key="button_order"
+			android:title="@string/title_nav_controls_order"
+			android:summary="@string/summary_nav_controls_order"
+			android:fragment="com.liquid.settings.activities.NavButtons$NavButtonOrder">
+		</PreferenceScreen>
+	</PreferenceCategory>
+</PreferenceScreen>

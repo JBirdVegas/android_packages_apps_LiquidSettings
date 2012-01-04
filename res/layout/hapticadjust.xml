@@ -22,8 +22,7 @@
       android:gravity="center_horizontal"
       android:text="@string/title_haptic_notice"/>
 
-  <TextView
-    android:id="@+id/type_desc"
+  <TextView android:id="@+id/type_desc"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
@@ -31,8 +30,7 @@
     android:layout_marginTop="10px">
   </TextView>
 
-  <TextView
-    android:id="@+id/TextView04"
+  <TextView android:id="@+id/TextView04"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:text="@string/haptic_plus_minus_desc"
@@ -42,44 +40,36 @@
     android:layout_marginTop="10px">
   </TextView>
 
-  <RelativeLayout
-    android:id="@+id/RelativeLayout01"
+  <RelativeLayout android:id="@+id/RelativeLayout01"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_width="match_parent">
 
-    <Button
-      android:id="@+id/add_button"
-      android:layout_height="wrap_content"
+    <Button android:layout_height="wrap_content"
       android:text="@string/haptic_button_plus"
       android:textSize="30px"
       android:textStyle="bold"
       android:layout_width="60px"
-      android:layout_alignParentLeft="true">
+      android:layout_alignParentLeft="true"
+      android:id="@+id/add_button">
     </Button>
 
-    <Button
-      android:id="@+id/sub_button"
-      android:layout_height="wrap_content"
+    <Button android:layout_height="wrap_content"
       android:text="@string/haptic_button_minus"
       android:textSize="30px"
       android:textStyle="bold"
       android:layout_width="60px"
-      android:layout_alignParentRight="true">
+      android:layout_alignParentRight="true"
+      android:id="@+id/sub_button">
     </Button>
-
   </RelativeLayout>
 
-    <TableLayout
-      android:id="@+id/TableLayout01"
+    <TableLayout android:id="@+id/TableLayout01"
       android:layout_height="wrap_content"
       android:layout_width="match_parent">
     </TableLayout>
 
-
-
-  <RelativeLayout
-    android:id="@+id/RelativeLayout02"
+  <RelativeLayout android:id="@+id/RelativeLayout02"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -93,8 +83,7 @@
       android:layout_alignParentLeft="true">
     </Button>
 
-    <!-- Disabled till we can port cmparts
-    <view class="com.cyanogenmod.cmparts.activities.HapticAdjust$TestButton" 
+    <view class="com.liquid.settings.activities.HapticAdjust$TestButton" 
       android:id="@+id/test_button"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -103,7 +92,7 @@
       android:clickable="true"
       android:textStyle="bold"
       android:minWidth="125px"
-      android:layout_centerHorizontal="true"/> -->
+      android:layout_centerHorizontal="true"/>
 
     <Button android:id="@+id/cancel_button"
       android:layout_height="wrap_content"
@@ -115,22 +104,18 @@
     </Button>
   </RelativeLayout>
 
-  <RelativeLayout
-        android:id="@+id/RelativeLayout03"
+  <RelativeLayout android:id="@+id/RelativeLayout03"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content">
-      <Button
+      <Button android:text="@string/haptic_button_revert"
           android:id="@+id/revert_button"
-          android:text="@string/haptic_button_revert"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_alignParentLeft="true">
       </Button>
-
-      <Button
-          android:id="@+id/default_button"
-          android:layout_height="wrap_content"
+      <Button android:layout_height="wrap_content"
           android:text="@string/haptic_button_default"
+          android:id="@+id/default_button"
           android:layout_alignParentRight="true"
           android:layout_width="wrap_content">
       </Button>

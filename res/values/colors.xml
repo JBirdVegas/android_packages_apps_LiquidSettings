@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-/* //device/apps/common/assets/res/any/strings.xml -->
+
 <resources>
     <color name="dragndrop_background">#e0103010</color>
 </resources>

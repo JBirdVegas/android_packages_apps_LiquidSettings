@@ -34,7 +34,7 @@
 
     <android.gesture.GestureOverlayView
         android:id="@+id/gestures_overlay"
-        android:background="@drawable/rectangle"
+		android:background="@drawable/rectangle"
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1.0"

@@ -1,18 +1,30 @@
-To add a item to a category you need to modify the src/com/liquid/rootkit/lists/<category>.java file.
-This file contains a list of items that should be in the list, along with the Activity it launches.
-Formart shoud look like:
+README
 
-{ "[title string name]", "[summary string name]", "com.liquid.rootkit.activities.<CLASS>", "", "[0,1,2]" }
+Liquid Settings is a central location for specific settings, instead of cluttering the Android Settings
+Note: This repository has been moved https://github.com/JBirdVegas/android_packages_apps_LiquidSettings
 
-For Title, and Summary you want to use the Resource Identifier name, as it is replaced in the Adapter with the correct localized string.
+*lifecycle of our app so we don't get confused
 
-0 = Header
-1 = Normal
-2 = Switch
+First Open
+Splash Screen :SplashActivity
+    -destroys itself after launching
+Main Screens
+    -users can swipe left to -1 through numeric progression on README.Progression
+    -users can swipe right to +1 through said list
+    -ALL Activities must follow this Progression list (excluding splash screen)
 
-If you choose switch you will need to make a switch class inside of the "switches" folder, and then modify SlideSettings.java
-to add the class in the appropriate places, please look at "mWidgetSwitch" and "PowerWidgetSwitch" for examples of how to create this.
+Progression {
 
-For your Preference activities this should be made the same way as normal, preferbally use fragments where preferencescreens use to be used.
-You can see PowerWidget.java for a good way to keep everything contained in a single file for cleanliness.
+//TODO how to handle swipes when we are at list ends
+//    ie. end of list can be debounced, reset to 1, or reset to 6 thus reloading same activity or ignore the swipe in that direction entirely
 
+1) MainActivity
+2) GoodiesActivity
+3) PerformanceActivity
+4) OverclockingActivity
+5) ApplicationsActivity
+6) SparePartsActivity
+
+}
+
+TODO we should add 3 panels on top of each screen to show what activity is next (+1) or prev (-1) on Progression

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <preference-headers
-    android:id="@+id/wifi_settings"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <header android:title="Notification Widget" />
-
+        xmlns:android="http://schemas.android.com/apk/res/android">
+       <header
+        android:id="@+id/wifi_settings"
+        android:title="Notification Widget"/>
 </preference-headers>

@@ -15,9 +15,11 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v4 \
     android-ex-variablespeed \
 
-LOCAL_PACKAGE_NAME := LiquidRootkit
 
-LOCAL_PROGUARD_FLAG_FILES := proguard.flags
+LOCAL_PACKAGE_NAME := LiquidSettings
+#LOCAL_CERTIFICATE := platform
+
+#LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 include $(BUILD_PACKAGE)
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.liquid.rootkit"
+    package="com.liquid.settings"
     android:versionCode="1"
     android:versionName="1.0" >
     
@@ -12,36 +12,50 @@
     <uses-sdk android:minSdkVersion="14" />
 
     <application
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/app_icon"
         android:label="@string/app_name" >
         <activity
             android:label="@string/app_name"
             android:name=".SlideSettings"
-            android:taskAffinity="com.liquid.rootkit"
+            android:taskAffinity="com.liquid.settings"
             android:launchMode="singleTask">
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.liquid.ROOTKIT" />
+                <action android:name="android.liquid.SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 <!--
         <activity
             android:name=".Settings"
-            android:taskAffinity="com.liquid.rootkit"
+            android:taskAffinity="com.liquid.settings"
             android:launchMode="singleTask">
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.liquid.ROOTKIT" />
+                <action android:name="android.liquid.SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
         <activity android:name=".SubSettings"
-                android:taskAffinity="com.liquid.rootkit">
+                android:taskAffinity="com.liquid.settings">
         </activity>
 -->
+
+        <!-- Navigation Controls -->
+        <activity android:name=".activities.NavButtons"
+                android:label="@string/title_input_nav"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:clearTaskOnLaunch="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.liquid.WIDGET_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <!-- Notification Widget -->
         <activity android:name=".activities.PowerWidget"
                 android:label="@string/title_widget_buttons"
@@ -49,7 +63,7 @@
                 android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.cyanogenmod.WIDGET_SETTINGS" />
+                <action android:name="android.liquid.WIDGET_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -82,7 +96,7 @@
                 android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.cyanogenmod.BACKLIGHT_SETTINGS" />
+                <action android:name="android.liquid.BACKLIGHT_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -94,6 +108,5 @@
            </intent-filter>
         </activity>
         <!--- End Backlight -->
-
     </application>
 </manifest>
