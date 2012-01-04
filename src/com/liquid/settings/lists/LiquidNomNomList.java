@@ -25,7 +25,7 @@ public class LiquidNomNomList extends MasterLists {
 
     public LiquidNomNomList() {
         mList = new ArrayList<MasterLists.List>();
-        mList.add(new MasterLists.List(R.string.bootanimation_title, 0, "com.liquid.settings.activities.BootAnims", TYPE_NORMAL));   
+        mList.add(new MasterLists.List(R.string.bootanimation_title, R.string.bootanimation_summary, "com.liquid.settings.activities.BootAnims", TYPE_NORMAL));   
     }
 
     public ArrayList<MasterLists.List> getList() {

@@ -896,6 +896,7 @@
     <!-- boot animation titles -->
     <!-- droid does -->
     <string name="bootanimation_title">Bootanimations title string</string>
+    <string name="bootanimation_summary">Bootanimations summary string</string>
     <string name="does_gingy_title">Droid does gingy</string>
     <string name="does_green_title">Droid does green</string>
     <string name="does_light_blue_title">Droid does light blue</string>
