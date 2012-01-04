@@ -56,7 +56,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 
-
+import com.liquid.settings.lists.LiquidNomNomList;
 import com.liquid.settings.lists.ApplicationList;
 import com.liquid.settings.lists.DisplayList;
 import com.liquid.settings.lists.InputList;
@@ -78,15 +78,16 @@ public class SlideSettings extends Activity {
 
     private static final HashMap<Integer, MasterLists> listHead = new HashMap<Integer, MasterLists>();
     static {
-        listHead.put(0, new ApplicationList());
-        listHead.put(1, new DisplayList());
-        listHead.put(2, new InputList());
-        listHead.put(3, new InterfaceList());
-        listHead.put(4, new LockscreenList());
-        listHead.put(5, new PerformanceList());
-        listHead.put(6, new SoundList());
-        listHead.put(7, new SystemList());
-        listHead.put(8, new TabletList());
+        listHead.put(0, new LiquidNomNomList());
+        listHead.put(1, new ApplicationList());
+        listHead.put(2, new DisplayList());
+        listHead.put(3, new InputList());
+        listHead.put(4, new InterfaceList());
+        listHead.put(5, new LockscreenList());
+        listHead.put(6, new PerformanceList());
+        listHead.put(7, new SoundList());
+        listHead.put(8, new SystemList());
+        listHead.put(9, new TabletList());
     }
 
     @Override
@@ -105,13 +106,16 @@ public class SlideSettings extends Activity {
             tab.setTabListener(new TabListener() {
                 @Override
                 public void onTabReselected(Tab tab, FragmentTransaction ft) {
+                    Log.d(TAG, "onTabReselected called...");
                 }
                 @Override
                 public void onTabSelected(Tab tab, FragmentTransaction ft) {
+                    Log.d(TAG, "onTabSelected called...");
                     mPager.setCurrentItem(tab.getPosition());
                 }
                 @Override
                 public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+                    Log.d(TAG, "onTabUnselected called...");
                 }
             });
             tab.setText(entry);
@@ -134,7 +138,7 @@ public class SlideSettings extends Activity {
     }
     
     public static class SettingsAdapter extends FragmentPagerAdapter {
-        private final String[] tabs = {"Application", "Display", "Input", "Interface", "Lockscreen", 
+        private final String[] tabs = {"Liquid Nom-Nom", "Application", "Display", "Input", "Interface", "Lockscreen", 
                                   "Performace", "Sound", "System", "Tablet" };
 
         public SettingsAdapter(FragmentManager fm) {
@@ -351,9 +355,9 @@ public class SlideSettings extends Activity {
                 mWidgetEnabler.resume();
             }
         
-             public void pause() {
-                 mWidgetEnabler.pause();
-             } 
+            public void pause() {
+                mWidgetEnabler.pause();
+            } 
         }
     }
 }
