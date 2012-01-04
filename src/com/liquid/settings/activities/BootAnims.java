@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.MotionEvent;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import 	org.apache.http.util.ByteArrayBuffer;
@@ -56,6 +57,11 @@ public class BootAnims extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.boot_anims);
+
+        //setup smooth vertical scrolling
+        ScrollView scroll = (ScrollView) findViewById(R.id.boot_anims_scrollview);
+        scroll.setSmoothScrollingEnabled(true);
+        scroll.fling(65);
 
         //to improve speed of thread creation we only load listeners if the bundle
         //is null (so we don't load listeners on orientation changes)
