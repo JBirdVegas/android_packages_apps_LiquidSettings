@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.MotionEvent;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -70,84 +71,96 @@ public class BootAnims extends Activity {
     private void setupListeners() {
 
         ImageButton does_gingy_button = (ImageButton) findViewById(R.id.does_gingy_command);
-        does_gingy_button.setOnClickListener(new View.OnClickListener() {
+        does_gingy_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("gingy");
             }
         });
 
         ImageButton does_green_button = (ImageButton) findViewById(R.id.does_green_command);
-        does_green_button.setOnClickListener(new View.OnClickListener() {
+        does_green_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("green");
             }
         });
 
         ImageButton does_light_blue_button = (ImageButton) findViewById(R.id.does_light_blue_command);
-        does_light_blue_button.setOnClickListener(new View.OnClickListener() {
+        does_light_blue_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("light_blue");
             }
         });
 
         ImageButton does_med_blue_button = (ImageButton) findViewById(R.id.does_green_command);
-        does_med_blue_button.setOnClickListener(new View.OnClickListener() {
+        does_med_blue_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("med_blue");
             }
         });
 
         ImageButton does_orange_button = (ImageButton) findViewById(R.id.does_orange_command);
-        does_orange_button.setOnClickListener(new View.OnClickListener() {
+        does_orange_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("orange");
             }
         });
 
         ImageButton does_pink_button = (ImageButton) findViewById(R.id.does_pink_command);
-        does_pink_button.setOnClickListener(new View.OnClickListener() {
+        does_pink_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("pink");
             }
         });
 
         ImageButton does_purple_button = (ImageButton) findViewById(R.id.does_purple_command);
-        does_purple_button.setOnClickListener(new View.OnClickListener() {
+        does_purple_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("purple");
             }
         });
 
         ImageButton does_red_button = (ImageButton) findViewById(R.id.does_red_command);
-        does_red_button.setOnClickListener(new View.OnClickListener() {
+        does_red_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("red");
             }
         });
 
         ImageButton does_smoked_button = (ImageButton) findViewById(R.id.does_smoked_command);
-        does_smoked_button.setOnClickListener(new View.OnClickListener() {
+        does_smoked_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("smoked");
             }
         });
 
         ImageButton does_two_blue_button = (ImageButton) findViewById(R.id.does_two_blue_command);
-        does_two_blue_button.setOnClickListener(new View.OnClickListener() {
+        does_two_blue_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("two_blue");
             }
         });
 
         ImageButton does_white_button = (ImageButton) findViewById(R.id.does_white_command);
-        does_white_button.setOnClickListener(new View.OnClickListener() {
+        does_white_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("white");
             }
         });
 
         ImageButton does_yellow_button = (ImageButton) findViewById(R.id.does_yellow_command);
-        does_yellow_button.setOnClickListener(new View.OnClickListener() {
+        does_yellow_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("yellow");
             }
@@ -155,315 +168,360 @@ public class BootAnims extends Activity {
 
         /* Droid eyes */
         ImageButton eyes_green_button = (ImageButton) findViewById(R.id.eyes_green_command);
-        eyes_green_button.setOnClickListener(new View.OnClickListener() {
+        eyes_green_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidEyes("green");
             }
         });
 
         ImageButton eyes_light_blue_button = (ImageButton) findViewById(R.id.eyes_light_blue_command);
-        eyes_light_blue_button.setOnClickListener(new View.OnClickListener() {
+        eyes_light_blue_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidEyes("light_blue");
             }
         });
 
         ImageButton eyes_blue_green_button = (ImageButton) findViewById(R.id.eyes_blue_green_command);
-        eyes_blue_green_button.setOnClickListener(new View.OnClickListener() {
+        eyes_blue_green_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidEyes("blue_green");
             }
         });
 
         ImageButton eyes_cyan_button = (ImageButton) findViewById(R.id.eyes_cyan_command);
-        eyes_cyan_button.setOnClickListener(new View.OnClickListener() {
+        eyes_cyan_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidEyes("cyan");
             }
         });
 
         ImageButton eyes_orange_button = (ImageButton) findViewById(R.id.eyes_orange_command);
-        eyes_orange_button.setOnClickListener(new View.OnClickListener() {
+        eyes_orange_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("orange");
             }
         });
 
         ImageButton eyes_pink_button = (ImageButton) findViewById(R.id.eyes_pink_command);
-        eyes_pink_button.setOnClickListener(new View.OnClickListener() {
+        eyes_pink_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("pink");
             }
         });
 
         ImageButton eyes_purple_button = (ImageButton) findViewById(R.id.eyes_purple_command);
-        eyes_purple_button.setOnClickListener(new View.OnClickListener() {
+        eyes_purple_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("purple");
             }
         });
 
         ImageButton eyes_red_button = (ImageButton) findViewById(R.id.eyes_red_command);
-        eyes_red_button.setOnClickListener(new View.OnClickListener() {
+        eyes_red_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("red");
             }
         });
 
         ImageButton eyes_yellow_button = (ImageButton) findViewById(R.id.eyes_yellow_command);
-        eyes_yellow_button.setOnClickListener(new View.OnClickListener() {
+        eyes_yellow_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 droidDoes("yellow");
             }
         });
 
         ImageButton gingy_faster_button = (ImageButton) findViewById(R.id.gingy_faster_command);
-        gingy_faster_button.setOnClickListener(new View.OnClickListener() {
+        gingy_faster_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("gingy_faster");
             }
         });
 
         ImageButton gingy_slower_button = (ImageButton) findViewById(R.id.gingy_slower_command);
-        gingy_slower_button.setOnClickListener(new View.OnClickListener() {
+        gingy_slower_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("gingy_slower");
             }
         });
 
         ImageButton hallow_scarry_button = (ImageButton) findViewById(R.id.hallow_scarry_command);
-        hallow_scarry_button.setOnClickListener(new View.OnClickListener() {
+        hallow_scarry_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("hallow_scarry");
             }
         });
 
         ImageButton hallow_skull_button = (ImageButton) findViewById(R.id.hallow_skull_command);
-        hallow_skull_button.setOnClickListener(new View.OnClickListener() {
+        hallow_skull_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("hallow_skull");
             }
         });
 
         ImageButton hallow_spiral_button = (ImageButton) findViewById(R.id.hallow_spiral_command);
-        hallow_spiral_button.setOnClickListener(new View.OnClickListener() {
+        hallow_spiral_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("hallow_spiral");
             }
         });
 
         ImageButton liquid_default_button = (ImageButton) findViewById(R.id.liquid_default_command);
-        liquid_default_button.setOnClickListener(new View.OnClickListener() {
+        liquid_default_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("liquid_default");
             }
         });
 
         ImageButton liquid_earth_button = (ImageButton) findViewById(R.id.liquid_earth_command);
-        liquid_earth_button.setOnClickListener(new View.OnClickListener() {
+        liquid_earth_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("liquid_earth");
             }
         });
 
         ImageButton liquid_rotate_button = (ImageButton) findViewById(R.id.liquid_rotate_command);
-        liquid_rotate_button.setOnClickListener(new View.OnClickListener() {
+        liquid_rotate_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("liquid_rotate");
             }
         });
 
         ImageButton liquid_smooth_button = (ImageButton) findViewById(R.id.liquid_smooth_command);
-        liquid_smooth_button.setOnClickListener(new View.OnClickListener() {
+        liquid_smooth_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("liquid_smooth");
             }
         });
 
         ImageButton liquid_sparkle_button = (ImageButton) findViewById(R.id.liquid_sparkle_command);
-        liquid_sparkle_button.setOnClickListener(new View.OnClickListener() {
+        liquid_sparkle_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("liquid_sparkle");
             }
         });
 
         ImageButton liquid_splash_button = (ImageButton) findViewById(R.id.liquid_splash_command);
-        liquid_splash_button.setOnClickListener(new View.OnClickListener() {
+        liquid_splash_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("liquid_splash");
             }
         });
 
         ImageButton other_android_frog_button = (ImageButton) findViewById(R.id.other_android_frog_command);
-        other_android_frog_button.setOnClickListener(new View.OnClickListener() {
+        other_android_frog_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("other_android_frog");
             }
         });
 
         ImageButton other_angry_birds_button = (ImageButton) findViewById(R.id.other_angry_birds_command);
-        other_angry_birds_button.setOnClickListener(new View.OnClickListener() {
+        other_angry_birds_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("other_angry_birds");
             }
         });
 
         ImageButton other_arc_reactor_button = (ImageButton) findViewById(R.id.other_arc_reactor_command);
-        other_arc_reactor_button.setOnClickListener(new View.OnClickListener() {
+        other_arc_reactor_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("other_arc_reactor");
             }
         });
 
         ImageButton other_color_tbolt_button = (ImageButton) findViewById(R.id.other_color_tbolt_command);
-        other_color_tbolt_button.setOnClickListener(new View.OnClickListener() {
+        other_color_tbolt_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("other_color_tbolt");
             }
         });
 
         ImageButton other_cup_water_button = (ImageButton) findViewById(R.id.other_cup_water_command);
-        other_cup_water_button.setOnClickListener(new View.OnClickListener() {
+        other_cup_water_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("other_cup_water");
             }
         });
 
         ImageButton other_dark_blue_lfy_button = (ImageButton) findViewById(R.id.other_dark_blue_lfy_command);
-        other_dark_blue_lfy_button.setOnClickListener(new View.OnClickListener() {
+        other_dark_blue_lfy_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("other_dark_blue_lfy");
             }
         });
 
         ImageButton other_inmemoryof_button = (ImageButton) findViewById(R.id.other_inmemoryof_command);
-        other_inmemoryof_button.setOnClickListener(new View.OnClickListener() {
+        other_inmemoryof_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("other_inmemoryof");
             }
         });
 
         ImageButton other_merry_xmas_button = (ImageButton) findViewById(R.id.other_merry_xmas_command);
-        other_merry_xmas_button.setOnClickListener(new View.OnClickListener() {
+        other_merry_xmas_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("other_merry_xmas");
             }
         });
 
         ImageButton other_rose_bloom_button = (ImageButton) findViewById(R.id.other_rose_bloom_command);
-        other_rose_bloom_button.setOnClickListener(new View.OnClickListener() {
+        other_rose_bloom_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("other_rose_bloom");
             }
         });
 
         ImageButton other_simply_stunning_button = (ImageButton) findViewById(R.id.other_simply_stunning_command);
-        other_simply_stunning_button.setOnClickListener(new View.OnClickListener() {
+        other_simply_stunning_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("other_simply_stunning");
             }
         });
 
         ImageButton other_solar_system_button = (ImageButton) findViewById(R.id.other_solar_system_command);
-        other_solar_system_button.setOnClickListener(new View.OnClickListener() {
+        other_solar_system_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("other_solar_system");
             }
         });
 
         ImageButton radial_default_button = (ImageButton) findViewById(R.id.radial_default_command);
-        radial_default_button.setOnClickListener(new View.OnClickListener() {
+        radial_default_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("radial_default");
             }
         });
 
         ImageButton radial_dark_blue_button = (ImageButton) findViewById(R.id.radial_dark_blue_command);
-        radial_dark_blue_button.setOnClickListener(new View.OnClickListener() {
+        radial_dark_blue_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("radial_dark_blue");
             }
         });
 
         ImageButton radial_green_button = (ImageButton) findViewById(R.id.radial_green_command);
-        radial_green_button.setOnClickListener(new View.OnClickListener() {
+        radial_green_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("radial_green");
             }
         });
 
         ImageButton radial_light_blue_button = (ImageButton) findViewById(R.id.radial_light_blue_command);
-        radial_light_blue_button.setOnClickListener(new View.OnClickListener() {
+        radial_light_blue_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("radial_light_blue");
             }
         });
 
         ImageButton radial_lime_green_button = (ImageButton) findViewById(R.id.radial_lime_green_command);
-        radial_lime_green_button.setOnClickListener(new View.OnClickListener() {
+        radial_lime_green_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("radial_lime_green");
             }
         });
 
         ImageButton radial_orange_button = (ImageButton) findViewById(R.id.radial_orange_command);
-        radial_orange_button.setOnClickListener(new View.OnClickListener() {
+        radial_orange_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("radial_orange");
             }
         });
 
         ImageButton radial_pink_button = (ImageButton) findViewById(R.id.radial_pink_command);
-        radial_pink_button.setOnClickListener(new View.OnClickListener() {
+        radial_pink_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("radial_pink");
             }
         });
 
         ImageButton radial_purple_button = (ImageButton) findViewById(R.id.radial_purple_command);
-        radial_purple_button.setOnClickListener(new View.OnClickListener() {
+        radial_purple_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("radial_purple");
             }
         });
 
         ImageButton radial_red_button = (ImageButton) findViewById(R.id.radial_red_command);
-        radial_red_button.setOnClickListener(new View.OnClickListener() {
+        radial_red_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("radial_red");
             }
         });
 
         ImageButton radial_silver_button = (ImageButton) findViewById(R.id.radial_silver_command);
-        radial_silver_button.setOnClickListener(new View.OnClickListener() {
+        radial_silver_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("radial_silver");
             }
         });
 
         ImageButton radial_white_button = (ImageButton) findViewById(R.id.radial_white_command);
-        radial_white_button.setOnClickListener(new View.OnClickListener() {
+        radial_white_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("radial_white");
             }
         });
 
         ImageButton radial_yellow_button = (ImageButton) findViewById(R.id.radial_yellow_command);
-        radial_yellow_button.setOnClickListener(new View.OnClickListener() {
+        radial_yellow_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("radial_yellow");
             }
         });
 
         ImageButton sexy_booty_button = (ImageButton) findViewById(R.id.sexy_booty_command);
-        sexy_booty_button.setOnClickListener(new View.OnClickListener() {
+        sexy_booty_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("sexy_booty");
             }
         });
 
         ImageButton sexy_booby_button = (ImageButton) findViewById(R.id.sexy_booby_command);
-        sexy_booby_button.setOnClickListener(new View.OnClickListener() {
+        sexy_booby_button.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 specialBranding("sexy_booby");
             }
