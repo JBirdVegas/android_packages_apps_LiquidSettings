@@ -69,7 +69,6 @@ public class BootAnims extends Activity {
     }
 
     private void setupListeners() {
-
         ImageButton does_gingy_button = (ImageButton) findViewById(R.id.does_gingy_command);
         does_gingy_button.setOnClickListener(new OnClickListener() {
             @Override
