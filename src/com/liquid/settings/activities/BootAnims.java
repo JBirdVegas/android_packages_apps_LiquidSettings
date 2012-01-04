@@ -533,7 +533,7 @@ public class BootAnims extends Activity {
         });
     }
 
-    private void buildMoveScript() {
+    private String buildMoveScript() {
 
         String BB = "busybox";
         String MOUNT = "busybox mount -o %s,remount -t yaffs2 /dev/block/mtdblock1 /system";
@@ -554,7 +554,7 @@ public class BootAnims extends Activity {
         cmds.append("exit");
 
         SU_CMDS = cmds.toString();
-
+        return SU_CMDS;
     }
 
     private void droidDoes(String color) {
@@ -562,7 +562,7 @@ public class BootAnims extends Activity {
         String PROMPT = "Install droid does boot animation?";
 
         if (color.equals("gingy")) {
-            WHAT = "doesginger.zip";
+            WHAT = "doesgingy.zip";
         } else if (color.equals("green")) {
             WHAT = "doesgreen.zip";
         } else if (color.equals("light_blue")) {
@@ -769,9 +769,16 @@ public class BootAnims extends Activity {
                     tmpDir.mkdir();
                 }
 
+                /* DEBUG */
+                Log.d(TAG, String.format("WEBPATH: {%s}", WEBPATH));
+                Log.d(TAG, String.format("SU_CMDS: {%s}", SU_CMDS));
+
                 //must be full path http:// and all
                 URL url = new URL(WEBPATH);
                 String dl_path = SDCARD_PATH + "/.liquid/bootanimation.zip";
+
+                //DEGUB
+                Log.d(TAG, String.format("dl_path: {%s}", dl_path));
 
                 File dl_file = new File(dl_path);
 
