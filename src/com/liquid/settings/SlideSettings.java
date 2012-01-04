@@ -70,6 +70,8 @@ import com.liquid.settings.lists.MasterLists;
 
 public class SlideSettings extends Activity {
 
+    public static final String TAG = "LiquidSettings :SlideSettings";
+
     SettingsAdapter mAdapter;
     ViewPager mPager;
     ActionBar mActionBar;

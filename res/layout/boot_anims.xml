@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/goodies_view">
+    android:id="@+id/boot_anims_linear_layout">
 
     <!-- droid does gingy -->
     <TextView 
@@ -276,7 +276,7 @@
         android:layout_height="wrap_content" />
 
     <ImageButton id="@+id/gingy_slower_command"
-        android:src="@drawable/gingy_slower"
+        android:src="@drawable/gingyslower"
         android:background="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -288,7 +288,7 @@
         android:layout_height="wrap_content" />
 
     <ImageButton id="@+id/hallow_scarry_command"
-        android:src="@drawable/hallowscarry"
+        android:src="@drawable/hallowscary"
         android:background="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -648,7 +648,7 @@
         android:layout_height="wrap_content" />
 
     <ImageButton id="@+id/radial_silver_command"
-        android:src="@drawable/radialsliver"
+        android:src="@drawable/radialsilver"
         android:background="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

@@ -16,14 +16,16 @@
 
 package com.liquid.settings.lists;
 
+import com.liquid.settings.R;
+
 import java.util.ArrayList;
 
 public class LiquidNomNomList extends MasterLists {
     public static ArrayList<MasterLists.List> mList = null;
 
-    public ApplicationList() {
+    public LiquidNomNomList() {
         mList = new ArrayList<MasterLists.List>();
-        mList.put(new MasterLists.List(R.string.title_input_nav, 0, "com.liquid.settings.activities.NomNomActivity", TYPE_NORMAL));   
+        mList.add(new MasterLists.List(R.string.bootanimation_title, 0, "com.liquid.settings.activities.BootAnims", TYPE_NORMAL));   
     }
 
     public ArrayList<MasterLists.List> getList() {

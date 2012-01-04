@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.liquid.settings"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="@string/version_name" >
     
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
@@ -108,5 +108,13 @@
            </intent-filter>
         </activity>
         <!--- End Backlight -->
+
+        <!-- Start Liquid Settings declarations -->
+        <activity android:name=".activities.BootAnims"
+                  android:configChanges="keyboard|keyboardHidden|orientation">
+           <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+           </intent-filter>
+        </activity>
     </application>
 </manifest>

@@ -18,6 +18,7 @@
     
     <!-- Application -->
     <string name="app_name">Liquid Settings</string>
+    <string name="version_name">ICS alpha v.001</string>
     <string name="application_title">Application</string>
     <string name="application_summary">Manage &amp; configure</string> 
     <string name="app_manage">Manage</string>
@@ -891,5 +892,71 @@
     <string name="summary_nav_controls_order">Order the onscreen navigation</string>
     <string name="title_nav_hide_search">Search Button</string>
     <string name="summary_nav_hide_search">Show the onscreen search button</string>
+
+    <!-- boot animation titles -->
+    <!-- droid does -->
+    <string name="bootanimation_title">Bootanimations title string</string>
+    <string name="does_gingy_title">Droid does gingy</string>
+    <string name="does_green_title">Droid does green</string>
+    <string name="does_light_blue_title">Droid does light blue</string>
+    <string name="does_med_blue_title">Droid does med blue</string>
+    <string name="does_orange_title">Droid does orange</string>
+    <string name="does_pink_title">Droid does pink</string>
+    <string name="does_purple_title">Droid does purple</string>
+    <string name="does_red_title">Droid does red</string>
+    <string name="does_smoked_title">Droid does smoked</string>
+    <string name="does_two_blue_title">Droid does two blue</string>
+    <string name="does_white_title">Droid does white</string>
+    <string name="does_yellow_title">Droid does yellow</string>
+
+    <!-- droid eyes -->
+    <string name="eyes_green_title">Droid eyes green</string>
+    <string name="eyes_light_blue_title">Droid eyes light blue</string>
+    <string name="eyes_blue_green_title">Droid eyes blue_green</string>
+    <string name="eyes_cyan_title">Droid eyes cyan</string>
+    <string name="eyes_orange_title">Droid eyes orange</string>
+    <string name="eyes_pink_title">Droid eyes pink</string>
+    <string name="eyes_purple_title">Droid eyes purple</string>
+    <string name="eyes_red_title">Droid eyes red</string>
+    <string name="eyes_yellow_title">Droid eyes yellow </string>
+
+    <!-- special branding -->
+    <string name="gingy_faster_title">make gingy faster</string>
+    <string name="gingy_slower_title">make gingy slower</string>
+    <string name="hallow_scary_title">Halloween scary</string>
+    <string name="hallow_skull_title">Halloween skull</string>
+    <string name="hallow_spiral_title">Halloween spiral</string>
+    <string name="liquid_default_title">LiquidSmoothROMs default</string>
+    <string name="liquid_earth_title">LiquidSmoothROMs Liquid Earth</string>
+    <string name="liquid_rotate_title">LiquidSmoothROMs Liquid Rotate</string>
+    <string name="liquid_smooth_title">LiquidSmoothROMs Liquid Smooth</string>
+    <string name="liquid_sparkle_title">LiquidSmoothROMs Liquid Sparkle</string>
+    <string name="liquid_splash_title">LiquidSmoothROMs Liquid Splash</string>
+    <string name="other_android_frog_title">Android frog</string>
+    <string name="other_angry_birds_title">Angry birds</string>
+    <string name="other_apple_ouch_title">Apple ouch</string>
+    <string name="other_arc_reactor_title">Arc reactor</string>
+    <string name="other_color_tblot_title">ThunderBolt in color</string>
+    <string name="other_cup_water_title">Cup of water</string>
+    <string name="other_dark_blue_lfy_title">LiquidFroyo Dark Blue</string>
+    <string name="other_inmemoryof_title">In memory of\u2026</string>
+    <string name="other_merry_xmas_title">Merry Christmas</string>
+    <string name="other_rose_bloom_title">Rose Bloom</string>
+    <string name="other_simply_stunning_title">Simply Stunning</string>
+    <string name="other_solar_system_title">Solar System</string>
+    <string name="radial_default_title">Radial default</string>
+    <string name="radial_dark_blue_title">Radial dark blue</string>
+    <string name="radial_green_title">Radial green</string>
+    <string name="radial_light_blue_title">Radial light blue</string>
+    <string name="radial_lime_green_title">Radial lime green</string>
+    <string name="radial_orange_title">Radial orange</string>
+    <string name="radial_pink_title">Radial pink</string>
+    <string name="radial_purple_title">Radial purple</string>
+    <string name="radial_red_title">Radial red</string>
+    <string name="radial_silver_title">Radial silver</string>
+    <string name="radial_white_title">Radial white</string>
+    <string name="radial_yellow_title">Radial yellow</string>
+    <string name="sexy_booby_title">Sexy boobies</string>
+    <string name="sexy_booty_title">Sexy booty</string>
 
 </resources>
