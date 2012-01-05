@@ -158,7 +158,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.liquid.settings.externals.ShowBuildProp"
+        <activity android:name=".externals.ShowBuildProp"
                   android:label="@string/showbuild_label"
                   android:clearTaskOnLaunch="true">
             <intent-filter>
@@ -166,7 +166,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.liquid.settings.externals.Credit"
+        <activity android:name=".externals.Credit"
                   android:label="@string/credit_title"
                   android:clearTaskOnLaunch="true">
             <intent-filter>
