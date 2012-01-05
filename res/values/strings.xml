@@ -709,7 +709,7 @@
     <string name="pref_lock_mms_title">Lock Mms In Memory</string>
     <string name="pref_lock_mms_summary">Keep mms from closing</string>
 
-    <!-- Prop Modder -->
+    <!-- PropModder -->
     <string name="propmodder_title">PropModder</string>
     <string name="propmodder_summary">Modify build prop values</string>
     <string name="pref_vm_heapsize_title">VM Heapsize</string>
@@ -741,8 +741,6 @@
     <string name="pref_3g_speed_summary">Uncap data speed limits</string>
     <string name="pref_gpu_title">GPU Acceleration</string>
     <string name="pref_gpu_summary">Enable hardware acceleration</string>
-
-    <!-- Prop Viewer -->
     <string name="propviewer_title">PropViewer</string>
     <string name="propviewer_summary">Display build prop values</string>
     <string name="propviewer_dialog">System Prop Values</string>
@@ -750,8 +748,29 @@
     <string name="propviewer_error">Error While Loading\u2026</string>
     <string name="propviewer_unknown">Unknown</string>
     <string name="propviewer_version">Version</string>
+
+    <!-- Parchment -->
     <string name="parchment_title">Parchment</string>
     <string name="parchment_summary">Modify and save text files</string>
+    <string name="splash_label">splash_screen</string>
+    <string name="cancel">Cancel</string>
+    <string name="clear">Clear screen</string>
+    <string name="empty_text">No Data</string>
+    <string name="filename_text">Filename: </string>
+    <string name="new_file_title">Save text to new file?</string>
+    <string name="ok">Ok</string>
+    <string name="open_button_text">Open</string>
+    <string name="ro_fail_notice">Couldn\'t write to that destination</string>
+    <string name="save">Save</string>
+    <string name="save_blank">Can\'t save a blank document</string>
+    <string name="save_button_text">Create file</string>
+    <string name="prompt_title">{%s}</string>
+    <string name="file_selection_error_write">We can\'t write to {%s}</string>
+    <string name="file_selection_error_read">We can\'t read {%s}</string>
+    <string name="save_prompt">Save as?</string>
+    <string name="open_prompt">Open?</string>
+    <string name="no_filename_save_error">No filename detected ...Please enter a filename to save</string>
+    <string name="location_tracker">Location: %s</string>
     
     <!-- Sound -->
     <string name="sound_title">Sound</string>
