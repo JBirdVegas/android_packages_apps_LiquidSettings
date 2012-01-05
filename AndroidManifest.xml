@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.liquid.settings"
-    android:versionCode="1"
+    android:versionCode="001"
     android:versionName="@string/version_name" >
     <uses-sdk android:minSdkVersion="14"/>
 
@@ -112,23 +112,26 @@
 
         <!-- Start Liquid Settings declarations -->
         <activity android:name=".activities.BootAnims"
-                  android:configChanges="keyboard|keyboardHidden|orientation">
+                  android:configChanges="keyboard|keyboardHidden|orientation"
+                  android:clearTaskOnLaunch="true">
            <intent-filter>
               <action android:name="android.intent.action.MAIN" />
            </intent-filter>
         </activity>
 
-        <activity android:name=".externals.SplashScreen"
+        <activity android:name="com.liquid.settings.externals.SplashScreen"
             android:label="@string/parchment_default_title"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:configChanges="orientation" >
+            android:configChanges="orientation"
+            android:clearTaskOnLaunch="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".externals.ParchmentActivity"
-                  android:label="@string/parchment_default_title">
+        <activity android:name="com.liquid.settings.externals.ParchmentActivity"
+                  android:label="@string/parchment_default_title"
+                  android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.GET_CONTENT" />
                 <category android:name="android.intent.category.OPENABLE" />
@@ -140,26 +143,30 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".externals.FilePicker"
-            android:label="@string/parchment_default_title" >
+        <activity android:name="com.liquid.settings.externals.FilePicker"
+            android:label="@string/parchment_default_title"
+            android:clearTaskOnLaunch="true">
         </activity>
 
-        <activity android:name="externals.PropModderActivity"
-                  android:label="@string/propmodder_main_title_head">
+        <activity android:name="com.liquid.settings.externals.PropModderActivity"
+                  android:label="@string/propmodder_main_title_head"
+                  android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".externals.ShowBuildProp"
-                  android:label="@string/showbuild_label">
+        <activity android:name="com.liquid.settings.externals.ShowBuildProp"
+                  android:label="@string/showbuild_label"
+                  android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".externals.Credit"
-                  android:label="@string/credit_title">
+        <activity android:name="com.liquid.settings.externals.Credit"
+                  android:label="@string/credit_title"
+                  android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
