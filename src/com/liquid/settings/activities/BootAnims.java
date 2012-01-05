@@ -830,7 +830,17 @@ public class BootAnims extends Activity {
                 BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
                 BufferedWriter stdOutput = new BufferedWriter(new OutputStreamWriter(p.getOutputStream()));
 
+                ByteArrayBuffer error_buffer = new ByteArrayBuffer(2048);
+                int current_errors = 0;
+                while ((current_errors = stdError.read()) != -1) {
+                    error_buffer.append((byte) current_errors);
+                }
+                if ((current_errors = stdError.read()) == -1) {
+                    Log.d(TAG, String.format("errors found: %s", error_buffer.toString()));
+                }
+
                 stdOutput.write(script[0]);
+                Log.d(TAG, "We are going to run: " + script[0]);
                 stdOutput.write(EXIT);
                 stdOutput.flush();
                 Thread t = new Thread() {
@@ -847,6 +857,7 @@ public class BootAnims extends Activity {
 
                 while (t.isAlive()) {
                     String status = stdInput.readLine();
+                    Log.d(TAG, String.format("reading input and we found %s", status));
                     if (status != null) {
                         //TODO add in publishProgress
                         //publishProgress(status);
