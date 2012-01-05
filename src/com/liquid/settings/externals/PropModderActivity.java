@@ -1,6 +1,8 @@
 
 package com.liquid.settings.externals;
 
+import com.liquid.settings.R;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Notification;
@@ -32,7 +34,7 @@ import android.widget.Toast;
 
 import java.io.File;
 
-public class MainActivity extends PreferenceActivity implements
+public class PropModderActivity extends PreferenceActivity implements
         Preference.OnPreferenceChangeListener {
 
     private static final String APPEND_CMD = "echo \"%s=%s\" >> /system/build.prop";
@@ -81,8 +83,8 @@ public class MainActivity extends PreferenceActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTitle(R.string.main_title_head);
-        addPreferencesFromResource(R.xml.main);
+        setTitle(R.string.propmodder_main_title_head);
+        addPreferencesFromResource(R.xml.propmodder_main);
 
         Log.d(TAG, "Loading prefs");
         PreferenceScreen prefSet = getPreferenceScreen();
@@ -251,8 +253,8 @@ public class MainActivity extends PreferenceActivity implements
     @Override
     public void onStart() {
         super.onStart();
-        setTitle(R.string.main_title_head);
-        addPreferencesFromResource(R.xml.main);
+        setTitle(R.string.propmodder_main_title_head);
+        addPreferencesFromResource(R.xml.propmodder_main);
     }
 
     @Override
@@ -417,7 +419,7 @@ public class MainActivity extends PreferenceActivity implements
             startActivity(PropModderMarket);
             return true;
         case MENU_REBOOT:
-            Toast.makeText(MainActivity.this, "REBOOTING", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PropModderActivity.this, "REBOOTING", Toast.LENGTH_SHORT).show();
             return RootHelper.runRootCommand("reboot");
         }
         return false;
@@ -432,7 +434,7 @@ public class MainActivity extends PreferenceActivity implements
         CharSequence contentTitle = "Rate PropModder";
         CharSequence contentText = "show your support";
         Intent notifyIntent = new Intent(android.content.Intent.ACTION_VIEW,Uri.parse("market://com.n00bware.propmodder"));
-        PendingIntent intent = PendingIntent.getActivity(MainActivity.this, 0, notifyIntent, android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent intent = PendingIntent.getActivity(PropModderActivity.this, 0, notifyIntent, android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
         notifyDetails.setLatestEventInfo(context, contentTitle, contentText, intent);
         mNotificationManager.notify(NOTE_ID, notifyDetails);
         mNotificationManager.cancel(NOTE_ID);

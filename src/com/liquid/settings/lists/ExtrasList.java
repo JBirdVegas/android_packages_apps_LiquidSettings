@@ -25,8 +25,8 @@ public class ExtrasList extends MasterLists {
 
     public ExtrasList() {
         mList = new ArrayList<MasterLists.List>();
-        mList.add(new MasterLists.List(R.string.propmodder_title, R.string.propmodder_summary, "com.liquid.settings.external.PropModder", TYPE_NORMAL));
-        mList.add(new MasterLists.List(R.string.parchment_title, R.string.parchment_summary, "com.liquid.settings.external.Parchment", TYPE_NORMAL));
+        mList.add(new MasterLists.List(R.string.propmodder_title, R.string.propmodder_summary, "com.liquid.settings.externals.PropModderActivity", TYPE_NORMAL));
+        mList.add(new MasterLists.List(R.string.parchment_title, R.string.parchment_summary, "com.liquid.settings.externals.ParchmentActivity", TYPE_NORMAL));
     }
 
     public ArrayList<MasterLists.List> getList() {

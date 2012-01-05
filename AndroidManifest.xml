@@ -117,5 +117,53 @@
               <action android:name="android.intent.action.MAIN" />
            </intent-filter>
         </activity>
+
+        <activity android:name=".externals.SplashScreen"
+            android:label="@string/parchment_default_title"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:configChanges="orientation" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".externals.ParchmentActivity"
+                  android:label="@string/parchment_default_title">
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT" />
+                <category android:name="android.intent.category.OPENABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/*" />
+                <data android:mimeType="application/x-javascript" />
+                <data android:mimeType="application/x-perl" />
+                <data android:mimeType="application/x-sh" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".externals.FilePicker"
+            android:label="@string/parchment_default_title" >
+        </activity>
+
+        <activity android:name="externals.PropModderActivity"
+                  android:label="@string/propmodder_main_title_head">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".externals.ShowBuildProp"
+                  android:label="@string/showbuild_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".externals.Credit"
+                  android:label="@string/credit_title">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
     </application>
 </manifest>

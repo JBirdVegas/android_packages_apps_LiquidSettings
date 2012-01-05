@@ -1,6 +1,8 @@
 
 package com.liquid.settings.externals;
 
+import com.liquid.settings.R;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;

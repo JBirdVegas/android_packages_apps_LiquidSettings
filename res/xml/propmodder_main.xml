@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- General settings -->
+    <PreferenceCategory android:key="general_category"
+        android:title="@string/general_title">
+
+        <PreferenceScreen
+            android:key="credit"
+            android:title="@string/credit_title" android:summary="@string/credit_summary">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.liquid.settings.external"
+                android:targetClass="com.liquid.settings.external.Credit" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="propmodder"
+            android:title="@string/showbuild_title" android:summary="@string/showbuild_label">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.liquid.settings.external"
+                android:targetClass="com.liquid.settings.external.ShowBuildProp" />
+        </PreferenceScreen>
+
+        <ListPreference android:key="pref_wifi_scan_interval"
+            android:dialogTitle="@string/pref_wifi_scan_interval_title"
+            android:title="@string/pref_wifi_scan_interval_title" android:summary="@string/pref_wifi_scan_interval_summary"
+            android:entries="@array/entries_wifi_scan"
+            android:entryValues="@array/entries_wifi_scan" />
+
+        <ListPreference android:key="pref_lcd_density"
+            android:dialogTitle="@string/pref_lcd_density_title"
+            android:title="@string/pref_lcd_density_title" android:summary="@string/pref_lcd_density_summary"
+            android:entries="@array/entries_lcd_density"
+            android:entryValues="@array/entries_lcd_density" />
+
+        <ListPreference android:key="pref_max_events"
+            android:dialogTitle="@string/pref_max_events_title"
+            android:title="@string/pref_max_events_title" android:summary="@string/pref_max_events_summary"
+            android:entries="@array/entries_max_events"
+            android:entryValues="@array/entries_max_events" />
+
+        <ListPreference android:key="pref_ring_delay"
+            android:dialogTitle="@string/pref_ring_delay_title"
+            android:title="@string/pref_ring_delay_title" android:summary="@string/pref_ring_delay_summary"
+            android:entries="@array/entries_ring_delay"
+            android:entryValues="@array/entries_ring_delay" />
+
+        <ListPreference android:key="pref_vm_heapsize"
+            android:dialogTitle="@string/pref_vm_heapsize_title"
+            android:title="@string/pref_vm_heapsize_title" android:summary="@string/pref_vm_heapsize_summary"
+            android:entries="@array/entries_vm_heapsize"
+            android:entryValues="@array/entries_vm_heapsize" />
+
+        <ListPreference android:key="pref_fast_up"
+            android:dialogTitle="@string/pref_fast_up_title"
+            android:title="@string/pref_fast_up_title" android:summary="@string/pref_fast_up_summary"
+            android:entries="@array/entries_fast_upload"
+            android:entryValues="@array/values_fast_upload"
+            android:enabled="true" />
+
+        <CheckBoxPreference android:key="pref_disable_boot_anim"
+            android:title="@string/pref_disable_boot_anim_title"
+            android:summary="@string/pref_disable_boot_anim_summary" />
+
+        <ListPreference android:key="pref_prox_delay"
+            android:dialogTitle="@string/pref_prox_delay_title"
+            android:title="@string/pref_prox_delay_title" android:summary="@string/pref_prox_delay_summary"
+            android:entries="@array/entries_prox_delay"
+            android:entryValues="@array/values_prox_delay"
+            android:enabled="true" />
+
+        <EditTextPreference android:key="pref_mod_version"
+            android:dialogTitle="@string/pref_mod_version_title"
+            android:title="@string/pref_mod_version_title"
+            android:summary="@string/pref_mod_version_summary"
+            android:singleLine="true"
+            android:hint="@string/pref_mod_version_default" />
+
+        <ListPreference android:key="pref_sleep"
+            android:dialogTitle="@string/pref_sleep_title"
+            android:title="@string/pref_sleep_title" android:summary="@string/pref_sleep_summary"
+            android:entries="@array/entries_sleep"
+            android:entryValues="@array/values_sleep" />
+
+        <CheckBoxPreference android:key="pref_tcp_stack"
+            android:title="@string/pref_tcp_stack_title"
+            android:summary="@string/pref_tcp_stack_summary" />
+
+        <CheckBoxPreference android:key="pref_jit"
+            android:title="@string/pref_jit_title"
+            android:summary="@string/pref_jit_summary" />
+
+        <CheckBoxPreference android:key="pref_check_in"
+            android:title="@string/pref_check_in_title"
+            android:summary="@string/pref_check_in_summary" />
+
+        <CheckBoxPreference android:key="pref_g_speed"
+            android:title="@string/pref_g_speed_title"
+            android:summary="@string/pref_g_speed_summary" />
+
+        <CheckBoxPreference android:key="pref_gpu"
+            android:title="@string/pref_gpu_title"
+            android:summary="@string/pref_gpu_summary" />
+
+        <CheckBoxPreference android:key="pref_vvmail"
+            android:title="@string/pref_vvmail_title"
+            android:summary="@string/pref_vvmail_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="nonProp_category"
+        android:title="@string/nonprop_cat_title">
+
+        <CheckBoxPreference android:key="pref_logcat"
+            android:title="@string/pref_logcat_title"
+            android:summary="@string/pref_logcat_summary" />
+
+        <ListPreference android:key="pref_sdcard_buffer"
+            android:dialogTitle="@string/pref_sdcard_buffer_title"
+            android:title="@string/pref_sdcard_buffer_title" android:summary="@string/pref_sdcard_buffer_summary"
+            android:entries="@array/entries_sdcard_speed"
+            android:entryValues="@array/values_sdcard_speed" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

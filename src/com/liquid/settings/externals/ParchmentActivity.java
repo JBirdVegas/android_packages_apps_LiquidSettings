@@ -1,6 +1,8 @@
 
 package com.liquid.settings.externals;
 
+import com.liquid.settings.R;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -91,7 +93,7 @@ public class ParchmentActivity extends Activity {
 
         if (Global.FILENAME == null) {
             Global.FILENAME = ROOT_DIR;
-            setTitle(R.string.default_title);
+            setTitle(R.string.parchment_default_title);
         } else {
             setTitle(Global.FILENAME);
         }
@@ -252,7 +254,7 @@ public class ParchmentActivity extends Activity {
             .setNegativeButton(R.string.clear, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whatButton) {
                     old_text.setText(BLANK);
-                    setTitle(R.string.default_title);
+                    setTitle(R.string.parchment_default_title);
                 }
             }).show();
         }
@@ -361,7 +363,7 @@ public class ParchmentActivity extends Activity {
             mIsNewFile = false;
             Log.d(TAG, "Trust but verify ...failed combined checks");
             Toast.makeText(getApplicationContext(), String.format("%s has not been save", pFile_path), Toast.LENGTH_SHORT).show();
-            setTitle(R.string.default_title);
+            setTitle(R.string.parchment_default_title);
 
             if (trust.exists()) {
                 Log.d(TAG, String.format("Trust but verify ... '%s' does in fact exist", pFile_path));

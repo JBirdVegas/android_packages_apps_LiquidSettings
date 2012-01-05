@@ -16,6 +16,8 @@
 
 package com.liquid.settings.externals;
 
+import com.liquid.settings.R;
+
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;

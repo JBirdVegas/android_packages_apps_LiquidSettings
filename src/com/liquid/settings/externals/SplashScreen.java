@@ -1,5 +1,7 @@
 
 package com.liquid.settings.externals;
+
+import com.liquid.settings.R;
  
 import android.app.Activity;
 import android.content.Intent;

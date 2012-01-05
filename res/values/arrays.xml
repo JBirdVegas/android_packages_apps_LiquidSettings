@@ -1050,7 +1050,7 @@
         <item>1</item>
     </string-array>
 
-    <string-array name="entries_wifi_interval" translatable="false">
+    <string-array name="entries_wifi_scan" translatable="false">
         <item>15</item>
         <item>30</item>
         <item>60</item>
@@ -1179,7 +1179,7 @@
         <item>https://plus.google.com/101898662480093123223</item>
     </string-array>
 
-    <string-array name="entries_sd_speed">
+    <string-array name="entries_sdcard_speed">
         <item>1024 kb</item>
         <item>2048 kb</item>
         <item>3072 kb</item>
@@ -1188,7 +1188,7 @@
         <item>6144 kb</item>
     </string-array>
 
-    <string-array name="values_sd_speed">
+    <string-array name="values_sdcard_speed">
         <item>1024</item>
         <item>2048</item>
         <item>3072</item>

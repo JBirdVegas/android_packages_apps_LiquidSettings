@@ -1,6 +1,8 @@
 
 package com.liquid.settings.externals;
 
+import com.liquid.settings.R;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.content.Intent;
@@ -9,7 +11,6 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
-
 
 public class Credit extends PreferenceActivity implements
         Preference.OnPreferenceChangeListener {

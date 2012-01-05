@@ -57,6 +57,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.liquid.settings.lists.LiquidNomNomList;
+import com.liquid.settings.lists.ExtrasList;
 import com.liquid.settings.lists.ApplicationList;
 import com.liquid.settings.lists.DisplayList;
 import com.liquid.settings.lists.InputList;
@@ -141,7 +142,7 @@ public class SlideSettings extends Activity {
     }
     
     public static class SettingsAdapter extends FragmentPagerAdapter {
-        private final String[] tabs = {"Liquid Nom-Nom", "Application", "Display", "Input", "Interface", "Lockscreen", 
+        private final String[] tabs = {"Liquid Nom-Nom", "Extras", "Application", "Display", "Input", "Interface", "Lockscreen", 
                                   "Performace", "Sound", "System", "Tablet" };
 
         public SettingsAdapter(FragmentManager fm) {
