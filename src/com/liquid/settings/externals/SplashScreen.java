@@ -62,7 +62,7 @@ public class SplashScreen extends Activity {
     @Override
     public void onStart() {
         super.onStart();
-        setContentView(R.layout.splash);
+        setContentView(R.layout.parchment_splash);
 
     }
 }

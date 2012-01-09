@@ -62,6 +62,10 @@ public class FilePicker extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // this file name is staying and wont follow layout 
+        // convention of parchment_filename.xml
+        // because we could use the corresponding class elsewere
         setContentView(R.layout.file_picker);
 
         myPath = (TextView)findViewById(R.id.path);

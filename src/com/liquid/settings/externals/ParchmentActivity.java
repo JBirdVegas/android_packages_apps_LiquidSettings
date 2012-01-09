@@ -129,7 +129,7 @@ public class ParchmentActivity extends Activity {
     @Override
     public void onStart() {
         super.onStart();
-        setContentView(R.layout.main);
+        setContentView(R.layout.parchment_main);
         Log.d(TAG, "onStart");
 
         pContents = pSharedPrefs.getString(SAVE_MARKER, BLANK);
