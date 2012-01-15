@@ -7,10 +7,59 @@
     android:fillViewport="true" >
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:id="@+id/boot_anims_linear_layout">
+    android:id="@+id/boot_anims_linear_layout"
+    android:paddingRight="?android:attr/scrollbarSize"
+    android:background="?android:attr/activatedBackgroundIndicator"
+    android:minHeight="48dp">
+
+    <ImageView
+        android:id="@+id/boot_anims_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dip"
+        android:layout_marginRight="6dip"
+        android:layout_gravity="center" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dip"
+        android:layout_marginRight="6dip"
+        android:layout_marginTop="6dip"
+        android:layout_marginBottom="6dip"
+        android:layout_weight="1">
+
+        <TextView android:id="@+id/boot_anims_switch_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:text="@string/boot_anims_switch_title" />
+
+        <TextView android:id="@+id/boot_anims_switch_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/boot_anims_switch_title"
+            android:layout_alignLeft="@id/boot_anims_switch_title"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@string/boot_anims_switch_summary" />
+
+    </RelativeLayout>
+
+   <Switch android:id="@+id/boot_amins_switchWidget"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center"
+       android:padding="16dip"
+       android:focusable="false"
+       android:clickable="true" />
 
     <!-- droid does gingy -->
     <TextView 
@@ -22,7 +71,8 @@
         android:src="@drawable/doesgingy"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid does green -->
     <TextView 
@@ -34,7 +84,8 @@
         android:src="@drawable/doesgreen"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid does light blue -->
     <TextView 
@@ -46,7 +97,8 @@
         android:src="@drawable/doeslightblue"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid does med blue -->
     <TextView 
@@ -58,7 +110,8 @@
         android:src="@drawable/doesmedblue"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid does orange -->
     <TextView 
@@ -70,7 +123,8 @@
         android:src="@drawable/doesorange"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid does pink -->
     <TextView 
@@ -82,7 +136,8 @@
         android:src="@drawable/doespink"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid does purple -->
     <TextView 
@@ -94,7 +149,8 @@
         android:src="@drawable/doespurple"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid does red -->
     <TextView 
@@ -106,7 +162,8 @@
         android:src="@drawable/doesred"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid does smoked -->
     <TextView 
@@ -118,7 +175,8 @@
         android:src="@drawable/doessmoked"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid does two blue -->
     <TextView 
@@ -130,7 +188,8 @@
         android:src="@drawable/doestwoblue"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid does white -->
     <TextView 
@@ -142,7 +201,8 @@
         android:src="@drawable/doeswhite"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid does yellow -->
     <TextView 
@@ -154,7 +214,8 @@
         android:src="@drawable/doesyellow"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid eyes green -->
     <TextView 
@@ -166,7 +227,8 @@
         android:src="@drawable/eyesgreen"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid eyes light blue -->
     <TextView 
@@ -178,7 +240,8 @@
         android:src="@drawable/eyeslightblue"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid eyes blue green -->
     <TextView 
@@ -190,7 +253,8 @@
         android:src="@drawable/eyesbluegreen"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid eyes cyan -->
     <TextView 
@@ -202,7 +266,8 @@
         android:src="@drawable/eyescyan"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
 
     <!-- droid eyes orange -->
@@ -215,7 +280,8 @@
         android:src="@drawable/eyesorange"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid eyes pink -->
     <TextView 
@@ -227,7 +293,8 @@
         android:src="@drawable/eyespink"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid eyes purple -->
     <TextView 
@@ -239,7 +306,8 @@
         android:src="@drawable/eyespurple"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid eyes red -->
     <TextView 
@@ -251,7 +319,8 @@
         android:src="@drawable/eyesred"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- droid eyes yellow -->
     <TextView 
@@ -263,7 +332,8 @@
         android:src="@drawable/eyesyellow"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- gingy faster -->
     <TextView 
@@ -275,7 +345,8 @@
         android:src="@drawable/gingyfaster"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- gingy slower -->
     <TextView 
@@ -287,7 +358,8 @@
         android:src="@drawable/gingyslower"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- halloween scarry -->
     <TextView 
@@ -299,7 +371,8 @@
         android:src="@drawable/hallowscary"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- halloween skull -->
     <TextView 
@@ -311,7 +384,8 @@
         android:src="@drawable/hallowskull"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- halloween spiral -->
     <TextView 
@@ -323,7 +397,8 @@
         android:src="@drawable/hallowspiral"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- liquid default -->
     <TextView 
@@ -335,7 +410,8 @@
         android:src="@drawable/liquiddefault"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- liquid earth -->
     <TextView 
@@ -347,7 +423,8 @@
         android:src="@drawable/liquidearth"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- liquid rotate -->
     <TextView 
@@ -359,7 +436,8 @@
         android:src="@drawable/liquidrotate"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- liquid smooth -->
     <TextView 
@@ -371,7 +449,8 @@
         android:src="@drawable/liquidsmooth"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- liquid sparkle -->
     <TextView 
@@ -383,7 +462,8 @@
         android:src="@drawable/liquidsparkle"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- liquid splash -->
     <TextView 
@@ -395,7 +475,8 @@
         android:src="@drawable/liquidsplash"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- other android frog -->
     <TextView 
@@ -407,7 +488,8 @@
         android:src="@drawable/androidfrog"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- other angry birds -->
     <TextView 
@@ -419,7 +501,8 @@
         android:src="@drawable/angrybirds"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- other apple ouch -->
     <TextView 
@@ -431,7 +514,8 @@
         android:src="@drawable/appleouch"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- other arc reactor -->
     <TextView 
@@ -443,7 +527,8 @@
         android:src="@drawable/arcreactor"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- other color tblot -->
     <TextView 
@@ -455,7 +540,8 @@
         android:src="@drawable/colortbolt"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- other cup of water -->
     <TextView 
@@ -467,7 +553,8 @@
         android:src="@drawable/cupofwater"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- other dark blue lfy -->
     <TextView 
@@ -479,7 +566,8 @@
         android:src="@drawable/darkbluelfy"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- other in memory of -->
     <TextView 
@@ -491,7 +579,8 @@
         android:src="@drawable/inmemoryof"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- other merry christmas -->
     <TextView 
@@ -503,7 +592,8 @@
         android:src="@drawable/merryxmas"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- other rose bloom -->
     <TextView 
@@ -515,7 +605,8 @@
         android:src="@drawable/rosebloom"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- other simply stunning -->
     <TextView 
@@ -527,7 +618,8 @@
         android:src="@drawable/simplystunning"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- other solar system -->
     <TextView 
@@ -539,7 +631,8 @@
         android:src="@drawable/solarsystem"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- radial default -->
     <TextView 
@@ -551,7 +644,8 @@
         android:src="@drawable/radialdefault"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- radial dark blue -->
     <TextView 
@@ -563,7 +657,8 @@
         android:src="@drawable/radialdarkblue"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- radial green -->
     <TextView 
@@ -575,7 +670,8 @@
         android:src="@drawable/radialgreen"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- radial light blue -->
     <TextView 
@@ -587,7 +683,8 @@
         android:src="@drawable/radiallightblue"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- radial lime green -->
     <TextView 
@@ -599,7 +696,8 @@
         android:src="@drawable/radiallimegreen"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- radial orange -->
     <TextView 
@@ -611,7 +709,8 @@
         android:src="@drawable/radialorange"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- radial pink -->
     <TextView 
@@ -623,7 +722,8 @@
         android:src="@drawable/radialpink"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- radial purple -->
     <TextView 
@@ -635,7 +735,8 @@
         android:src="@drawable/radialpurple"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- radial red -->
     <TextView 
@@ -647,7 +748,8 @@
         android:src="@drawable/radialred"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- radial silver -->
     <TextView 
@@ -659,7 +761,8 @@
         android:src="@drawable/radialsilver"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- radial white -->
     <TextView 
@@ -671,7 +774,8 @@
         android:src="@drawable/radialwhite"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- radial yellow -->
     <TextView 
@@ -683,7 +787,8 @@
         android:src="@drawable/radialyellow"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- sexy booby -->
     <TextView 
@@ -695,7 +800,8 @@
         android:src="@drawable/sexybooby"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
     <!-- sexy booty -->
     <TextView 
@@ -707,7 +813,8 @@
         android:src="@drawable/sexybooty"
         android:background="@null"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
 </LinearLayout>
 </ScrollView>

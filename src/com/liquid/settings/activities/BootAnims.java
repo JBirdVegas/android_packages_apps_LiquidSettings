@@ -25,6 +25,7 @@ import android.view.View.OnClickListener;
 import android.view.MotionEvent;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import 	org.apache.http.util.ByteArrayBuffer;
@@ -74,6 +75,19 @@ public class BootAnims extends Activity {
             //this should only get called when there is an orientation change
             Log.d(TAG, "our bundle was !=null listeners should be active already");
         }
+
+        //gain a reference to our switch and handle switch
+        //disabling all the installable bootanims
+        Switch mBootAnimsSwitch = (Switch) findViewById(R.id.boot_amins_switchWidget);
+        mBootAnimsSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChange(View v) {
+                boolean checked = mBootAnimsSwitch.isChecked();
+                String onOff = String.valueOf(checked ? 0 : 1);
+                Log.d(TAG, String.format("We are calling setListeners with a value of %s", onOff));
+                setListeners(onOff);
+            }
+        });
     }
 
     private void setupListeners() {
@@ -743,6 +757,129 @@ public class BootAnims extends Activity {
         }
     }
 
+    //These are the enable/disabling methods for our listeners
+    private void setListenerState(boolean state) {
+        boolean switched_ = mBootAnimsSwitch.isChecked();
+        //states of listeners 0:off/disabled 1:on/enabled
+        if (state = 0) {
+            Log.d(TAG, "turning off image button listeners");
+            does_green_button.setClickable(false);
+            does_light_blue_button.setClickable(false);
+            does_med_blue_button.setClickable(false);
+            does_orange_button.setClickable(false);
+            does_pink_button.setClickable(false);
+            does_purple_button.setClickable(false);
+            does_red_button.setClickable(false);
+            does_smoked_button.setClickable(false);
+            does_two_blue_button.setClickable(false);
+            does_white_button.setClickable(false);
+            does_yellow_button.setClickable(false);
+            eyes_green_button.setClickable(false);
+            eyes_light_blue_button.setClickable(false);
+            eyes_blue_green_button.setClickable(false);
+            eyes_cyan_button.setClickable(false);
+            eyes_orange_button.setClickable(false);
+            eyes_pink_button.setClickable(false);
+            eyes_purple_button.setClickable(false);
+            eyes_red_button.setClickable(false);
+            eyes_yellow_button.setClickable(false);
+            gingy_faster_button.setClickable(false);
+            gingy_slower_button.setClickable(false);
+            hallow_scarry_button.setClickable(false);
+            hallow_skull_button.setClickable(false);
+            hallow_spiral_button.setClickable(false);
+            liquid_default_button.setClickable(false);
+            liquid_earth_button.setClickable(false);
+            liquid_rotate_button.setClickable(false);
+            liquid_smooth_button.setClickable(false);
+            liquid_sparkle_button.setClickable(false);
+            liquid_splash_button.setClickable(false);
+            other_android_frog_button.setClickable(false);
+            other_angry_birds_button.setClickable(false);
+            other_arc_reactor_button.setClickable(false);
+            other_color_tbolt_button.setClickable(false);
+            other_cup_water_button.setClickable(false);
+            other_dark_blue_lfy_button.setClickable(false);
+            other_inmemoryof_button.setClickable(false);
+            other_merry_xmas_button.setClickable(false);
+            other_rose_bloom_button.setClickable(false);
+            other_simply_stunning_button.setClickable(false);
+            other_solar_system_button.setClickable(false);
+            radial_default_button.setClickable(false);
+            radial_dark_blue_button.setClickable(false);
+            radial_green_button.setClickable(false);
+            radial_light_blue_button.setClickable(false);
+            radial_lime_green_button.setClickable(false);
+            radial_orange_button.setClickable(false);
+            radial_pink_button.setClickable(false);
+            radial_purple_button.setClickable(false);
+            radial_red_button.setClickable(false);
+            radial_silver_button.setClickable(false);
+            radial_white_button.setClickable(false);
+            radial_yellow_button.setClickable(false);
+            sexy_booty_button.setClickable(false);
+            sexy_booby_button.setClickable(false);
+        } else if (state = 1) {
+            Log.d(TAG, "turning on ImageButton listeners");
+            does_green_button.setClickable(true);
+            does_light_blue_button.setClickable(true);
+            does_med_blue_button.setClickable(true);
+            does_orange_button.setClickable(true);
+            does_pink_button.setClickable(true);
+            does_purple_button.setClickable(true);
+            does_red_button.setClickable(true);
+            does_smoked_button.setClickable(true);
+            does_two_blue_button.setClickable(true);
+            does_white_button.setClickable(true);
+            does_yellow_button.setClickable(true);
+            eyes_green_button.setClickable(true);
+            eyes_light_blue_button.setClickable(true);
+            eyes_blue_green_button.setClickable(true);
+            eyes_cyan_button.setClickable(true);
+            eyes_orange_button.setClickable(true);
+            eyes_pink_button.setClickable(true);
+            eyes_purple_button.setClickable(true);
+            eyes_red_button.setClickable(true);
+            eyes_yellow_button.setClickable(true);
+            gingy_faster_button.setClickable(true);
+            gingy_slower_button.setClickable(true);
+            hallow_scarry_button.setClickable(true);
+            hallow_skull_button.setClickable(true);
+            hallow_spiral_button.setClickable(true);
+            liquid_default_button.setClickable(true);
+            liquid_earth_button.setClickable(true);
+            liquid_rotate_button.setClickable(true);
+            liquid_smooth_button.setClickable(true);
+            liquid_sparkle_button.setClickable(true);
+            liquid_splash_button.setClickable(true);
+            other_android_frog_button.setClickable(true);
+            other_angry_birds_button.setClickable(true);
+            other_arc_reactor_button.setClickable(true);
+            other_color_tbolt_button.setClickable(true);
+            other_cup_water_button.setClickable(true);
+            other_dark_blue_lfy_button.setClickable(true);
+            other_inmemoryof_button.setClickable(true);
+            other_merry_xmas_button.setClickable(true);
+            other_rose_bloom_button.setClickable(true);
+            other_simply_stunning_button.setClickable(true);
+            other_solar_system_button.setClickable(true);
+            radial_default_button.setClickable(true);
+            radial_dark_blue_button.setClickable(true);
+            radial_green_button.setClickable(true);
+            radial_light_blue_button.setClickable(true);
+            radial_lime_green_button.setClickable(true);
+            radial_orange_button.setClickable(true);
+            radial_pink_button.setClickable(true);
+            radial_purple_button.setClickable(true);
+            radial_red_button.setClickable(true);
+            radial_silver_button.setClickable(true);
+            radial_white_button.setClickable(true);
+            radial_yellow_button.setClickable(true);
+            sexy_booty_button.setClickable(true);
+            sexy_booby_button.setClickable(true);
+        }
+    }
+
     private class SuServer extends AsyncTask<String, String, Void> {
         //private ProgressDialog pd;
 
@@ -878,5 +1015,132 @@ public class BootAnims extends Activity {
             }
         return null;
         }
+    }
+
+    //handle listeners through android lifecycle
+    @Override
+    protected void onPause() {
+        //for pausing we first call onPause to clear screen then clear our listeners :opposite of when we resume
+        super.onPause();
+        mBootAnimsSwitch.setOnCheckedChangeListener(null);
+        does_green_button.setOnClickListener(null);
+        does_light_blue_button.setOnClickListener(null);
+        does_med_blue_button.setOnClickListener(null);
+        does_orange_button.setOnClickListener(null);
+        does_pink_button.setOnClickListener(null);
+        does_purple_button.setOnClickListener(null);
+        does_red_button.setOnClickListener(null);
+        does_smoked_button.setOnClickListener(null);
+        does_two_blue_button.setOnClickListener(null);
+        does_white_button.setOnClickListener(null);
+        does_yellow_button.setOnClickListener(null);
+        eyes_green_button.setOnClickListener(null);
+        eyes_light_blue_button.setOnClickListener(null);
+        eyes_blue_green_button.setOnClickListener(null);
+        eyes_cyan_button.setOnClickListener(null);
+        eyes_orange_button.setOnClickListener(null);
+        eyes_pink_button.setOnClickListener(null);
+        eyes_purple_button.setOnClickListener(null);
+        eyes_red_button.setOnClickListener(null);
+        eyes_yellow_button.setOnClickListener(null);
+        gingy_faster_button.setOnClickListener(null);
+        gingy_slower_button.setOnClickListener(null);
+        hallow_scarry_button.setOnClickListener(null);
+        hallow_skull_button.setOnClickListener(null);
+        hallow_spiral_button.setOnClickListener(null);
+        liquid_default_button.setOnClickListener(null);
+        liquid_earth_button.setOnClickListener(null);
+        liquid_rotate_button.setOnClickListener(null);
+        liquid_smooth_button.setOnClickListener(null);
+        liquid_sparkle_button.setOnClickListener(null);
+        liquid_splash_button.setOnClickListener(null);
+        other_android_frog_button.setOnClickListener(null);
+        other_angry_birds_button.setOnClickListener(null);
+        other_arc_reactor_button.setOnClickListener(null);
+        other_color_tbolt_button.setOnClickListener(null);
+        other_cup_water_button.setOnClickListener(null);
+        other_dark_blue_lfy_button.setOnClickListener(null);
+        other_inmemoryof_button.setOnClickListener(null);
+        other_merry_xmas_button.setOnClickListener(null);
+        other_rose_bloom_button.setOnClickListener(null);
+        other_simply_stunning_button.setOnClickListener(null);
+        other_solar_system_button.setOnClickListener(null);
+        radial_default_button.setOnClickListener(null);
+        radial_dark_blue_button.setOnClickListener(null);
+        radial_green_button.setOnClickListener(null);
+        radial_light_blue_button.setOnClickListener(null);
+        radial_lime_green_button.setOnClickListener(null);
+        radial_orange_button.setOnClickListener(null);
+        radial_pink_button.setOnClickListener(null);
+        radial_purple_button.setOnClickListener(null);
+        radial_red_button.setOnClickListener(null);
+        radial_silver_button.setOnClickListener(null);
+        radial_white_button.setOnClickListener(null);
+        radial_yellow_button.setOnClickListener(null);
+        sexy_booty_button.setOnClickListener(null);
+        sexy_booby_button.setOnClickListener(null);
+    }
+    @Override
+    protected void onResume() {
+    //for resume we want to load the listeners then show call resume
+    //for a more responsive feeling UX
+        mBootAnimsSwitch.setOnCheckedChangeListener(this);
+        does_green_button.setOnClickListener(this);
+        does_light_blue_button.setOnClickListener(this);
+        does_med_blue_button.setOnClickListener(this);
+        does_orange_button.setOnClickListener(this);
+        does_pink_button.setOnClickListener(this);
+        does_purple_button.setOnClickListener(this);
+        does_red_button.setOnClickListener(this);
+        does_smoked_button.setOnClickListener(this);
+        does_two_blue_button.setOnClickListener(this);
+        does_white_button.setOnClickListener(this);
+        does_yellow_button.setOnClickListener(this);
+        eyes_green_button.setOnClickListener(this);
+        eyes_light_blue_button.setOnClickListener(this);
+        eyes_blue_green_button.setOnClickListener(this);
+        eyes_cyan_button.setOnClickListener(this);
+        eyes_orange_button.setOnClickListener(this);
+        eyes_pink_button.setOnClickListener(this);
+        eyes_purple_button.setOnClickListener(this);
+        eyes_red_button.setOnClickListener(this);
+        eyes_yellow_button.setOnClickListener(this);
+        gingy_faster_button.setOnClickListener(this);
+        gingy_slower_button.setOnClickListener(this);
+        hallow_scarry_button.setOnClickListener(this);
+        hallow_skull_button.setOnClickListener(this);
+        hallow_spiral_button.setOnClickListener(this);
+        liquid_default_button.setOnClickListener(this);
+        liquid_earth_button.setOnClickListener(this);
+        liquid_rotate_button.setOnClickListener(this);
+        liquid_smooth_button.setOnClickListener(this);
+        liquid_sparkle_button.setOnClickListener(this);
+        liquid_splash_button.setOnClickListener(this);
+        other_android_frog_button.setOnClickListener(this);
+        other_angry_birds_button.setOnClickListener(this);
+        other_arc_reactor_button.setOnClickListener(this);
+        other_color_tbolt_button.setOnClickListener(this);
+        other_cup_water_button.setOnClickListener(this);
+        other_dark_blue_lfy_button.setOnClickListener(this);
+        other_inmemoryof_button.setOnClickListener(this);
+        other_merry_xmas_button.setOnClickListener(this);
+        other_rose_bloom_button.setOnClickListener(this);
+        other_simply_stunning_button.setOnClickListener(this);
+        other_solar_system_button.setOnClickListener(this);
+        radial_default_button.setOnClickListener(this);
+        radial_dark_blue_button.setOnClickListener(this);
+        radial_green_button.setOnClickListener(this);
+        radial_light_blue_button.setOnClickListener(this);
+        radial_lime_green_button.setOnClickListener(this);
+        radial_orange_button.setOnClickListener(this);
+        radial_pink_button.setOnClickListener(this);
+        radial_purple_button.setOnClickListener(this);
+        radial_red_button.setOnClickListener(this);
+        radial_silver_button.setOnClickListener(this);
+        radial_white_button.setOnClickListener(this);
+        radial_yellow_button.setOnClickListener(this);
+        sexy_booty_button.setOnClickListener(this);
+        sexy_booby_button.setOnClickListener(this);
+        super.onResume();
     }
 }
