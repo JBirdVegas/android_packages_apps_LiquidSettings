@@ -78,18 +78,17 @@ public class BootAnimSwitch extends SwitchWidget {
 
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (mStateMachineEvent) {
-            Log.d(TAG, "mStateMachineEvent is true returning");
+            Log.d(TAG, "onCheckedChanged mStateMachineEvent is true returning");
             return;
+        } else {
+            Log.d(TAG, "onCheckedChanged mStateMachienEvent is false not returning");
         }
+
         boolean success_0 = false;
         boolean success_1 = false;
-        //TODO handle mounting for killing and appending prop
 
-        //we can only dyanically set android:id to an int so we parce our real name and use an variable for reference
-        try {
-            int bootanimation_android_id = Integer.parseInt("bootanimations_preference_screen");
-        } catch(NumberFormatException nfe) {
-            Log.d(TAG, "Could not parse " + nfe);
+        if (!RootHelper.remountRW()) {
+            throw new RuntimeException("we couldn't mount /system");
         }
 
         if (isChecked) {
@@ -101,8 +100,18 @@ public class BootAnimSwitch extends SwitchWidget {
             success_1 = RootHelper.killProp(String.format(KILL_PROP_CMD, "debug.sf.nobootanimation"));
             Global.bootanimations_switch_on = false;
         }
-        if (!success_0 && ! success_1) {
+
+        if (!success_0) {
             //TODO do something when we fail
+            Log.d(TAG, "ro.kernel.android.bootanim failed");
+        } else if (!success_1) {
+            //TODO find a way to handle these failures gracefully
+            Log.d(TAG, "debug.sf.nobootanimation failed");
+        }
+
+        if (!RootHelper.remountRO()) {
+            Log.d(TAG, "Couldn't remount /system as read only");
+            //TODO notify user of failure
         }
         return;
     }
