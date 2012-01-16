@@ -308,9 +308,11 @@ public class SlideSettings extends Activity {
                             // use global booleans to tell if we should disable anything
                             LinearLayout linear_layout = (LinearLayout) view.findViewById(R.id.pref_linear_layout);
                             if (!Global.bootanimations_switch_on) {
-                                linear_layout.setClickable(true);
+                                Log.d(TAG, "Found Global.bootanimations_switch_on to be ON");
+                                //linear_layout.setClickable(true);
                             } else {
-                                linear_layout.setClickable(false);
+                                Log.d(TAG, "Found Global.bootanimations_switch_on to be OFF");
+                                //linear_layout.setClickable(false);
                             }
                             break;
 
