@@ -6,7 +6,9 @@
     android:minHeight="48dp"
     android:background="?android:attr/activatedBackgroundIndicator"
     android:gravity="center_vertical"
-    android:paddingRight="?android:attr/scrollbarSize">
+    android:paddingRight="?android:attr/scrollbarSize"
+    android:id="@+id/pref_linear_layout"
+    android:clickable="true">
 
     <ImageView
         android:id="@+id/icon"

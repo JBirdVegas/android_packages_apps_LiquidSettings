@@ -30,6 +30,16 @@ public abstract class MasterLists {
         public int summaryResId;
         public String intent;
         public int type;
+        public int linear_layout;
+
+        //allow assignment of androidId
+        public List(int arg1, int arg2, String arg3, int arg4, int arg5) {
+            titleResId = arg1;
+            summaryResId = arg2;
+            intent = arg3;
+            type = arg4;
+            linear_layout = arg5;
+        }
 
         public List(int arg1, int arg2, String arg3, int arg4) {
             titleResId = arg1;

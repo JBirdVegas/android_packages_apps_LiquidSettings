@@ -16,19 +16,6 @@
 
 package com.liquid.settings;
 
-import com.liquid.settings.R;
-import com.liquid.settings.switches.PowerWidgetEnabler;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.LinkedList;
-
-import android.os.Bundle;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
-
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -37,7 +24,14 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
-
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,20 +40,25 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.text.TextUtils;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
 
 import com.liquid.settings.lists.LiquidNomNomList;
 import com.liquid.settings.lists.ExtrasList;
 import com.liquid.settings.lists.LockscreenList;
 import com.liquid.settings.lists.MasterLists;
+import com.liquid.settings.Global;
+import com.liquid.settings.R;
+import com.liquid.settings.switches.PowerWidgetEnabler;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.LinkedList;
 
 public class SlideSettings extends Activity {
 
@@ -184,7 +183,8 @@ public class SlideSettings extends Activity {
                     Headers header = new Headers(mObj.titleResId,
                                                  mObj.summaryResId,
                                                  mObj.intent,
-                                                 mObj.type);
+                                                 mObj.type,
+                                                 mObj.linear_layout);
                     aHeaders.add(header);
                 }
                 if(aHeaders != null) {
@@ -209,6 +209,15 @@ public class SlideSettings extends Activity {
             public int mSummary;
             public String mFragment;
             public int mType;
+            public int mLinearLayout;
+            public Headers(int title, int summary, String fragment, int type, int linear_layout) {
+                mTitle = title;
+                mSummary = summary;
+                mFragment = fragment;
+                mType = type;
+                mLinearLayout = linear_layout;
+            }
+
             public Headers(int title, int summary, String fragment, int type) {
                 mTitle = title;
                 mSummary = summary;
@@ -230,6 +239,7 @@ public class SlideSettings extends Activity {
                 TextView title;
                 TextView summary;
                 Switch switch_;
+                LinearLayout linear_layout;
             }
 
             private LayoutInflater mInflater;
@@ -280,31 +290,36 @@ public class SlideSettings extends Activity {
 
                 if (convertView == null) {
                     holder = new HeaderViewHolder();
+                    
                     switch (headerType) {
                         case HEADER_TYPE_CATEGORY:
-                            view = new TextView(getContext(), null,
-                                android.R.attr.listSeparatorTextViewStyle);
+                            view = new TextView(getContext(), null, android.R.attr.listSeparatorTextViewStyle);
                             holder.title = (TextView) view;
                             break;
 
                         case HEADER_TYPE_SWITCH:
-                            view = mInflater.inflate(R.layout.preference_header_switch_item, parent,
-                                false);
+                            view = mInflater.inflate(R.layout.preference_header_switch_item, parent, false);
                             holder.icon = (ImageView) view.findViewById(R.id.icon);
-                            holder.title = (TextView)
-                                view.findViewById(R.id.title);
-                            holder.summary = (TextView)
-                                view.findViewById(R.id.summary);
+                            holder.title = (TextView) view.findViewById(R.id.title);
+                            holder.summary = (TextView) view.findViewById(R.id.summary);
                             holder.switch_ = (Switch) view.findViewById(R.id.switchWidget);
+                            holder.linear_layout = (LinearLayout) view.findViewById(R.id.switch_linear_layout);
+
+                            // use global booleans to tell if we should disable anything
+                            LinearLayout linear_layout = (LinearLayout) view.findViewById(R.id.pref_linear_layout);
+                            if (!Global.bootanimations_switch_on) {
+                                linear_layout.setClickable(true);
+                            } else {
+                                linear_layout.setClickable(false);
+                            }
                             break;
 
                         case HEADER_TYPE_NORMAL:
-                            view = mInflater.inflate(
-                                R.layout.preference_header_item, parent,
-                                    false);
+                            view = mInflater.inflate(R.layout.preference_header_item, parent, false);
                             holder.icon = (ImageView) view.findViewById(R.id.icon);
                             holder.title = (TextView) view.findViewById(R.id.pref_title);
                             holder.summary = (TextView) view.findViewById(R.id.pref_summary);
+                            holder.linear_layout = (LinearLayout) view.findViewById(R.id.pref_linear_layout);
                             break;
                     }
                     view.setTag(holder);
